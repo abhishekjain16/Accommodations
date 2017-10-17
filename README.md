@@ -1,1 +1,1 @@
-# Accomodations
+# Accommodations
