@@ -42,7 +42,7 @@ const server = http.createServer(app);
 var serverSide = require("./server/test-mongodb/app");
 serverSide(app);
 
-require("./assignment/app")(app);
+require("./project/app")(app);
 app.listen(port);
 
 // // For Build: Catch all other routes and return the index file -- BUILDING
