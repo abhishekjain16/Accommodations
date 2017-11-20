@@ -1,0 +1,14 @@
+<h1> Yelp APT test </h1>
+<label> Restaurant Name</label>
+<input [(ngModel)]="restaurant" placeholder="College Pizza" class="form-control">
+<input [(ngModel)]="location" placeholder="Boston" class="form-control">
+<button (click)="SearchRestaurant(restaurant,location)"
+        class="btn btn-primary btn-block">Search</button>
+
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let restaurant of result['businesses']">
+    <a [routerLink]= "['/api/yelp', restaurant.id]">
+      {{restaurant.name}}
+    </a>
+  </li>
+</ul>
