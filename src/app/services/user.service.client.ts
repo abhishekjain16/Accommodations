@@ -20,7 +20,8 @@ export class UserService {
     'findUserByUsername' : this.findUserByUsername,
     'updateUser' : this.updateUser,
     'deleteUser' : this.deleteUser,
-    'findUserByCredentials' : this.findUserByCredentials
+    'findUserByCredentials' : this.findUserByCredentials,
+    'findManagerByRestaurantId' : this.findManagerByRestaurantId
   };
 
   createUser(user: any) {
@@ -35,6 +36,16 @@ export class UserService {
 
   findUserById(userId: string) {
     return this.http.get(this.baseUrl + '/api/user/' + userId)
+      .map(
+        (res: Response) => {
+          const data = res.json();
+          return data;
+        }
+      );
+  }
+
+  findManagerByRestaurantId(restaurantId: string) {
+    return this.http.get(this.baseUrl + '/api/restaurant/' + restaurantId + '/manager')
       .map(
         (res: Response) => {
           const data = res.json();

@@ -1,0 +1,95 @@
+<div class="container-fluid">
+  <div class="thanks" *ngIf="this.success">
+    <h4>Thanks for claiming the Restaurant.</h4>
+    <p>You should be able to manage the restaurant as soon as this request is approved.</p>
+  </div>
+  <div *ngIf="!this.success">
+    <h1>Register</h1>
+    <form (ngSubmit) = "register()" #f="ngForm">
+      <input type="text"
+             name="username"
+             ngModel
+             required
+             #username="ngModel"
+             class="form-control"
+             placeholder="Username" />
+      <span class="help-block" *ngIf="!username.valid && username.touched">
+        Please enter username!
+      </span>
+
+      <input type="password"
+             name="password"
+             ngModel
+             required
+             #password="ngModel"
+             class="form-control"
+             placeholder="Password" />
+      <span class="help-block" *ngIf="!password.valid && password.touched">
+        Please enter Password!
+      </span>
+
+      <input type="password"
+             ngModel
+             required
+             name="verifyPassword"
+             #verifyPassword="ngModel"
+             class="form-control"
+             placeholder="Verify Password" />
+      <span class="help-block" *ngIf="!verifyPassword.valid && verifyPassword.touched">
+        Please enter Verification password!
+      </span>
+
+      <input type="text"
+             ngModel
+             required
+             name="firstName"
+             #firstName="ngModel"
+             class="form-control"
+             placeholder="First Name" />
+      <span class="help-block" *ngIf="!firstName.valid && firstName.touched">
+        Please enter First Name!
+      </span>
+
+      <input type="text"
+             ngModel
+             required
+             name="lastName"
+             #lastName="ngModel"
+             class="form-control"
+             placeholder="Last Name" />
+      <span class="help-block" *ngIf="!lastName.valid && lastName.touched">
+        Please enter Last Name!
+      </span>
+
+      <input type="email"
+             ngModel
+             required
+             name="email"
+             #email="ngModel"
+             class="form-control"
+             placeholder="Email" />
+      <span class="help-block" *ngIf="!email.valid && email.touched">
+        Please enter Email!
+      </span>
+
+      <input type="text"
+             ngModel
+             required
+             name="phone"
+             #phone="ngModel"
+             class="form-control"
+             placeholder="Phone Number" />
+      <span class="help-block" *ngIf="!phone.valid && phone.touched">
+        Please enter Phone Number!
+      </span>
+
+      <button class="btn btn-primary btn-block"
+              type="submit"
+              [disabled]="!f.valid">Register</button>
+      <a [routerLink]= "['/login']"
+         class="btn btn-danger btn-block">
+        Cancel
+      </a>
+    </form>
+  </div>
+</div>

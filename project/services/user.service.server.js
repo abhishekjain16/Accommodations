@@ -7,6 +7,7 @@ module.exports = function (app) {
   app.post('/api/user', createUser);
   app.delete('/api/user/:userId', deleteUser);
   app.put('/api/user/:userId', updateUser);
+  app.get('/api/restaurant/:restaurantId/manager', findManagerByRestaurantId);
 
   function findUsers(req, res) {
     var username = req.query['username'];
@@ -37,6 +38,14 @@ module.exports = function (app) {
           }
         );
     }
+  }
+
+  function findManagerByRestaurantId(req, res) {
+    var restaurantId = req.params['restaurantId'];
+    UserModel.findByRoleAndRestaurantId("Manager", restaurantId)
+      .then(function (user) {
+        res.json(user);
+      })
   }
 
   function createUser(req, res) {
