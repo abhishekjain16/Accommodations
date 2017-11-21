@@ -21,7 +21,8 @@ export class UserService {
     'updateUser' : this.updateUser,
     'deleteUser' : this.deleteUser,
     'findUserByCredentials' : this.findUserByCredentials,
-    'findManagerByRestaurantId' : this.findManagerByRestaurantId
+    'findManagerByRestaurantId' : this.findManagerByRestaurantId,
+    'findUsersByRole': this.findUsersByRole
   };
 
   createUser(user: any) {
@@ -86,6 +87,16 @@ export class UserService {
 
   findUserByCredentials(username: string, password: string) {
     return this.http.get(this.baseUrl + '/api/user?username=' + username + '&password=' + password)
+      .map(
+        (res: Response) => {
+          const data = res.json();
+          return data;
+        }
+      );
+  }
+
+  findUsersByRole(role: string) {
+    return this.http.get(this.baseUrl + '/api/user?role=' + role)
       .map(
         (res: Response) => {
           const data = res.json();

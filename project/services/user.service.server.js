@@ -12,6 +12,7 @@ module.exports = function (app) {
   function findUsers(req, res) {
     var username = req.query['username'];
     var password = req.query['password'];
+    var role = req.query['role'];
     if (username && password) {
       UserModel.findUserByCredentials(username, password)
         .then(function (user) {
@@ -27,6 +28,16 @@ module.exports = function (app) {
         .then(function (user) {
           res.json(user);
         })
+    } else if(role) {
+      UserModel.findUserByRole(role)
+        .then(
+          function(users) {
+            res.json(users);
+          },
+          function(err) {
+            res.status(400).send(err);
+          }
+        );
     } else {
       UserModel.findAllUsers()
         .then(

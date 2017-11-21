@@ -9,6 +9,7 @@ var UserSchema = mongoose.Schema({
   phone: String,
   role: {type: String, default: 'Customer', enum: ['Customer, Admin, Chef, Driver, Manager']},
   restaurantId: String,
+  active: {type: Boolean, default: false},
   dateCreated: {type: Date,default: Date.now()}
   }, { collection: 'user' });
 

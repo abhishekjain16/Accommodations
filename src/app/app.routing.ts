@@ -18,6 +18,7 @@ import {DriverOrderDetailComponent} from './components/driver/driver-order-detai
 import {ChefRegisterComponent} from './components/chef/chef-register/chef-register.component';
 import {ChefOrderDetailComponent} from './components/chef/chef-order-detail/chef-order-detail.component';
 import {ChefOrderListComponent} from './components/chef/chef-order-list/chef-order-list.component';
+import {AdminUserListComponent} from "./components/admin/admin-user-list/admin-user-list.component";
 
 const APP_ROUTES: Routes = [
   {path: '', component : HomeComponent},
@@ -37,7 +38,12 @@ const APP_ROUTES: Routes = [
   {path: 'restaurant/:restaurantId/chef/order/:orderId', component: ChefOrderDetailComponent},
   {path: 'restaurant/:restaurantId/driver/register', component: DriverRegisterComponent},
   {path: 'restaurant/:restaurantId/driver/order', component: DriverOrderListComponent},
-  {path: 'restaurant/:restaurantId/driver/order/:orderId', component: DriverOrderDetailComponent}
+  {path: 'restaurant/:restaurantId/driver/order/:orderId', component: DriverOrderDetailComponent},
+  {path: 'admin/customer', component: AdminUserListComponent},
+  {path: 'admin/manager', component: AdminUserListComponent},
+  {path: 'admin/restaurant/:restaurantId/chef', component: AdminUserListComponent},
+  {path: 'admin/restaurant/:restaurantId/driver', component: AdminUserListComponent},
+  {path: 'admin/user/order', component: AdminUserListComponent}
 ];
 
 // Export the routes as module providers
