@@ -11,10 +11,13 @@ export class YelpApiTestComponent implements OnInit {
   restaurant: String;
   location: String;
   result: Object;
+  restaurants = [];
+
   SearchRestaurant(restaurant: String, location: String) {
     this.yelpService.searchRestaurantByName(restaurant, location )
       .subscribe( (result) => {
         this.result = result;
+        this.restaurants = result['businesses'];
       });
   }
   constructor( private yelpService: YelpServiceClient) { }

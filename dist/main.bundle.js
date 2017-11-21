@@ -88,12 +88,34 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_yelp_api_test_yelp_api_test_yelp_api_test_component__ = __webpack_require__("../../../../../src/app/components/yelp_api_test/yelp.api.test/yelp.api.test.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_yelp_api_test_yelp_api_detail_yelp_api_detail_component__ = __webpack_require__("../../../../../src/app/components/yelp_api_test/yelp.api.detail/yelp.api.detail.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__services_yelp_service_client__ = __webpack_require__("../../../../../src/app/services/yelp.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_manager_manager_register_manager_register_component__ = __webpack_require__("../../../../../src/app/components/manager/manager-register/manager-register.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_manager_manager_dashboard_manager_dashboard_component__ = __webpack_require__("../../../../../src/app/components/manager/manager-dashboard/manager-dashboard.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_manager_manager_order_manager_order_component__ = __webpack_require__("../../../../../src/app/components/manager/manager-order/manager-order.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_manager_manager_driver_list_manager_driver_list_component__ = __webpack_require__("../../../../../src/app/components/manager/manager-driver-list/manager-driver-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_manager_manager_chef_list_manager_chef_list_component__ = __webpack_require__("../../../../../src/app/components/manager/manager-chef-list/manager-chef-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_driver_driver_register_driver_register_component__ = __webpack_require__("../../../../../src/app/components/driver/driver-register/driver-register.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_chef_chef_register_chef_register_component__ = __webpack_require__("../../../../../src/app/components/chef/chef-register/chef-register.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_chef_chef_order_detail_chef_order_detail_component__ = __webpack_require__("../../../../../src/app/components/chef/chef-order-detail/chef-order-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_driver_driver_order_detail_driver_order_detail_component__ = __webpack_require__("../../../../../src/app/components/driver/driver-order-detail/driver-order-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_driver_driver_order_list_driver_order_list_component__ = __webpack_require__("../../../../../src/app/components/driver/driver-order-list/driver-order-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_chef_chef_order_list_chef_order_list_component__ = __webpack_require__("../../../../../src/app/components/chef/chef-order-list/chef-order-list.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -127,7 +149,18 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_12__components_user_profile_profile_component__["a" /* ProfileComponent */],
             __WEBPACK_IMPORTED_MODULE_13__components_user_register_register_component__["a" /* RegisterComponent */],
             __WEBPACK_IMPORTED_MODULE_14__components_yelp_api_test_yelp_api_test_yelp_api_test_component__["a" /* YelpApiTestComponent */],
-            __WEBPACK_IMPORTED_MODULE_15__components_yelp_api_test_yelp_api_detail_yelp_api_detail_component__["a" /* YelpApiDetailComponent */]
+            __WEBPACK_IMPORTED_MODULE_15__components_yelp_api_test_yelp_api_detail_yelp_api_detail_component__["a" /* YelpApiDetailComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__components_manager_manager_register_manager_register_component__["a" /* ManagerRegisterComponent */],
+            __WEBPACK_IMPORTED_MODULE_18__components_manager_manager_dashboard_manager_dashboard_component__["a" /* ManagerDashboardComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__components_manager_manager_order_manager_order_component__["a" /* ManagerOrderComponent */],
+            __WEBPACK_IMPORTED_MODULE_20__components_manager_manager_driver_list_manager_driver_list_component__["a" /* ManagerDriverListComponent */],
+            __WEBPACK_IMPORTED_MODULE_21__components_manager_manager_chef_list_manager_chef_list_component__["a" /* ManagerChefListComponent */],
+            __WEBPACK_IMPORTED_MODULE_22__components_driver_driver_register_driver_register_component__["a" /* DriverRegisterComponent */],
+            __WEBPACK_IMPORTED_MODULE_23__components_chef_chef_register_chef_register_component__["a" /* ChefRegisterComponent */],
+            __WEBPACK_IMPORTED_MODULE_24__components_chef_chef_order_detail_chef_order_detail_component__["a" /* ChefOrderDetailComponent */],
+            __WEBPACK_IMPORTED_MODULE_25__components_driver_driver_order_detail_driver_order_detail_component__["a" /* DriverOrderDetailComponent */],
+            __WEBPACK_IMPORTED_MODULE_26__components_driver_driver_order_list_driver_order_list_component__["a" /* DriverOrderListComponent */],
+            __WEBPACK_IMPORTED_MODULE_27__components_chef_chef_order_list_chef_order_list_component__["a" /* ChefOrderListComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -159,6 +192,28 @@ AppModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_user_profile_profile_component__ = __webpack_require__("../../../../../src/app/components/user/profile/profile.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_yelp_api_test_yelp_api_test_yelp_api_test_component__ = __webpack_require__("../../../../../src/app/components/yelp_api_test/yelp.api.test/yelp.api.test.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_yelp_api_test_yelp_api_detail_yelp_api_detail_component__ = __webpack_require__("../../../../../src/app/components/yelp_api_test/yelp.api.detail/yelp.api.detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_manager_manager_register_manager_register_component__ = __webpack_require__("../../../../../src/app/components/manager/manager-register/manager-register.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_manager_manager_dashboard_manager_dashboard_component__ = __webpack_require__("../../../../../src/app/components/manager/manager-dashboard/manager-dashboard.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_manager_manager_order_manager_order_component__ = __webpack_require__("../../../../../src/app/components/manager/manager-order/manager-order.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_manager_manager_driver_list_manager_driver_list_component__ = __webpack_require__("../../../../../src/app/components/manager/manager-driver-list/manager-driver-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_manager_manager_chef_list_manager_chef_list_component__ = __webpack_require__("../../../../../src/app/components/manager/manager-chef-list/manager-chef-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_driver_driver_register_driver_register_component__ = __webpack_require__("../../../../../src/app/components/driver/driver-register/driver-register.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_driver_driver_order_list_driver_order_list_component__ = __webpack_require__("../../../../../src/app/components/driver/driver-order-list/driver-order-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_driver_driver_order_detail_driver_order_detail_component__ = __webpack_require__("../../../../../src/app/components/driver/driver-order-detail/driver-order-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_chef_chef_register_chef_register_component__ = __webpack_require__("../../../../../src/app/components/chef/chef-register/chef-register.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_chef_chef_order_detail_chef_order_detail_component__ = __webpack_require__("../../../../../src/app/components/chef/chef-order-detail/chef-order-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_chef_chef_order_list_chef_order_list_component__ = __webpack_require__("../../../../../src/app/components/chef/chef-order-list/chef-order-list.component.ts");
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -174,11 +229,484 @@ var APP_ROUTES = [
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_3__components_user_login_login_component__["a" /* LoginComponent */] },
     { path: 'register', component: __WEBPACK_IMPORTED_MODULE_4__components_user_register_register_component__["a" /* RegisterComponent */] },
     { path: 'api/yelp', component: __WEBPACK_IMPORTED_MODULE_6__components_yelp_api_test_yelp_api_test_yelp_api_test_component__["a" /* YelpApiTestComponent */] },
-    { path: 'api/yelp/:yelpId', component: __WEBPACK_IMPORTED_MODULE_7__components_yelp_api_test_yelp_api_detail_yelp_api_detail_component__["a" /* YelpApiDetailComponent */] }
+    { path: 'api/yelp/:yelpId', component: __WEBPACK_IMPORTED_MODULE_7__components_yelp_api_test_yelp_api_detail_yelp_api_detail_component__["a" /* YelpApiDetailComponent */] },
+    { path: 'restaurant/:restaurantId/register', component: __WEBPACK_IMPORTED_MODULE_8__components_manager_manager_register_manager_register_component__["a" /* ManagerRegisterComponent */] },
+    { path: 'restaurant/:restaurantId/manage', component: __WEBPACK_IMPORTED_MODULE_9__components_manager_manager_dashboard_manager_dashboard_component__["a" /* ManagerDashboardComponent */] },
+    { path: 'restaurant/:restaurantId/manage/order', component: __WEBPACK_IMPORTED_MODULE_10__components_manager_manager_order_manager_order_component__["a" /* ManagerOrderComponent */] },
+    { path: 'restaurant/:restaurantId/manage/driver', component: __WEBPACK_IMPORTED_MODULE_11__components_manager_manager_driver_list_manager_driver_list_component__["a" /* ManagerDriverListComponent */] },
+    { path: 'restaurant/:restaurantId/manage/chef', component: __WEBPACK_IMPORTED_MODULE_12__components_manager_manager_chef_list_manager_chef_list_component__["a" /* ManagerChefListComponent */] },
+    { path: 'restaurant/:restaurantId/chef/register', component: __WEBPACK_IMPORTED_MODULE_16__components_chef_chef_register_chef_register_component__["a" /* ChefRegisterComponent */] },
+    { path: 'restaurant/:restaurantId/chef/order', component: __WEBPACK_IMPORTED_MODULE_18__components_chef_chef_order_list_chef_order_list_component__["a" /* ChefOrderListComponent */] },
+    { path: 'restaurant/:restaurantId/chef/order/:orderId', component: __WEBPACK_IMPORTED_MODULE_17__components_chef_chef_order_detail_chef_order_detail_component__["a" /* ChefOrderDetailComponent */] },
+    { path: 'restaurant/:restaurantId/driver/register', component: __WEBPACK_IMPORTED_MODULE_13__components_driver_driver_register_driver_register_component__["a" /* DriverRegisterComponent */] },
+    { path: 'restaurant/:restaurantId/driver/order', component: __WEBPACK_IMPORTED_MODULE_14__components_driver_driver_order_list_driver_order_list_component__["a" /* DriverOrderListComponent */] },
+    { path: 'restaurant/:restaurantId/driver/order/:orderId', component: __WEBPACK_IMPORTED_MODULE_15__components_driver_driver_order_detail_driver_order_detail_component__["a" /* DriverOrderDetailComponent */] }
 ];
 // Export the routes as module providers
 var Routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["c" /* RouterModule */].forRoot(APP_ROUTES);
 //# sourceMappingURL=app.routing.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/chef/chef-order-detail/chef-order-detail.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/chef/chef-order-detail/chef-order-detail.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  chef-order-detail works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/chef/chef-order-detail/chef-order-detail.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChefOrderDetailComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ChefOrderDetailComponent = (function () {
+    function ChefOrderDetailComponent() {
+    }
+    ChefOrderDetailComponent.prototype.ngOnInit = function () {
+    };
+    return ChefOrderDetailComponent;
+}());
+ChefOrderDetailComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-chef-order-detail',
+        template: __webpack_require__("../../../../../src/app/components/chef/chef-order-detail/chef-order-detail.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/chef/chef-order-detail/chef-order-detail.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], ChefOrderDetailComponent);
+
+//# sourceMappingURL=chef-order-detail.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/chef/chef-order-list/chef-order-list.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/chef/chef-order-list/chef-order-list.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  chef-order-list works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/chef/chef-order-list/chef-order-list.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChefOrderListComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ChefOrderListComponent = (function () {
+    function ChefOrderListComponent() {
+    }
+    ChefOrderListComponent.prototype.ngOnInit = function () {
+    };
+    return ChefOrderListComponent;
+}());
+ChefOrderListComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-chef-order-list',
+        template: __webpack_require__("../../../../../src/app/components/chef/chef-order-list/chef-order-list.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/chef/chef-order-list/chef-order-list.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], ChefOrderListComponent);
+
+//# sourceMappingURL=chef-order-list.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/chef/chef-register/chef-register.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/chef/chef-register/chef-register.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"thanks\" *ngIf=\"this.success\">\n    <h4>Thanks for registering as a Chef for Restaurant {{restaurantName}}</h4>\n    <p>You would be able to access the system when your manager approves your request.</p>\n  </div>\n  <div *ngIf=\"!this.success\">\n    <h1>Register</h1>\n    <form (ngSubmit) = \"register()\" #f=\"ngForm\">\n      <input type=\"text\"\n             name=\"username\"\n             ngModel\n             required\n             #username=\"ngModel\"\n             class=\"form-control\"\n             placeholder=\"Username\" />\n      <span class=\"help-block\" *ngIf=\"!username.valid && username.touched\">\n        Please enter username!\n      </span>\n\n      <input type=\"password\"\n             name=\"password\"\n             ngModel\n             required\n             #password=\"ngModel\"\n             class=\"form-control\"\n             placeholder=\"Password\" />\n      <span class=\"help-block\" *ngIf=\"!password.valid && password.touched\">\n        Please enter Password!\n      </span>\n\n      <input type=\"password\"\n             ngModel\n             required\n             name=\"verifyPassword\"\n             #verifyPassword=\"ngModel\"\n             class=\"form-control\"\n             placeholder=\"Verify Password\" />\n      <span class=\"help-block\" *ngIf=\"!verifyPassword.valid && verifyPassword.touched\">\n        Please enter Verification password!\n      </span>\n\n      <input type=\"text\"\n             ngModel\n             required\n             name=\"firstName\"\n             #firstName=\"ngModel\"\n             class=\"form-control\"\n             placeholder=\"First Name\" />\n      <span class=\"help-block\" *ngIf=\"!firstName.valid && firstName.touched\">\n        Please enter First Name!\n      </span>\n\n      <input type=\"text\"\n             ngModel\n             required\n             name=\"lastName\"\n             #lastName=\"ngModel\"\n             class=\"form-control\"\n             placeholder=\"Last Name\" />\n      <span class=\"help-block\" *ngIf=\"!lastName.valid && lastName.touched\">\n        Please enter Last Name!\n      </span>\n\n      <input type=\"email\"\n             ngModel\n             required\n             name=\"email\"\n             #email=\"ngModel\"\n             class=\"form-control\"\n             placeholder=\"Email\" />\n      <span class=\"help-block\" *ngIf=\"!email.valid && email.touched\">\n        Please enter Email!\n      </span>\n\n      <input type=\"text\"\n             ngModel\n             required\n             name=\"phone\"\n             #phone=\"ngModel\"\n             class=\"form-control\"\n             placeholder=\"Phone Number\" />\n      <span class=\"help-block\" *ngIf=\"!phone.valid && phone.touched\">\n        Please enter Phone Number!\n      </span>\n\n      <button class=\"btn btn-primary btn-block\"\n              type=\"submit\"\n              [disabled]=\"!f.valid\">Register</button>\n      <a [routerLink]= \"['/login']\"\n         class=\"btn btn-danger btn-block\">\n        Cancel\n      </a>\n    </form>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/chef/chef-register/chef-register.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChefRegisterComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__ = __webpack_require__("../../../../../src/app/services/user.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ChefRegisterComponent = (function () {
+    function ChefRegisterComponent(userService, activatedRoute) {
+        this.userService = userService;
+        this.activatedRoute = activatedRoute;
+        this.errorMsg = '';
+        this.success = false;
+    }
+    ChefRegisterComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.activatedRoute.params
+            .subscribe(function (params) {
+            _this.restaurantId = params['restaurantId'];
+            _this.restaurantName = 'ABC';
+        });
+    };
+    ChefRegisterComponent.prototype.register = function () {
+        var _this = this;
+        this.username = this.registerForm.value.username;
+        this.password = this.registerForm.value.password;
+        this.verifyPassword = this.registerForm.value.verifyPassword;
+        this.lastName = this.registerForm.value.lastName;
+        this.firstName = this.registerForm.value.firstName;
+        this.email = this.registerForm.value.email;
+        this.phone = this.registerForm.value.phone;
+        var user = {
+            username: this.username,
+            password: this.password,
+            firstName: this.firstName,
+            lastName: this.lastName,
+            email: this.email,
+            phone: this.phone,
+            role: 'Chef',
+            restaurantId: this.restaurantId
+        };
+        this.userService.createUser(user)
+            .subscribe(function (newUser) {
+            _this.errorFlag = false;
+            _this.success = true;
+        }, function (error) {
+            _this.errorFlag = true;
+        });
+    };
+    return ChefRegisterComponent;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* ViewChild */])('f'),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* NgForm */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* NgForm */]) === "function" && _a || Object)
+], ChefRegisterComponent.prototype, "registerForm", void 0);
+ChefRegisterComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-chef-register',
+        template: __webpack_require__("../../../../../src/app/components/chef/chef-register/chef-register.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/chef/chef-register/chef-register.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__["a" /* UserService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object])
+], ChefRegisterComponent);
+
+var _a, _b, _c;
+//# sourceMappingURL=chef-register.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/driver/driver-order-detail/driver-order-detail.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/driver/driver-order-detail/driver-order-detail.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  driver-order-detail works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/driver/driver-order-detail/driver-order-detail.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DriverOrderDetailComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var DriverOrderDetailComponent = (function () {
+    function DriverOrderDetailComponent() {
+    }
+    DriverOrderDetailComponent.prototype.ngOnInit = function () {
+    };
+    return DriverOrderDetailComponent;
+}());
+DriverOrderDetailComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-driver-order-detail',
+        template: __webpack_require__("../../../../../src/app/components/driver/driver-order-detail/driver-order-detail.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/driver/driver-order-detail/driver-order-detail.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], DriverOrderDetailComponent);
+
+//# sourceMappingURL=driver-order-detail.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/driver/driver-order-list/driver-order-list.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/driver/driver-order-list/driver-order-list.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  driver-order-list works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/driver/driver-order-list/driver-order-list.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DriverOrderListComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var DriverOrderListComponent = (function () {
+    function DriverOrderListComponent() {
+    }
+    DriverOrderListComponent.prototype.ngOnInit = function () {
+    };
+    return DriverOrderListComponent;
+}());
+DriverOrderListComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-driver-order-list',
+        template: __webpack_require__("../../../../../src/app/components/driver/driver-order-list/driver-order-list.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/driver/driver-order-list/driver-order-list.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], DriverOrderListComponent);
+
+//# sourceMappingURL=driver-order-list.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/driver/driver-register/driver-register.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/driver/driver-register/driver-register.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"thanks\" *ngIf=\"this.success\">\n    <h4>Thanks for registering as a Driver for Restaurant {{restaurantName}}</h4>\n    <p>You would be able to access the system when your manager approves your request.</p>\n  </div>\n  <div *ngIf=\"!this.success\">\n    <h1>Register</h1>\n    <form (ngSubmit) = \"register()\" #f=\"ngForm\">\n      <input type=\"text\"\n             name=\"username\"\n             ngModel\n             required\n             #username=\"ngModel\"\n             class=\"form-control\"\n             placeholder=\"Username\" />\n      <span class=\"help-block\" *ngIf=\"!username.valid && username.touched\">\n        Please enter username!\n      </span>\n\n      <input type=\"password\"\n             name=\"password\"\n             ngModel\n             required\n             #password=\"ngModel\"\n             class=\"form-control\"\n             placeholder=\"Password\" />\n      <span class=\"help-block\" *ngIf=\"!password.valid && password.touched\">\n        Please enter Password!\n      </span>\n\n      <input type=\"password\"\n             ngModel\n             required\n             name=\"verifyPassword\"\n             #verifyPassword=\"ngModel\"\n             class=\"form-control\"\n             placeholder=\"Verify Password\" />\n      <span class=\"help-block\" *ngIf=\"!verifyPassword.valid && verifyPassword.touched\">\n        Please enter Verification password!\n      </span>\n\n      <input type=\"text\"\n             ngModel\n             required\n             name=\"firstName\"\n             #firstName=\"ngModel\"\n             class=\"form-control\"\n             placeholder=\"First Name\" />\n      <span class=\"help-block\" *ngIf=\"!firstName.valid && firstName.touched\">\n        Please enter First Name!\n      </span>\n\n      <input type=\"text\"\n             ngModel\n             required\n             name=\"lastName\"\n             #lastName=\"ngModel\"\n             class=\"form-control\"\n             placeholder=\"Last Name\" />\n      <span class=\"help-block\" *ngIf=\"!lastName.valid && lastName.touched\">\n        Please enter Last Name!\n      </span>\n\n      <input type=\"email\"\n             ngModel\n             required\n             name=\"email\"\n             #email=\"ngModel\"\n             class=\"form-control\"\n             placeholder=\"Email\" />\n      <span class=\"help-block\" *ngIf=\"!email.valid && email.touched\">\n        Please enter Email!\n      </span>\n\n      <input type=\"text\"\n             ngModel\n             required\n             name=\"phone\"\n             #phone=\"ngModel\"\n             class=\"form-control\"\n             placeholder=\"Phone Number\" />\n      <span class=\"help-block\" *ngIf=\"!phone.valid && phone.touched\">\n        Please enter Phone Number!\n      </span>\n\n      <button class=\"btn btn-primary btn-block\"\n              type=\"submit\"\n              [disabled]=\"!f.valid\">Register</button>\n      <a [routerLink]= \"['/login']\"\n         class=\"btn btn-danger btn-block\">\n        Cancel\n      </a>\n    </form>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/driver/driver-register/driver-register.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DriverRegisterComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__ = __webpack_require__("../../../../../src/app/services/user.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var DriverRegisterComponent = (function () {
+    function DriverRegisterComponent(userService, activatedRoute) {
+        this.userService = userService;
+        this.activatedRoute = activatedRoute;
+        this.errorMsg = '';
+        this.success = false;
+    }
+    DriverRegisterComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.activatedRoute.params
+            .subscribe(function (params) {
+            _this.restaurantId = params['restaurantId'];
+            _this.restaurantName = 'ABC';
+        });
+    };
+    DriverRegisterComponent.prototype.register = function () {
+        var _this = this;
+        this.username = this.registerForm.value.username;
+        this.password = this.registerForm.value.password;
+        this.verifyPassword = this.registerForm.value.verifyPassword;
+        this.lastName = this.registerForm.value.lastName;
+        this.firstName = this.registerForm.value.firstName;
+        this.email = this.registerForm.value.email;
+        this.phone = this.registerForm.value.phone;
+        var user = {
+            username: this.username,
+            password: this.password,
+            firstName: this.firstName,
+            lastName: this.lastName,
+            email: this.email,
+            phone: this.phone,
+            role: 'Driver',
+            restaurantId: this.restaurantId
+        };
+        this.userService.createUser(user)
+            .subscribe(function (newUser) {
+            _this.errorFlag = false;
+            _this.success = true;
+        }, function (error) {
+            _this.errorFlag = true;
+        });
+    };
+    return DriverRegisterComponent;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* ViewChild */])('f'),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* NgForm */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* NgForm */]) === "function" && _a || Object)
+], DriverRegisterComponent.prototype, "registerForm", void 0);
+DriverRegisterComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-driver-register',
+        template: __webpack_require__("../../../../../src/app/components/driver/driver-register/driver-register.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/driver/driver-register/driver-register.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__["a" /* UserService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object])
+], DriverRegisterComponent);
+
+var _a, _b, _c;
+//# sourceMappingURL=driver-register.component.js.map
 
 /***/ }),
 
@@ -240,6 +768,400 @@ HomeComponent = __decorate([
 ], HomeComponent);
 
 //# sourceMappingURL=home.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/manager/manager-chef-list/manager-chef-list.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/manager/manager-chef-list/manager-chef-list.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  manager-chef-list works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/manager/manager-chef-list/manager-chef-list.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ManagerChefListComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ManagerChefListComponent = (function () {
+    function ManagerChefListComponent() {
+    }
+    ManagerChefListComponent.prototype.ngOnInit = function () {
+    };
+    return ManagerChefListComponent;
+}());
+ManagerChefListComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-manager-chef-list',
+        template: __webpack_require__("../../../../../src/app/components/manager/manager-chef-list/manager-chef-list.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/manager/manager-chef-list/manager-chef-list.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], ManagerChefListComponent);
+
+//# sourceMappingURL=manager-chef-list.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/manager/manager-dashboard/manager-dashboard.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/manager/manager-dashboard/manager-dashboard.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<ul class=\"nav nav-tabs nav-justified\">\n  <li role=\"presentation\" class=\"active\"><a href=\"#\">Home</a></li>\n  <li role=\"presentation\"><a href=\"#\">Orders</a></li>\n  <li role=\"presentation\"><a href=\"#\">Drivers</a></li>\n  <li role=\"presentation\"><a href=\"#\">Chefs</a></li>\n</ul>\n<form (ngSubmit) = \"update()\" #f=\"ngForm\">\n  <div class=\"container-fluid profile clearfix\">\n    <label for=\"username\" class=\"label\">Username</label>\n    <input type=\"text\"\n           id=\"username\"\n           name=\"username\"\n           [(ngModel)]=\"username\"\n           class=\"form-control\" />\n\n    <label for=\"email\" class=\"label\">Email</label>\n    <input type=\"email\"\n           id=\"email\"\n           name=\"email\"\n           [(ngModel)]=\"email\"\n           class=\"form-control\" />\n\n    <label for=\"first_name\" class=\"label\">First Name</label>\n    <input type=\"text\"\n           id=\"first_name\"\n           name=\"first_name\"\n           [(ngModel)]=\"firstName\"\n           class=\"form-control\" />\n\n    <label for=\"last_name\" class=\"label\">Last Name</label>\n    <input type=\"text\"\n           id=\"last_name\"\n           name=\"last_name\"\n           [(ngModel)]=\"lastName\"\n           class=\"form-control\" />\n\n    <label for=\"phone\" class=\"label\">Phone</label>\n    <input type=\"text\"\n           id=\"phone\"\n           name=\"phone\"\n           [(ngModel)]=\"phone\"\n           class=\"form-control\" />\n    <button type=\"submit\"\n            class=\"btn btn-primary form-control\"\n            [disabled]=\"!f.valid\">Update Profile</button>\n\n    <a [routerLink]= \"['/login']\" class=\"btn btn-danger btn-block\">Logout</a>\n  </div>\n</form>\n<footer>\n</footer>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/manager/manager-dashboard/manager-dashboard.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ManagerDashboardComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__ = __webpack_require__("../../../../../src/app/services/user.service.client.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ManagerDashboardComponent = (function () {
+    function ManagerDashboardComponent(activatedRoute, userService) {
+        this.activatedRoute = activatedRoute;
+        this.userService = userService;
+        this.manager = {};
+    }
+    ManagerDashboardComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.activatedRoute.params
+            .subscribe(function (params) {
+            _this.restaurantId = params['restaurantId'];
+        });
+        this.userService.findManagerByRestaurantId(this.restaurantId)
+            .subscribe(function (manager) {
+            _this.manager = manager;
+            _this.userId = manager._id;
+            _this.username = manager['username'];
+            _this.phone = manager['phone'];
+            _this.email = manager['email'];
+            _this.firstName = manager['firstName'];
+            _this.lastName = manager['lastName'];
+        });
+    };
+    ManagerDashboardComponent.prototype.update = function () {
+        var _this = this;
+        this.manager['username'] = this.profileForm.value.username;
+        this.manager['email'] = this.profileForm.value.email;
+        this.manager['firstName'] = this.profileForm.value.firstName;
+        this.manager['lastName'] = this.profileForm.value.lastName;
+        this.manager['phone'] = this.profileForm.value.phone;
+        this.userService.updateUser(this.userId, this.manager)
+            .subscribe(function (manager) {
+            _this.manager = manager;
+        }, function (error) {
+        });
+    };
+    return ManagerDashboardComponent;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* ViewChild */])('f'),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* NgForm */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* NgForm */]) === "function" && _a || Object)
+], ManagerDashboardComponent.prototype, "profileForm", void 0);
+ManagerDashboardComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-manager-dashboard',
+        template: __webpack_require__("../../../../../src/app/components/manager/manager-dashboard/manager-dashboard.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/manager/manager-dashboard/manager-dashboard.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__["a" /* UserService */]) === "function" && _c || Object])
+], ManagerDashboardComponent);
+
+var _a, _b, _c;
+//# sourceMappingURL=manager-dashboard.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/manager/manager-driver-list/manager-driver-list.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/manager/manager-driver-list/manager-driver-list.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  manager-driver-list works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/manager/manager-driver-list/manager-driver-list.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ManagerDriverListComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ManagerDriverListComponent = (function () {
+    function ManagerDriverListComponent() {
+    }
+    ManagerDriverListComponent.prototype.ngOnInit = function () {
+    };
+    return ManagerDriverListComponent;
+}());
+ManagerDriverListComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-manager-driver-list',
+        template: __webpack_require__("../../../../../src/app/components/manager/manager-driver-list/manager-driver-list.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/manager/manager-driver-list/manager-driver-list.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], ManagerDriverListComponent);
+
+//# sourceMappingURL=manager-driver-list.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/manager/manager-order/manager-order.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/manager/manager-order/manager-order.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  manager-order works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/manager/manager-order/manager-order.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ManagerOrderComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ManagerOrderComponent = (function () {
+    function ManagerOrderComponent() {
+    }
+    ManagerOrderComponent.prototype.ngOnInit = function () {
+    };
+    return ManagerOrderComponent;
+}());
+ManagerOrderComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-manager-order',
+        template: __webpack_require__("../../../../../src/app/components/manager/manager-order/manager-order.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/manager/manager-order/manager-order.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], ManagerOrderComponent);
+
+//# sourceMappingURL=manager-order.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/manager/manager-register/manager-register.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/manager/manager-register/manager-register.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"thanks\" *ngIf=\"this.success\">\n    <h4>Thanks for claiming the Restaurant.</h4>\n    <p>You should be able to manage the restaurant as soon as this request is approved.</p>\n  </div>\n  <div *ngIf=\"!this.success\">\n    <h1>Register</h1>\n    <form (ngSubmit) = \"register()\" #f=\"ngForm\">\n      <input type=\"text\"\n             name=\"username\"\n             ngModel\n             required\n             #username=\"ngModel\"\n             class=\"form-control\"\n             placeholder=\"Username\" />\n      <span class=\"help-block\" *ngIf=\"!username.valid && username.touched\">\n        Please enter username!\n      </span>\n\n      <input type=\"password\"\n             name=\"password\"\n             ngModel\n             required\n             #password=\"ngModel\"\n             class=\"form-control\"\n             placeholder=\"Password\" />\n      <span class=\"help-block\" *ngIf=\"!password.valid && password.touched\">\n        Please enter Password!\n      </span>\n\n      <input type=\"password\"\n             ngModel\n             required\n             name=\"verifyPassword\"\n             #verifyPassword=\"ngModel\"\n             class=\"form-control\"\n             placeholder=\"Verify Password\" />\n      <span class=\"help-block\" *ngIf=\"!verifyPassword.valid && verifyPassword.touched\">\n        Please enter Verification password!\n      </span>\n\n      <input type=\"text\"\n             ngModel\n             required\n             name=\"firstName\"\n             #firstName=\"ngModel\"\n             class=\"form-control\"\n             placeholder=\"First Name\" />\n      <span class=\"help-block\" *ngIf=\"!firstName.valid && firstName.touched\">\n        Please enter First Name!\n      </span>\n\n      <input type=\"text\"\n             ngModel\n             required\n             name=\"lastName\"\n             #lastName=\"ngModel\"\n             class=\"form-control\"\n             placeholder=\"Last Name\" />\n      <span class=\"help-block\" *ngIf=\"!lastName.valid && lastName.touched\">\n        Please enter Last Name!\n      </span>\n\n      <input type=\"email\"\n             ngModel\n             required\n             name=\"email\"\n             #email=\"ngModel\"\n             class=\"form-control\"\n             placeholder=\"Email\" />\n      <span class=\"help-block\" *ngIf=\"!email.valid && email.touched\">\n        Please enter Email!\n      </span>\n\n      <input type=\"text\"\n             ngModel\n             required\n             name=\"phone\"\n             #phone=\"ngModel\"\n             class=\"form-control\"\n             placeholder=\"Phone Number\" />\n      <span class=\"help-block\" *ngIf=\"!phone.valid && phone.touched\">\n        Please enter Phone Number!\n      </span>\n\n      <button class=\"btn btn-primary btn-block\"\n              type=\"submit\"\n              [disabled]=\"!f.valid\">Register</button>\n      <a [routerLink]= \"['/login']\"\n         class=\"btn btn-danger btn-block\">\n        Cancel\n      </a>\n    </form>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/manager/manager-register/manager-register.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ManagerRegisterComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__ = __webpack_require__("../../../../../src/app/services/user.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ManagerRegisterComponent = (function () {
+    function ManagerRegisterComponent(userService, activatedRoute) {
+        this.userService = userService;
+        this.activatedRoute = activatedRoute;
+        this.errorMsg = '';
+        this.success = false;
+    }
+    ManagerRegisterComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.activatedRoute.params
+            .subscribe(function (params) {
+            _this.restaurantId = params['restaurantId'];
+        });
+    };
+    ManagerRegisterComponent.prototype.register = function () {
+        var _this = this;
+        this.username = this.registerForm.value.username;
+        this.password = this.registerForm.value.password;
+        this.verifyPassword = this.registerForm.value.verifyPassword;
+        this.lastName = this.registerForm.value.lastName;
+        this.firstName = this.registerForm.value.firstName;
+        this.email = this.registerForm.value.email;
+        this.phone = this.registerForm.value.phone;
+        var user = {
+            username: this.username,
+            password: this.password,
+            firstName: this.firstName,
+            lastName: this.lastName,
+            email: this.email,
+            phone: this.phone,
+            role: 'Manager',
+            restaurantId: this.restaurantId
+        };
+        this.userService.createUser(user)
+            .subscribe(function (newUser) {
+            _this.errorFlag = false;
+            _this.success = true;
+        }, function (error) {
+            _this.errorFlag = true;
+        });
+    };
+    return ManagerRegisterComponent;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* ViewChild */])('f'),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_forms__["c" /* NgForm */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_forms__["c" /* NgForm */]) === "function" && _a || Object)
+], ManagerRegisterComponent.prototype, "registerForm", void 0);
+ManagerRegisterComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-manager-register',
+        template: __webpack_require__("../../../../../src/app/components/manager/manager-register/manager-register.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/manager/manager-register/manager-register.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__["a" /* UserService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object])
+], ManagerRegisterComponent);
+
+var _a, _b, _c;
+//# sourceMappingURL=manager-register.component.js.map
 
 /***/ }),
 
@@ -741,7 +1663,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/yelp_api_test/yelp.api.test/yelp.api.test.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1> Yelp APT test </h1>\n<label> Restaurant Name</label>\n<input [(ngModel)]=\"restaurant\" placeholder=\"College Pizza\" class=\"form-control\">\n<input [(ngModel)]=\"location\" placeholder=\"Boston\" class=\"form-control\">\n<button (click)=\"SearchRestaurant(restaurant,location)\"\n        class=\"btn btn-primary btn-block\">Search</button>\n\n<ul class=\"list-group\">\n  <li class=\"list-group-item\" *ngFor=\"let restaurant of result['businesses']\">\n    <a [routerLink]= \"['/api/yelp', restaurant.id]\">\n      {{restaurant.name}}\n    </a>\n  </li>\n</ul>\n"
+module.exports = "<h1> Yelp APT test </h1>\n<label> Restaurant Name</label>\n<input [(ngModel)]=\"restaurant\" placeholder=\"College Pizza\" class=\"form-control\">\n<input [(ngModel)]=\"location\" placeholder=\"Boston\" class=\"form-control\">\n<button (click)=\"SearchRestaurant(restaurant,location)\"\n        class=\"btn btn-primary btn-block\">Search</button>\n\n<ul class=\"list-group\">\n  <li class=\"list-group-item\" *ngFor=\"let restaurant of restaurants\">\n    <a [routerLink]= \"['/api/yelp', restaurant.id]\">\n      {{restaurant.name}}\n    </a>\n  </li>\n</ul>\n"
 
 /***/ }),
 
@@ -766,12 +1688,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var YelpApiTestComponent = (function () {
     function YelpApiTestComponent(yelpService) {
         this.yelpService = yelpService;
+        this.restaurants = [];
     }
     YelpApiTestComponent.prototype.SearchRestaurant = function (restaurant, location) {
         var _this = this;
         this.yelpService.searchRestaurantByName(restaurant, location)
             .subscribe(function (result) {
             _this.result = result;
+            _this.restaurants = result['businesses'];
         });
     };
     YelpApiTestComponent.prototype.ngOnInit = function () {
@@ -889,7 +1813,8 @@ var UserService = (function () {
             'findUserByUsername': this.findUserByUsername,
             'updateUser': this.updateUser,
             'deleteUser': this.deleteUser,
-            'findUserByCredentials': this.findUserByCredentials
+            'findUserByCredentials': this.findUserByCredentials,
+            'findManagerByRestaurantId': this.findManagerByRestaurantId
         };
     }
     UserService.prototype.createUser = function (user) {
@@ -901,6 +1826,13 @@ var UserService = (function () {
     };
     UserService.prototype.findUserById = function (userId) {
         return this.http.get(this.baseUrl + '/api/user/' + userId)
+            .map(function (res) {
+            var data = res.json();
+            return data;
+        });
+    };
+    UserService.prototype.findManagerByRestaurantId = function (restaurantId) {
+        return this.http.get(this.baseUrl + '/api/restaurant/' + restaurantId + '/manager')
             .map(function (res) {
             var data = res.json();
             return data;
