@@ -12,12 +12,13 @@ export class ManagerDashboardComponent implements OnInit {
   @ViewChild('f') profileForm: NgForm;
   restaurantId: string;
   manager = {};
-  userId: string;
+  managerId: string;
   username: string;
   firstName: string;
   lastName: string;
   email: string;
   phone: string;
+  active: boolean;
 
   constructor(private activatedRoute: ActivatedRoute,
               private userService: UserService) { }
@@ -27,20 +28,37 @@ export class ManagerDashboardComponent implements OnInit {
       .subscribe(
         (params: any) => {
           this.restaurantId = params['restaurantId'];
+          this.managerId = params['managerId'];
         }
       );
-    this.userService.findManagerByRestaurantId(this.restaurantId)
-      .subscribe(
-        (manager: any) => {
-          this.manager = manager;
-          this.userId = manager._id;
-          this.username = manager['username'];
-          this.phone = manager['phone'];
-          this.email = manager['email'];
-          this.firstName = manager['firstName'];
-          this.lastName = manager['lastName'];
-        }
-      );
+    if (this.restaurantId) {
+      this.userService.findManagerByRestaurantId(this.restaurantId)
+        .subscribe(
+          (manager: any) => {
+            this.manager = manager;
+            this.managerId = manager._id;
+            this.username = manager['username'];
+            this.phone = manager['phone'];
+            this.email = manager['email'];
+            this.firstName = manager['firstName'];
+            this.lastName = manager['lastName'];
+          }
+        );
+    } else {
+      this.userService.findUserById(this.managerId)
+        .subscribe(
+          (manager: any) => {
+            this.manager = manager;
+            this.managerId = manager._id;
+            this.username = manager['username'];
+            this.phone = manager['phone'];
+            this.email = manager['email'];
+            this.firstName = manager['firstName'];
+            this.lastName = manager['lastName'];
+            this.active = manager['active'];
+          }
+        );
+    }
 
   }
 
@@ -50,7 +68,10 @@ export class ManagerDashboardComponent implements OnInit {
     this.manager['firstName'] = this.profileForm.value.firstName;
     this.manager['lastName'] = this.profileForm.value.lastName;
     this.manager['phone'] = this.profileForm.value.phone;
-    this.userService.updateUser(this.userId, this.manager)
+    if (!this.restaurantId) {
+      this.manager['active'] = this.profileForm.value.active;
+    }
+    this.userService.updateUser(this.managerId, this.manager)
       .subscribe(
         (manager: any) => {
           this.manager = manager;

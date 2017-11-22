@@ -22,17 +22,17 @@ export class AdminUserListComponent implements OnInit {
     this.activatedRoute.url
       .subscribe(
         (url: any) => {
-          console.log(url);
-          this.path  = url[1].path;
+          // console.log(url);
+          // this.path  = url[1].path;
         }
       );
 
-    // this.userService.findUsersByRole(this.role)
-    //   .subscribe(
-    //     (users: any) => {
-    //       this.users = users;
-    //     }
-    //   );
+    this.userService.findUsersByRole("Customer")
+      .subscribe(
+        (users: any) => {
+          this.users = users;
+        }
+      );
 
   }
 

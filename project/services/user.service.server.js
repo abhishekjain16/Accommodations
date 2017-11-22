@@ -64,6 +64,10 @@ module.exports = function (app) {
     UserModel.createUser(user)
       .then(function (user) {
         res.json(user);
+      },
+      function (err) {
+        console.log(err);
+        res.status(400).send(err);
       })
   }
 
