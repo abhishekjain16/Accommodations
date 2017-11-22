@@ -22,6 +22,7 @@ export class ManagerRegisterComponent implements OnInit {
   errorMsg = '';
   success = false;
   restaurantId: string;
+  error: string;
 
   constructor(private userService: UserService,
               private activatedRoute: ActivatedRoute) { }
@@ -62,6 +63,7 @@ export class ManagerRegisterComponent implements OnInit {
         },
         (error: any) => {
           this.errorFlag = true;
+          this.error = error;
         }
       );
   }

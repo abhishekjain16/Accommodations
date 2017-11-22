@@ -18,6 +18,8 @@ import {DriverOrderDetailComponent} from './components/driver/driver-order-detai
 import {ChefRegisterComponent} from './components/chef/chef-register/chef-register.component';
 import {ChefOrderDetailComponent} from './components/chef/chef-order-detail/chef-order-detail.component';
 import {ChefOrderListComponent} from './components/chef/chef-order-list/chef-order-list.component';
+import {AdminUserListComponent} from "./components/admin/admin-user-list/admin-user-list.component";
+import {AdminManagerListComponent} from "./components/admin/admin-manager-list/admin-manager-list.component";
 
 const APP_ROUTES: Routes = [
   {path: '', component : HomeComponent},
@@ -28,16 +30,22 @@ const APP_ROUTES: Routes = [
   {path: 'api/yelp', component: YelpApiTestComponent},
   {path: 'api/yelp/:yelpId', component: YelpApiDetailComponent},
   {path: 'restaurant/:restaurantId/register', component: ManagerRegisterComponent},
-  {path: 'restaurant/:restaurantId/manage', component: ManagerDashboardComponent},
+  {path: 'restaurant/:restaurantId', component: ManagerDashboardComponent},
   {path: 'restaurant/:restaurantId/manage/order', component: ManagerOrderComponent},
-  {path: 'restaurant/:restaurantId/manage/driver', component: ManagerDriverListComponent},
-  {path: 'restaurant/:restaurantId/manage/chef', component: ManagerChefListComponent},
+  {path: 'restaurant/:restaurantId/driver', component: ManagerDriverListComponent},
+  {path: 'restaurant/:restaurantId/chef', component: ManagerChefListComponent},
   {path: 'restaurant/:restaurantId/chef/register', component: ChefRegisterComponent},
   {path: 'restaurant/:restaurantId/chef/order', component: ChefOrderListComponent},
   {path: 'restaurant/:restaurantId/chef/order/:orderId', component: ChefOrderDetailComponent},
   {path: 'restaurant/:restaurantId/driver/register', component: DriverRegisterComponent},
   {path: 'restaurant/:restaurantId/driver/order', component: DriverOrderListComponent},
-  {path: 'restaurant/:restaurantId/driver/order/:orderId', component: DriverOrderDetailComponent}
+  {path: 'restaurant/:restaurantId/driver/order/:orderId', component: DriverOrderDetailComponent},
+  {path: 'admin/customer', component: AdminUserListComponent},
+  {path: 'admin/manager', component: AdminManagerListComponent},
+  {path: 'admin/manager/:managerId', component: ManagerDashboardComponent},
+  {path: 'admin/restaurant/:restaurantId/chef', component: ManagerChefListComponent},
+  {path: 'admin/restaurant/:restaurantId/driver', component: ManagerDriverListComponent},
+  {path: 'admin/order', component: AdminUserListComponent}
 ];
 
 // Export the routes as module providers

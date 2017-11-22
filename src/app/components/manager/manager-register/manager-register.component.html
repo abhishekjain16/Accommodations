@@ -1,4 +1,7 @@
 <div class="container-fluid">
+  <div *ngIf="errorFlag">
+    There is an error! Please try again later.
+  </div>
   <div class="thanks" *ngIf="this.success">
     <h4>Thanks for claiming the Restaurant.</h4>
     <p>You should be able to manage the restaurant as soon as this request is approved.</p>

@@ -7,8 +7,9 @@ var UserSchema = mongoose.Schema({
   lastName: String,
   email: String,
   phone: String,
-  role: {type: String, default: 'Customer', enum: ['Customer, Admin, Chef, Driver, Manager']},
+  role: {type: String, default: 'Customer', enum: ['Customer', 'Admin', 'Chef', 'Driver', 'Manager']},
   restaurantId: String,
+  active: {type: Boolean, default: false},
   dateCreated: {type: Date,default: Date.now()}
   }, { collection: 'user' });
 

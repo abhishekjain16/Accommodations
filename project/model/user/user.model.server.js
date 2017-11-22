@@ -11,6 +11,8 @@ UserModel.findAllUsers = findAllUsers;
 UserModel.deleteUser = deleteUser;
 UserModel.updateUser = updateUser;
 UserModel.findByRoleAndRestaurantId = findByRoleAndRestaurantId;
+UserModel.findUserByUsername = findUserByUsername;
+UserModel.findUserByRole = findUserByRole;
 
 module.exports = UserModel;
 
@@ -45,4 +47,8 @@ function updateUser(id, user) {
 
 function findByRoleAndRestaurantId(role, restaurantId) {
   return UserModel.findOne({role: role, restaurantId: restaurantId});
+}
+
+function findUserByRole(role) {
+  return UserModel.find({role: role});
 }

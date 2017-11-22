@@ -80,3 +80,11 @@ footer {
 .aj-widget .content {
   width: 100%;
 }
+
+ul {
+  margin-bottom: 1em !important;
+}
+
+.alert {
+  padding: 1px 10px;
+}
