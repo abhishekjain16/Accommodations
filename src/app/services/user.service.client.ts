@@ -22,7 +22,9 @@ export class UserService {
     'deleteUser' : this.deleteUser,
     'findUserByCredentials' : this.findUserByCredentials,
     'findManagerByRestaurantId' : this.findManagerByRestaurantId,
-    'findUsersByRole': this.findUsersByRole
+    'findUsersByRole': this.findUsersByRole,
+    'findChefsByRestaurantId': this.findChefsByRestaurantId,
+    'findDriversByRestaurantId': this.findDriversByRestaurantId
   };
 
   createUser(user: any) {
@@ -47,6 +49,25 @@ export class UserService {
 
   findManagerByRestaurantId(restaurantId: string) {
     return this.http.get(this.baseUrl + '/api/restaurant/' + restaurantId + '/manager')
+      .map(
+        (res: Response) => {
+          const data = res.json();
+          return data;
+        }
+      );
+  }
+
+  findChefsByRestaurantId(restaurantId: string) {
+    return this.http.get(this.baseUrl + '/api/restaurant/' + restaurantId + '/chef')
+      .map(
+        (res: Response) => {
+          const data = res.json();
+          return data;
+        }
+      );
+  }
+  findDriversByRestaurantId(restaurantId: string) {
+    return this.http.get(this.baseUrl + '/api/restaurant/' + restaurantId + '/driver')
       .map(
         (res: Response) => {
           const data = res.json();

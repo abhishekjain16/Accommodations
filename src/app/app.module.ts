@@ -19,8 +19,6 @@ import { YelpServiceClient } from './services/yelp.service.client';
 import { ManagerRegisterComponent } from './components/manager/manager-register/manager-register.component';
 import { ManagerDashboardComponent } from './components/manager/manager-dashboard/manager-dashboard.component';
 import { ManagerOrderComponent } from './components/manager/manager-order/manager-order.component';
-import { ManagerDriverListComponent } from './components/manager/manager-driver-list/manager-driver-list.component';
-import { ManagerChefListComponent } from './components/manager/manager-chef-list/manager-chef-list.component';
 import { DriverRegisterComponent } from './components/driver/driver-register/driver-register.component';
 import { ChefRegisterComponent } from './components/chef/chef-register/chef-register.component';
 import { ChefOrderDetailComponent } from './components/chef/chef-order-detail/chef-order-detail.component';
@@ -29,6 +27,8 @@ import { DriverOrderListComponent } from './components/driver/driver-order-list/
 import { ChefOrderListComponent } from './components/chef/chef-order-list/chef-order-list.component';
 import { AdminUserListComponent } from './components/admin/admin-user-list/admin-user-list.component';
 import { AdminManagerListComponent } from './components/admin/admin-manager-list/admin-manager-list.component';
+import { DriverListComponent } from './components/driver/driver-list/driver-list.component';
+import { ChefListComponent } from './components/chef/chef-list/chef-list.component';
 
 @NgModule({
   // Declare components here
@@ -44,8 +44,6 @@ import { AdminManagerListComponent } from './components/admin/admin-manager-list
     ManagerRegisterComponent,
     ManagerDashboardComponent,
     ManagerOrderComponent,
-    ManagerDriverListComponent,
-    ManagerChefListComponent,
     DriverRegisterComponent,
     ChefRegisterComponent,
     ChefOrderDetailComponent,
@@ -53,7 +51,9 @@ import { AdminManagerListComponent } from './components/admin/admin-manager-list
     DriverOrderListComponent,
     ChefOrderListComponent,
     AdminUserListComponent,
-    AdminManagerListComponent
+    AdminManagerListComponent,
+    DriverListComponent,
+    ChefListComponent
   ],
   imports: [
     BrowserModule,

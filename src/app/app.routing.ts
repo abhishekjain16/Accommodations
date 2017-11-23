@@ -10,16 +10,16 @@ import {YelpApiDetailComponent} from './components/yelp_api_test/yelp.api.detail
 import {ManagerRegisterComponent} from './components/manager/manager-register/manager-register.component';
 import {ManagerDashboardComponent} from './components/manager/manager-dashboard/manager-dashboard.component';
 import {ManagerOrderComponent} from './components/manager/manager-order/manager-order.component';
-import {ManagerDriverListComponent} from './components/manager/manager-driver-list/manager-driver-list.component';
-import {ManagerChefListComponent} from './components/manager/manager-chef-list/manager-chef-list.component';
 import {DriverRegisterComponent} from './components/driver/driver-register/driver-register.component';
 import {DriverOrderListComponent} from './components/driver/driver-order-list/driver-order-list.component';
 import {DriverOrderDetailComponent} from './components/driver/driver-order-detail/driver-order-detail.component';
+import {DriverListComponent} from './components/driver/driver-list/driver-list.component';
 import {ChefRegisterComponent} from './components/chef/chef-register/chef-register.component';
 import {ChefOrderDetailComponent} from './components/chef/chef-order-detail/chef-order-detail.component';
 import {ChefOrderListComponent} from './components/chef/chef-order-list/chef-order-list.component';
-import {AdminUserListComponent} from "./components/admin/admin-user-list/admin-user-list.component";
-import {AdminManagerListComponent} from "./components/admin/admin-manager-list/admin-manager-list.component";
+import {ChefListComponent} from './components/chef/chef-list/chef-list.component';
+import {AdminUserListComponent} from './components/admin/admin-user-list/admin-user-list.component';
+import {AdminManagerListComponent} from './components/admin/admin-manager-list/admin-manager-list.component';
 
 const APP_ROUTES: Routes = [
   {path: '', component : HomeComponent},
@@ -32,8 +32,8 @@ const APP_ROUTES: Routes = [
   {path: 'restaurant/:restaurantId/register', component: ManagerRegisterComponent},
   {path: 'restaurant/:restaurantId', component: ManagerDashboardComponent},
   {path: 'restaurant/:restaurantId/manage/order', component: ManagerOrderComponent},
-  {path: 'restaurant/:restaurantId/driver', component: ManagerDriverListComponent},
-  {path: 'restaurant/:restaurantId/chef', component: ManagerChefListComponent},
+  {path: 'restaurant/:restaurantId/driver', component: DriverListComponent},
+  {path: 'restaurant/:restaurantId/chef', component: ChefListComponent},
   {path: 'restaurant/:restaurantId/chef/register', component: ChefRegisterComponent},
   {path: 'restaurant/:restaurantId/chef/order', component: ChefOrderListComponent},
   {path: 'restaurant/:restaurantId/chef/order/:orderId', component: ChefOrderDetailComponent},
@@ -43,8 +43,8 @@ const APP_ROUTES: Routes = [
   {path: 'admin/customer', component: AdminUserListComponent},
   {path: 'admin/manager', component: AdminManagerListComponent},
   {path: 'admin/manager/:managerId', component: ManagerDashboardComponent},
-  {path: 'admin/restaurant/:restaurantId/chef', component: ManagerChefListComponent},
-  {path: 'admin/restaurant/:restaurantId/driver', component: ManagerDriverListComponent},
+  {path: 'admin/restaurant/:restaurantId/chef', component: ChefListComponent},
+  {path: 'admin/restaurant/:restaurantId/driver', component: DriverListComponent},
   {path: 'admin/order', component: AdminUserListComponent}
 ];
 

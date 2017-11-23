@@ -46,7 +46,7 @@ function updateUser(id, user) {
 }
 
 function findByRoleAndRestaurantId(role, restaurantId) {
-  return UserModel.findOne({role: role, restaurantId: restaurantId});
+  return UserModel.find({role: role, restaurantId: restaurantId});
 }
 
 function findUserByRole(role) {

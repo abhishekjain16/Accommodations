@@ -1,0 +1,59 @@
+
+<div class="container-fluid">
+  <ul class="nav nav-tabs nav-justified">
+    <li role="presentation"><a [routerLink]="['/admin/restaurant', this.restaurantId, 'chef']">Chefs</a></li>
+    <li role="presentation" class="active"><a [routerLink]="['/admin/restaurant/', this.restaurantId, 'driver']">Drivers</a></li>
+    <li role="presentation"><a [routerLink]="['/admin/restaurant/', this.restaurantId, 'order']">Orders</a></li>
+  </ul>
+
+  <ul class="list-group">
+    <li class="list-group-item active">
+      <div class="row">
+        <div class="col-xs-6 col-md-3">
+          Name
+        </div>
+        <div class="col-md-3 hidden-sm hidden-xs">
+          Email
+        </div>
+        <div class="col-md-2 hidden-xs hidden-sm">
+          Phone
+        </div>
+        <div class="col-xs-3">
+          Restaurant
+        </div>
+        <div class="col-xs-3 col-md-2">
+        </div>
+      </div>
+    </li>
+
+    <li class="list-group-item" *ngFor="let driver of drivers">
+      <div class="row">
+        <div class="col-xs-6 col-md-3">
+          <a [routerLink]="['/admin', 'manager', driver._id]">
+            {{driver.firstName}} {{driver.lastName}}
+            <span class="glyphicon glyphicon-edit"></span>
+          </a>
+        </div>
+        <div class="col-md-3 hidden-sm hidden-xs">
+          {{driver.email}}
+        </div>
+        <div class="col-md-2 hidden-xs hidden-sm">
+          {{driver.phone}}
+        </div>
+        <div class="col-xs-3">
+          {{driver.restaurantId}}
+        </div>
+        <div class="col-xs-3 col-md-1">
+          <div *ngIf="driver.active; else inactive" class="alert alert-success">
+            <strong>Active</strong>
+          </div>
+          <ng-template #inactive>
+            <div class="alert alert-danger">
+              <strong>Inactive</strong>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

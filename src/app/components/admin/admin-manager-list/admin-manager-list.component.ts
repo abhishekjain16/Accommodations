@@ -16,13 +16,13 @@ export class AdminManagerListComponent implements OnInit {
 
   ngOnInit() {
     // const path = this.activatedRoute.url;
-    this.activatedRoute.url
-      .subscribe(
-        (url: any) => {
-          // console.log(url);
-          // this.path  = url[1].path;
-        }
-      );
+    // this.activatedRoute.url
+    //   .subscribe(
+    //     (url: any) => {
+    //       // console.log(url);
+    //       // this.path  = url[1].path;
+    //     }
+    //   );
 
     this.userService.findUsersByRole('Manager')
       .subscribe(
