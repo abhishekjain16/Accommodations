@@ -29,6 +29,8 @@ import { AdminUserListComponent } from './components/admin/admin-user-list/admin
 import { AdminManagerListComponent } from './components/admin/admin-manager-list/admin-manager-list.component';
 import { DriverListComponent } from './components/driver/driver-list/driver-list.component';
 import { ChefListComponent } from './components/chef/chef-list/chef-list.component';
+import {SharedService} from './services/shared.service';
+import {AuthGuard} from './services/auth-guard.service';
 
 @NgModule({
   // Declare components here
@@ -63,7 +65,7 @@ import { ChefListComponent } from './components/chef/chef-list/chef-list.compone
     QuillEditorModule
   ],
   // Client Side services here
-  providers: [ TestService, UserService, YelpServiceClient],
+  providers: [ TestService, UserService, YelpServiceClient, SharedService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -42,9 +42,9 @@ export class RegisterComponent implements OnInit {
 
     this.userService.createUser(user)
       .subscribe(
-        (user: any) => {
+        (newUser: any) => {
           this.errorFlag = false;
-          this.router.navigate(['user/' + user._id]);},
+          this.router.navigate(['profile']);},
         (error: any) => {
           this.errorFlag = true;
         }

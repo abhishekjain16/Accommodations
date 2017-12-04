@@ -7,8 +7,8 @@
         </a>
       </li>
       <li role="presentation">
-        <a [routerLink]="['/restaurant/', manager.restaurantId, 'order']" class="btn">
-          Orders
+        <a [routerLink]="['/restaurant/', manager.restaurantId, 'chef']" class="btn">
+          View Chefs
         </a>
       </li>
       <li role="presentation">
@@ -17,8 +17,8 @@
         </a>
       </li>
       <li role="presentation">
-        <a [routerLink]="['/restaurant/', manager.restaurantId, 'driver']" class="btn">
-          View Chefs
+        <a [routerLink]="['/restaurant/', manager.restaurantId, 'order']" class="btn">
+          View Orders
         </a>
       </li>
     </ul>
@@ -28,6 +28,11 @@
       <a [routerLink]="['/admin/manager']" class="white"><span class="glyphicon glyphicon-chevron-left"></span></a>
     </header>
     <ul class="nav nav-tabs nav-justified">
+      <li role="presentation" class="active">
+        <a [routerLink]="['/restaurant/', manager.restaurantId]" class="btn">
+          {{manager.firstName}}'s Profile
+        </a>
+      </li>
       <li role="presentation">
         <a [routerLink]="['/admin/restaurant/', manager.restaurantId, 'driver']" class="btn">
           View Drivers

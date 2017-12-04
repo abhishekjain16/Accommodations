@@ -1,6 +1,7 @@
 
 <div class="container-fluid">
   <ul class="nav nav-tabs nav-justified">
+    <li role="presentation"><a [routerLink]="['/admin/manager']">Managers</a></li>
     <li role="presentation"><a [routerLink]="['/admin/restaurant', this.restaurantId, 'chef']">Chefs</a></li>
     <li role="presentation" class="active"><a [routerLink]="['/admin/restaurant/', this.restaurantId, 'driver']">Drivers</a></li>
     <li role="presentation"><a [routerLink]="['/admin/restaurant/', this.restaurantId, 'order']">Orders</a></li>

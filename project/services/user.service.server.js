@@ -1,6 +1,19 @@
 module.exports = function (app) {
+  // facebookConfig = {
+  //   clientID     : '382552615534382',
+  //   clientSecret : '0353493dfdbfdc9912a64837b593bc82',
+  //   callbackURL  : 'http://localhost:3000/auth/facebook/callback'
+  // };
 
   var UserModel = require('../model/user/user.model.server');
+  var passport = require('passport');
+  passport.serializeUser(serializeUser);
+  passport.deserializeUser(deserializeUser);
+  var LocalStrategy = require('passport-local').Strategy;
+  passport.use(new LocalStrategy(localStrategy));
+  var bcrypt = require("bcrypt-nodejs");
+  var FacebookStrategy = require('passport-facebook').Strategy;
+  // passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
 
   app.get('/api/user', findUsers);
   app.get('/api/user/:userId', findUser);
@@ -10,6 +23,9 @@ module.exports = function (app) {
   app.get('/api/restaurant/:restaurantId/manager', findManagerByRestaurantId);
   app.get('/api/restaurant/:restaurantId/chef', findChefByRestaurantId);
   app.get('/api/restaurant/:restaurantId/driver', findDriverByRestaurantId);
+  app.post('/api/login', passport.authenticate('local'), login);
+  app.post('/api/logout', logout);
+  app.post('/api/loggedin', loggedin);
 
 
   function findUsers(req, res) {
@@ -78,6 +94,7 @@ module.exports = function (app) {
 
   function createUser(req, res) {
     var user = req.body;
+    user.password = bcrypt.hashSync(user.password);
     UserModel.createUser(user)
       .then(function (user) {
         res.json(user);
@@ -119,5 +136,55 @@ module.exports = function (app) {
       .then(function (user) {
         res.json(user);
       })
+  }
+
+  function serializeUser(user, done) {
+    done(null, user);
+  }
+
+  function deserializeUser(user, done) {
+    UserModel
+      .findUserById(user._id)
+      .then(
+        function(user){
+          done(null, user);
+        },
+        function(err){
+          done(err, null);
+        }
+      );
+  }
+
+  function localStrategy(username, password, done) {
+    UserModel
+      .findUserByUsername(username)
+      .then(
+        function(user) {
+          if(user && bcrypt.compareSync(password, user.password)) {
+            return done(null, user);
+          } else {
+            return done(null, false);
+          }
+        },
+        function(err) {
+          if (err) {
+            return done(err);
+          }
+        }
+      );
+  }
+
+  function login(req, res) {
+    var user = req.user;
+    res.json(user);
+  }
+
+  function logout(req, res) {
+    req.logOut();
+    res.send(200);
+  }
+
+  function loggedin(req, res) {
+    res.send(req.isAuthenticated() ? req.user : '0');
   }
 }
