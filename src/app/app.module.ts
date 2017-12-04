@@ -29,6 +29,9 @@ import { AdminUserListComponent } from './components/admin/admin-user-list/admin
 import { AdminManagerListComponent } from './components/admin/admin-manager-list/admin-manager-list.component';
 import { DriverListComponent } from './components/driver/driver-list/driver-list.component';
 import { ChefListComponent } from './components/chef/chef-list/chef-list.component';
+import { MenuListComponent } from './components/menu/menu-list/menu-list.component';
+import { MenuEditComponent } from './components/menu/menu-edit/menu-edit.component';
+
 
 @NgModule({
   // Declare components here
@@ -53,7 +56,9 @@ import { ChefListComponent } from './components/chef/chef-list/chef-list.compone
     AdminUserListComponent,
     AdminManagerListComponent,
     DriverListComponent,
-    ChefListComponent
+    ChefListComponent,
+    MenuListComponent,
+    MenuEditComponent,
   ],
   imports: [
     BrowserModule,

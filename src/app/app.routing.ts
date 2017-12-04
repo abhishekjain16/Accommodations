@@ -20,6 +20,7 @@ import {ChefOrderListComponent} from './components/chef/chef-order-list/chef-ord
 import {ChefListComponent} from './components/chef/chef-list/chef-list.component';
 import {AdminUserListComponent} from './components/admin/admin-user-list/admin-user-list.component';
 import {AdminManagerListComponent} from './components/admin/admin-manager-list/admin-manager-list.component';
+import {MenuListComponent} from './components/menu/menu-list/menu-list.component';
 
 const APP_ROUTES: Routes = [
   {path: '', component : HomeComponent},
@@ -30,8 +31,10 @@ const APP_ROUTES: Routes = [
   {path: 'api/yelp', component: YelpApiTestComponent},
   {path: 'api/yelp/:yelpId', component: YelpApiDetailComponent},
   {path: 'restaurant/:restaurantId/register', component: ManagerRegisterComponent},
-  {path: 'restaurant/:restaurantId', component: ManagerDashboardComponent},
+  {path: 'restaurant/:restaurantId/manage', component: ManagerDashboardComponent},
   {path: 'restaurant/:restaurantId/manage/order', component: ManagerOrderComponent},
+
+  {path: 'restaurant/:restaurantId/manage/menu', component: MenuListComponent},
   {path: 'restaurant/:restaurantId/driver', component: DriverListComponent},
   {path: 'restaurant/:restaurantId/chef', component: ChefListComponent},
   {path: 'restaurant/:restaurantId/chef/register', component: ChefRegisterComponent},

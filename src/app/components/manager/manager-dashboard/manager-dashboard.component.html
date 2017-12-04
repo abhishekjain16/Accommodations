@@ -17,10 +17,15 @@
         </a>
       </li>
       <li role="presentation">
-        <a [routerLink]="['/restaurant/', manager.restaurantId, 'driver']" class="btn">
-          View Chefs
-        </a>
-      </li>
+      <a [routerLink]="['/restaurant/', manager.restaurantId, 'driver']" class="btn">
+        View Chefs
+      </a>
+    </li>
+    <li role="presentation">
+      <a [routerLink]="['/restaurant/', manager.restaurantId, 'manage/','menu']" class="btn">
+        View Menu
+      </a>
+    </li>
     </ul>
   </div>
   <ng-template #header>
