@@ -1,0 +1,9 @@
+<div id="home_page_background">
+  <img src="../../../../assets/resources/FoodSpot_logo1.png" class="logo_left_margin">
+  <a href="#" class="loginButton">Login</a>
+  <a href="#" class="signUpButton">Create an Account</a>
+  <input [(ngModel)]="restaurant" placeholder="Restaurant Name" class="restaurant_seach_input_field form-control">
+  <input [(ngModel)]="location" placeholder="Location" class="location_seach_input_field form-control">
+  <button (click)="SearchRestaurant(restaurant,location)"
+            class="btn btn-primary btn-block search_button">Search</button>
+</div>

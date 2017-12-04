@@ -1,1 +1,85 @@
 /* You can add global styles to this file, and also import other style files */
+
+#home_page_background {
+  background: url(../src/assets/resources/home_page_background_image2.jpg);
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: RGBA(0, 0, 0, 0.61);
+  min-height: 650px;
+  width: 100%;
+}
+
+.search_elements
+{
+  margin-left: 100px;
+}
+
+.loginButton {
+  padding-top: 5px;
+  display:block;
+  background-color: green;
+  color: white;
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  width: 50px;
+  height: 30px;
+  text-align:center;
+}
+
+.signUpButton {
+  padding-top: 5px;
+  display:block;
+  background-color: green;
+  color: white;
+  text-align:center;
+  position: absolute;
+  top: 20px;
+  right: 70px;
+  width: 130px;
+  height: 30px;
+}
+
+.restaurant_seach_input_field{
+  display: block;
+  float: left;
+  height: 40px;
+  width: 200px;
+  margin-right: 5px;
+  text-align: left;
+  line-height: 50px;
+  text-decoration: none;
+  margin-left: 250px;
+  margin-top: 200px;
+}
+
+.location_seach_input_field{
+  display: block;
+  float: left;
+  height: 40px;
+  width: 200px;
+  margin-right: 5px;
+  text-align: left;
+  line-height: 50px;
+  text-decoration: none;
+  margin-top: 200px;
+}
+
+.search_button{
+  padding-top: 5px;
+  display:block;
+  background-color: green;
+  color: white;
+  width: 60px;
+  height: 40px;
+  text-align:center;
+  float: left;
+  margin-top: 200px;
+}
+
+.restro_image{
+  width: 100px;
+  height: 100px;
+  margin-left: 500px;
+}

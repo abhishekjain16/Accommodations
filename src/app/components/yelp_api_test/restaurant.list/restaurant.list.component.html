@@ -1,0 +1,16 @@
+<!--<input [(ngModel)]="restaurant" placeholder="Restaurant Name" class="restaurant_seach_input_field form-control">-->
+<!--<input [(ngModel)]="location" placeholder="Location" class="location_seach_input_field form-control">-->
+<!--<button (click)="SearchRestaurant(restaurant,location)"-->
+        <!--class="btn btn-primary btn-block search_button">Search</button>-->
+<div class="container-fluid page-margin">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let restaurant of searchedRestro">
+      <a [routerLink]="['/restaurant',restaurant.id]">
+        {{restaurant['name']}}
+      </a>
+      <a [routerLink]="">
+        {{restaurant['phone']}}
+      </a>
+      <img class="restro_image" src="{{restaurant['image_url']}}" />
+  </ul>
+</div>
