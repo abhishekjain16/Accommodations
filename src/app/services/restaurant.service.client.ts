@@ -5,7 +5,7 @@ import 'rxjs/Rx';
 
 @Injectable()
 
-export class YelpServiceClient {
+export class RestaurantServiceClient {
   searchRestaurantByName(name: String, location: String) {
     const url = environment.baseUrl + '/api/yelp/accesstoken?title=' + name + '&location=' + location;
     return this.http.get(url)
@@ -15,7 +15,6 @@ export class YelpServiceClient {
   }
 
   SearchBusinessById(id: String) {
-    alert('inside yelp client by id');
     const url = environment.baseUrl + '/api/yelp/' + id;
     return this.http.get(url)
       .map((response: Response) => {

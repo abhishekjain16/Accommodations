@@ -13,9 +13,9 @@ import {UserService } from './services/user.service.client';
 import {LoginComponent} from './components/user/login/login.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
 import { RegisterComponent } from './components/user/register/register.component';
-import { YelpApiTestComponent } from './components/yelp_api_test/yelp.api.test/yelp.api.test.component';
-import { YelpApiDetailComponent } from './components/yelp_api_test/yelp.api.detail/yelp.api.detail.component';
-import { YelpServiceClient } from './services/yelp.service.client';
+import { RestaurantSearchComponent } from './components/yelp_api_test/restaurant.search/restaurant.search.component';
+import { RestaurantDetailComponent } from './components/yelp_api_test/restaurant.detail/restaurant.detail.component';
+import { RestaurantServiceClient } from './services/restaurant.service.client';
 import { ManagerRegisterComponent } from './components/manager/manager-register/manager-register.component';
 import { ManagerDashboardComponent } from './components/manager/manager-dashboard/manager-dashboard.component';
 import { ManagerOrderComponent } from './components/manager/manager-order/manager-order.component';
@@ -31,6 +31,8 @@ import { DriverListComponent } from './components/driver/driver-list/driver-list
 import { ChefListComponent } from './components/chef/chef-list/chef-list.component';
 import {SharedService} from './services/shared.service';
 import {AuthGuard} from './services/auth-guard.service';
+import { RestaurantListComponent } from './components/yelp_api_test/restaurant.list/restaurant.list.component';
+import { RatingModule} from 'ng2-rating';
 
 @NgModule({
   // Declare components here
@@ -41,8 +43,8 @@ import {AuthGuard} from './services/auth-guard.service';
     LoginComponent,
     ProfileComponent,
     RegisterComponent,
-    YelpApiTestComponent,
-    YelpApiDetailComponent,
+    RestaurantSearchComponent,
+    RestaurantDetailComponent,
     ManagerRegisterComponent,
     ManagerDashboardComponent,
     ManagerOrderComponent,
@@ -55,17 +57,19 @@ import {AuthGuard} from './services/auth-guard.service';
     AdminUserListComponent,
     AdminManagerListComponent,
     DriverListComponent,
-    ChefListComponent
+    ChefListComponent,
+    RestaurantListComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
     Routing,
-    QuillEditorModule
+    QuillEditorModule,
+    RatingModule
   ],
   // Client Side services here
-  providers: [ TestService, UserService, YelpServiceClient, SharedService, AuthGuard],
+  providers: [ TestService, UserService, RestaurantServiceClient, SharedService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

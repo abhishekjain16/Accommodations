@@ -1,24 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { YelpServiceClient} from '../../../services/yelp.service.client';
+import { RestaurantServiceClient} from '../../../services/restaurant.service.client';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
-  selector: 'app-yelp.api.detail',
-  templateUrl: './yelp.api.detail.component.html',
-  styleUrls: ['./yelp.api.detail.component.css']
+  selector: 'app-restaurant.detail',
+  templateUrl: './restaurant.detail.component.html',
+  styleUrls: ['./restaurant.detail.component.css']
 })
-export class YelpApiDetailComponent implements OnInit {
+export class RestaurantDetailComponent implements OnInit {
 
   yelpId: String;
   businessName: String;
   image: any;
   ratings: any;
   number: String;
-  constructor( private yelpService: YelpServiceClient,
+  constructor( private restaurantService: RestaurantServiceClient,
                private activatedRoute: ActivatedRoute) { }
   SearchBusinessById(id: String) {
     console.log('api details componenet');
-    this.yelpService.SearchBusinessById(id)
+    this.restaurantService.SearchBusinessById(id)
       .subscribe( (result) => {
         this.businessName = result.name;
         this.image = result.image_url;
@@ -29,10 +29,10 @@ export class YelpApiDetailComponent implements OnInit {
     this.activatedRoute.params
       .subscribe(
         (params: any) => {
-          this.yelpId = params['yelpId'];
+          this.yelpId = params['restaurantId'];
         });
     console.log('api details componenet');
-    this.yelpService.SearchBusinessById(this.yelpId)
+    this.restaurantService.SearchBusinessById(this.yelpId)
       .subscribe( (result) => {
         console.log(result);
         this.businessName = result.name;

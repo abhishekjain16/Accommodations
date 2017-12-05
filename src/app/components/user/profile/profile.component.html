@@ -34,7 +34,7 @@
          [(ngModel)]="last_name"
          class="form-control" />
 
-  <a [routerLink]= "['/login']" class="btn btn-danger btn-block">Logout</a>
+  <a (click)="logout()" class="btn btn-danger btn-block">Logout</a>
 </div>
 </form>
 <footer>

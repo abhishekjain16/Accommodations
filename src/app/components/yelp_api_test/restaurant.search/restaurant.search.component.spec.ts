@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { YelpApiDetailComponent } from './yelp.api.detail.component';
+import { RestaurantSearchComponent } from './restaurant.search.component';
 
-describe('Yelp.Api.DetailComponent', () => {
-  let component: YelpApiDetailComponent;
-  let fixture: ComponentFixture<YelpApiDetailComponent>;
+describe('RestaurantSearchComponent', () => {
+  let component: RestaurantSearchComponent;
+  let fixture: ComponentFixture<RestaurantSearchComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ YelpApiDetailComponent ]
+      declarations: [ RestaurantSearchComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(YelpApiDetailComponent);
+    fixture = TestBed.createComponent(RestaurantSearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
