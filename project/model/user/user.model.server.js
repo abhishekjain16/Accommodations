@@ -30,6 +30,7 @@ function findUserByUsername(username) {
 }
 
 function createUser(user) {
+  console.log('model create user');
   return UserModel.create(user);
 }
 

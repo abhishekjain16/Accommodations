@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+.page-margin
+{
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  margin-top: 50px;
+  padding-top: 15px
+}

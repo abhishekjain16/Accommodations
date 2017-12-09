@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {NgForm} from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../../services/user.service.client';
+import { MenuService } from '../../../services/menu.service.client';
 
 @Component({
   selector: 'app-manager-dashboard',
@@ -21,7 +22,9 @@ export class ManagerDashboardComponent implements OnInit {
   active: boolean;
 
   constructor(private activatedRoute: ActivatedRoute,
-              private userService: UserService) { }
+              private userService: UserService,
+              private  menuService: MenuService,
+              private router: Router) { }
 
   ngOnInit() {
     this.activatedRoute.params
@@ -77,6 +80,19 @@ export class ManagerDashboardComponent implements OnInit {
           this.manager = manager;
         },
         (error: any) => {
+        }
+      );
+  }
+
+  AddOrViewMenu() {
+    this.menuService.findMenuByRestroId(this.restaurantId)
+      .subscribe(
+        (menu: any) => {
+          if (menu) {
+            this.router.navigate(['/manager/restaurant/', this.restaurantId, 'menu']);
+          } else {
+            this.router.navigate(['/manager/restaurant/', this.restaurantId, 'menu', 'new']);
+          }
         }
       );
   }

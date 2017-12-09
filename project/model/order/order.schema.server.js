@@ -11,7 +11,9 @@ var OrderSchema = mongoose.Schema({
   chefId: {type: mongoose.Schema.Types.ObjectId, ref:'UserModel'},
   state: {type: String, enum:['cart','paid','ready','delivered','cancelled']},
   subTotal: Number,
-  dateCreated: {type: Date,default: Date.now()}
+  dateCreated: {type: Date,default: Date.now()},
+  minOrderLimit: Number,
+  tax: Number
 }, { collection: 'order' });
 
 module.exports = OrderSchema;
