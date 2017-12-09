@@ -10,6 +10,7 @@ import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import {TestService} from './services/test.service.client';
 import {UserService } from './services/user.service.client';
+import {MenuService} from './services/menu.service.client';
 import {LoginComponent} from './components/user/login/login.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
 import { RegisterComponent } from './components/user/register/register.component';
@@ -38,6 +39,16 @@ import { NguiMapModule} from '@ngui/map';
 import {OrderDetailComponent} from './components/order/order-detail/order-detail.component';
 import {OrderService} from './services/order.service.client';
 import { OrderCheckoutComponent } from './components/order/order-checkout/order-checkout.component';
+import { MenuNewComponent } from './components/menu/menu-new/menu-new.component';
+import { MenuListComponent } from './components/menu/menu-list/menu-list.component';
+import { MenuEditComponent } from './components/menu/menu-edit/menu-edit.component';
+import { MenuItemService } from './services/menuItem.service.client';
+import { MenuItemListComponent } from './components/menuItem/menu-item-list/menu-item-list.component';
+import { MenuItemEditComponent } from './components/menuItem/menu-item-edit/menu-item-edit.component';
+import { MenuItemNewComponent } from './components/menuItem/menu-item-new/menu-item-new.component';
+import { OrderListComponent } from './components/order/order-list/order-list.component';
+import { OrderEditComponent } from './components/order/order-edit/order-edit.component';
+import { OrderNewComponent } from './components/order/order-new/order-new.component';
 
 @NgModule({
   // Declare components here
@@ -66,6 +77,15 @@ import { OrderCheckoutComponent } from './components/order/order-checkout/order-
     RestaurantListComponent,
     OrderDetailComponent,
     OrderCheckoutComponent
+    MenuNewComponent,
+    MenuListComponent,
+    MenuEditComponent,
+    MenuItemListComponent,
+    MenuItemEditComponent,
+    MenuItemNewComponent,
+    OrderListComponent,
+    OrderEditComponent,
+    OrderNewComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +98,7 @@ import { OrderCheckoutComponent } from './components/order/order-checkout/order-
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyB9yDXupcPoh_os3o48_KeUYys6hfxTsAM'})
   ],
   // Client Side services here
-  providers: [ TestService, UserService, RestaurantServiceClient, SharedService, AuthGuard, OrderService],
+  providers: [ TestService, UserService, RestaurantServiceClient, SharedService, AuthGuard, OrderService, MenuService, MenuItemService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

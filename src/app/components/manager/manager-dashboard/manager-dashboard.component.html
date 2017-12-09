@@ -3,7 +3,7 @@
     <ul class="nav nav-tabs nav-justified">
       <li role="presentation" class="active">
         <a [routerLink]="['/restaurant/', manager.restaurantId]" class="btn">
-          My Profile
+          {{manager.firstName}}'s Profile
         </a>
       </li>
       <li role="presentation">
@@ -21,6 +21,11 @@
           View Orders
         </a>
       </li>
+      <li role="presentation">
+        <a (click)="AddOrViewMenu()" class="btn">
+          View Menu
+        </a>
+      </li>
     </ul>
   </div>
   <ng-template #header>
@@ -30,7 +35,7 @@
     <ul class="nav nav-tabs nav-justified">
       <li role="presentation" class="active">
         <a [routerLink]="['/restaurant/', manager.restaurantId]" class="btn">
-          {{manager.firstName}}'s Profile
+          My Profile
         </a>
       </li>
       <li role="presentation">
@@ -41,6 +46,11 @@
       <li role="presentation">
         <a [routerLink]="['/admin/restaurant/', manager.restaurantId, 'chef']" class="btn">
           View Chefs
+        </a>
+      </li>
+      <li role="presentation">
+        <a class="btn">
+          View Menu
         </a>
       </li>
     </ul>

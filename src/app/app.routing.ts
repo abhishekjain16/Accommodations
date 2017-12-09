@@ -24,6 +24,12 @@ import {AuthGuard} from './services/auth-guard.service';
 import {RestaurantListComponent} from './components/restaurant/restaurant.list/restaurant.list.component';
 import {OrderDetailComponent} from './components/order/order-detail/order-detail.component';
 import {OrderCheckoutComponent} from './components/order/order-checkout/order-checkout.component';
+import {MenuListComponent} from './components/menu/menu-list/menu-list.component';
+import {MenuNewComponent} from './components/menu/menu-new/menu-new.component';
+import {MenuEditComponent} from './components/menu/menu-edit/menu-edit.component';
+import {MenuItemNewComponent} from "./components/menuItem/menu-item-new/menu-item-new.component";
+import {MenuItemListComponent} from "./components/menuItem/menu-item-list/menu-item-list.component";
+import {MenuItemEditComponent} from "./components/menuItem/menu-item-edit/menu-item-edit.component";
 
 const APP_ROUTES: Routes = [
   {path: '', component : RestaurantSearchComponent},
@@ -40,6 +46,12 @@ const APP_ROUTES: Routes = [
   {path: 'manager/restaurant/:restaurantId/order', component: ManagerOrderComponent, canActivate: [AuthGuard]},
   {path: 'manager/restaurant/:restaurantId/driver', component: DriverListComponent, canActivate: [AuthGuard]},
   {path: 'manager/restaurant/:restaurantId/chef', component: ChefListComponent, canActivate: [AuthGuard]},
+  {path: 'manager/restaurant/:restaurantId/menu', component: MenuListComponent, canActivate: [AuthGuard]},
+  {path: 'manager/restaurant/:restaurantId/menu/new', component: MenuNewComponent, canActivate: [AuthGuard]},
+  {path: 'manager/restaurant/:restaurantId/menu/:menuId', component: MenuEditComponent, canActivate: [AuthGuard]},
+  {path: 'manager/restaurant/:restaurantId/menu/:menuId/menuItem/new', component: MenuItemNewComponent, canActivate: [AuthGuard]},
+  {path: 'manager/restaurant/:restaurantId/menu/:menuId/menuItem', component: MenuItemListComponent, canActivate: [AuthGuard]},
+  {path: 'manager/restaurant/:restaurantId/menu/:menuId/menuItem/:menuItemId', component: MenuItemEditComponent, canActivate: [AuthGuard]},
   {path: 'restaurant/:restaurantId/chef/register', component: ChefRegisterComponent},
   {path: 'chef/restaurant/:restaurantId/order', component: ChefOrderListComponent, canActivate: [AuthGuard]},
   {path: 'chef/restaurant/:restaurantId/order/:orderId', component: ChefOrderDetailComponent, canActivate: [AuthGuard]},

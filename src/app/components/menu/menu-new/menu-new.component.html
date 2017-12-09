@@ -1,0 +1,64 @@
+<form (ngSubmit) = "AddMenu()" #f="ngForm">
+
+  <nav class="navbar sadaab-navbar-color navbar-default navbar-fixed-top nav-collapse collapsing" style="height:60px">
+    <p class="navbar-text pull-left page-new-top-glyp-margin">
+      <a [routerLink]="['/manager', 'restaurant', restaurantId ]" class="navbar-link">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+    </p>
+
+    <!--heading on the nav bar-->
+    <p class="navbar-header pull-left page-new-top-glyp-margin">
+      <a class="navbar-brand thick">
+        <b>Menu</b>
+      </a>
+    </p>
+
+    <p class="navbar-text pull-right page-new-top-glyp-margin">
+      <a (click)="AddMenu()"
+         class="navbar-link">
+        <span class="glyphicon glyphicon-ok"></span>
+      </a>
+    </p>
+  </nav>
+
+
+  <div *ngIf="error"
+       class="alert alert-danger margin-top-huge">
+    {{error}}
+  </div>
+
+  <div class="container-fluid page-margin">
+    <div class="row">
+      <label class="">Delivery Charge</label>
+      <input class="form-control"
+             type="text"
+             id = "deliveryCharge"
+             [(ngModel)] = "deliveryCharge"
+             placeholder="Delivery Charge"
+             name="deliveryCharge"/>
+      <label class="">Order limit</label>
+      <input class="form-control"
+             type="text"
+             id = "orderLimit"
+             [(ngModel)] = "orderLimit"
+             placeholder="Minimum order limit"
+             name="orderLimit"/>
+    </div>
+  </div>
+</form>
+
+<div class="container-fluid">
+  <a>
+    <span class="glyphicon glyphicon-plus pull-right"></span>
+  </a>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let item of menuItems">
+      <a>
+        {{item['name']}}
+      </a>
+      <a>
+        <span class="glyphicon glyphicon-cog pull-right"></span>
+      </a>
+  </ul>
+</div>
