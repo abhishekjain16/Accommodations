@@ -6,6 +6,7 @@ module.exports = function(app) {
 
   app.get("/api/yelp/accesstoken", searchRestaurantByName);
   app.get("/api/yelp/:yelpId", searchRestaurantByYelpId);
+  app.get("/api/yelp/:yelpId/reviews", reviewsByYelpId);
 
   function searchRestaurantByName(req, res) {
     var name = req.query.title;
@@ -36,6 +37,21 @@ module.exports = function(app) {
       .catch(function(result){
         console.log("Error")
       });
+  }
+
+  function reviewsByYelpId(req, res) {
+    var id = req.params.yelpId;
+    var config = {id: client_id, secret: client_secret};
+    y = new yelp(config);
+    const token = y
+      .reviews(id)
+      .then(function(result){
+        res.json(result);
+      })
+      .catch(function(result){
+        console.log("Error")
+      });
+
   }
 };
 

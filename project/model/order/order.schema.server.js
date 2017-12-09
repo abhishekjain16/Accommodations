@@ -9,7 +9,7 @@ var OrderSchema = mongoose.Schema({
   customerId: {type: mongoose.Schema.Types.ObjectId, ref: 'UserModel'},
   driverId: {type: mongoose.Schema.Types.ObjectId, ref:'UserModel'},
   chefId: {type: mongoose.Schema.Types.ObjectId, ref:'UserModel'},
-  state: {type: String, enum:['cart','paid','ready','delivered','cancelled']},
+  state: {type: String, enum:['cart','paid','ready','delivered','cancelled'], default: 'cart'},
   subTotal: Number,
   dateCreated: {type: Date,default: Date.now()}
 }, { collection: 'order' });

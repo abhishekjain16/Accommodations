@@ -9,36 +9,63 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class RestaurantDetailComponent implements OnInit {
 
-  yelpId: String;
-  businessName: String;
+  restaurantId: String;
+  name: String;
   image: any;
   ratings: any;
   number: String;
+  images = [];
+  restaurant = {};
+  positions = [];
+  center: string;
+  hours = [];
+  days = [];
+  reviews = [];
+
   constructor( private restaurantService: RestaurantServiceClient,
                private activatedRoute: ActivatedRoute) { }
+
   SearchBusinessById(id: String) {
-    console.log('api details componenet');
     this.restaurantService.SearchBusinessById(id)
       .subscribe( (result) => {
-        this.businessName = result.name;
+        this.name = result.name;
         this.image = result.image_url;
         this.ratings = result.rating;
+        this.restaurant = result;
       });
   }
+
   ngOnInit() {
     this.activatedRoute.params
       .subscribe(
         (params: any) => {
-          this.yelpId = params['restaurantId'];
+          this.restaurantId = params['restaurantId'];
         });
-    console.log('api details componenet');
-    this.restaurantService.SearchBusinessById(this.yelpId)
+    this.restaurantService.SearchBusinessById(this.restaurantId)
       .subscribe( (result) => {
-        console.log(result);
-        this.businessName = result.name;
+        const coordinates = result['coordinates'];
+        this.name = result.name;
         this.image = result.image_url;
         this.ratings = result.rating;
         this.number = result.phone;
+        this.images = result.photos;
+        this.restaurant = result;
+        this.positions = [[coordinates['latitude'], coordinates['longitude']]];
+        this.center = coordinates['latitude'].toString() + ', ' + coordinates['longitude'].toString();
+        this.hours = result.hours[0]['open'];
+        this.days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
       });
+
+    this.restaurantService.getReviewsById(this.restaurantId)
+      .subscribe( (result) => {
+        this.reviews = result.reviews;
+      });
+  }
+  categories(cats) {
+    if (cats) {
+      return cats.map(a => a.title).join(', ');
+    } else {
+      return '';
+    }
   }
 }

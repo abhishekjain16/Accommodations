@@ -1,0 +1,17 @@
+.center-cropped {
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+.items {
+  height: 400px;
+  width: 1000px;
+}
+
+.ng2-carouselamos-wrapper {
+  width: 100% !important;
+}
+
+.white {
+  color: #ffffff;
+}

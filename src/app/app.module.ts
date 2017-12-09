@@ -33,6 +33,10 @@ import {SharedService} from './services/shared.service';
 import {AuthGuard} from './services/auth-guard.service';
 import { RestaurantListComponent } from './components/yelp_api_test/restaurant.list/restaurant.list.component';
 import { RatingModule} from 'ng2-rating';
+import { Ng2CarouselamosModule } from 'ng2-carouselamos';
+import { NguiMapModule} from '@ngui/map';
+import { OrderDetailComponent } from './components/order/order-detail/order-detail.component';
+import { OrderNewComponent } from './components/order/order-new/order-new.component';
 
 @NgModule({
   // Declare components here
@@ -58,7 +62,9 @@ import { RatingModule} from 'ng2-rating';
     AdminManagerListComponent,
     DriverListComponent,
     ChefListComponent,
-    RestaurantListComponent
+    RestaurantListComponent,
+    OrderDetailComponent,
+    OrderNewComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +72,9 @@ import { RatingModule} from 'ng2-rating';
     FormsModule,
     Routing,
     QuillEditorModule,
-    RatingModule
+    RatingModule,
+    Ng2CarouselamosModule,
+    NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyB9yDXupcPoh_os3o48_KeUYys6hfxTsAM'})
   ],
   // Client Side services here
   providers: [ TestService, UserService, RestaurantServiceClient, SharedService, AuthGuard],

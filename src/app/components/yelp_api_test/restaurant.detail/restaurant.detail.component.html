@@ -1,10 +1,73 @@
-<h2> {{businessName}} </h2>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <h2>{{name}}</h2>
+      <div>
+        <rating [(ngModel)]="restaurant['rating']"
+                readonly="true"
+                [float]="true">
+        </rating>
+        <span class="reviews">Reviews: {{restaurant['review_count']}}</span>
+        <div class="price">{{restaurant['price']}}</div>
+        <div class="categories">{{categories(restaurant['categories'])}} </div>
+      </div>
 
-<img class = "restro_image" src="{{image}}" />
+      <ngui-map
+        zoom="12"
+        center="Boston, USA"
+        [geoFallbackCenter]="positions[0]">
+        <marker *ngFor="let pos of positions"
+                [position]="pos"></marker>
+      </ngui-map>
 
-<h3> Phone number: {{number}}</h3>
+    </div>
 
-<h3> ratings : {{ratings}}</h3>
+    <div class="col-xs-12 col-sm-8">
+      <div
+        ng2-carouselamos
+        class="slides-wrapper"
+        [items]="images"
+        [width]="1000"
+        [$prev]="prev"
+        [$next]="next"
+        [$item]="item">
+      </div>
+      <ng-template #prev>
+        <span class="glyphicon glyphicon-arrow-left white"></span>
+      </ng-template>
+      <ng-template #next>
+        <span class="glyphicon glyphicon-arrow-right white"></span>
+      </ng-template>
+      <ng-template #item let-item let-i="index">
 
+        <div class="items">
+          <img class="center-cropped" src="{{ item }}">
+        </div>
 
-
+      </ng-template>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8">
+      <h3>Some of Reviews from Yelp</h3>
+      <ul>
+        <li *ngFor="let review of reviews">
+          {{review['text']}}
+        </li>
+      </ul>
+    </div>
+    <div class="col-xs-12 col-sm-4 time-slot">
+      <a [routerLink]="['/restaurant', restaurantId, 'order', 'new']"
+         class="btn btn-success">Place an Order
+      </a>
+      <div>
+        <h3>Hours of Operation</h3>
+        <ul>
+          <li *ngFor="let day of days; let i = index" [attr.data-index]="i">
+            {{day}} : {{ hours[i]['start']}} - {{hours[i]['end']}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -22,6 +22,8 @@ import {AdminUserListComponent} from './components/admin/admin-user-list/admin-u
 import {AdminManagerListComponent} from './components/admin/admin-manager-list/admin-manager-list.component';
 import {AuthGuard} from './services/auth-guard.service';
 import {RestaurantListComponent} from './components/yelp_api_test/restaurant.list/restaurant.list.component';
+import {OrderDetailComponent} from './components/order/order-detail/order-detail.component';
+import {OrderNewComponent} from './components/order/order-new/order-new.component';
 
 const APP_ROUTES: Routes = [
   {path: '', component : RestaurantSearchComponent},
@@ -32,6 +34,8 @@ const APP_ROUTES: Routes = [
   {path: 'search', component: RestaurantListComponent},
   // {path: 'search/restaurant/:restaurant/location/:location', component: RestaurantListComponent},
   {path: 'restaurant/:restaurantId', component: RestaurantDetailComponent},
+  {path: 'restaurant/:restaurantId/order/new', component: OrderNewComponent},
+  {path: 'restaurant/:restaurantId/order/:orderId', component: OrderDetailComponent},
   {path: 'restaurant/:restaurantId/register', component: ManagerRegisterComponent},
   {path: 'manager/restaurant/:restaurantId', component: ManagerDashboardComponent, canActivate: [AuthGuard]},
   {path: 'manager/restaurant/:restaurantId/order', component: ManagerOrderComponent, canActivate: [AuthGuard]},

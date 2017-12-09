@@ -21,5 +21,13 @@ export class RestaurantServiceClient {
         return response.json();
       });
   }
+
+  getReviewsById(id: String) {
+    const url = environment.baseUrl + '/api/yelp/' + id + '/reviews';
+    return this.http.get(url)
+      .map((response: Response) => {
+        return response.json();
+      });
+  }
   constructor(private  http: Http) {}
 }
