@@ -42,7 +42,10 @@ module.exports = function (app) {
   function createMenu(req, res) {
     var menu = req.body;
     var restroId = req.params['restaurantId'];
-    MenuModel.createMenu(restroId, menu)
+    menu.restaurantId = restroId;
+    menu.deliveryCharge = parseInt(menu.deliveryCharge);
+    menu.orderLimit = parseInt(menu.orderLimit);
+    MenuModel.createMenu(menu)
       .then(function (website) {
         res.json(website);
       });
