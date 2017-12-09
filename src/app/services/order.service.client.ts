@@ -17,8 +17,8 @@ export class OrderService {
   baseUrl = environment.baseUrl;
   options = new RequestOptions();
 
-  createOrder(restaurantId: String, order) {
-    const url = this.baseUrl + '/api/restaurant/' + restaurantId + '/order';
+  createOrder(userId: String, order) {
+    const url = this.baseUrl + '/api/user/' + userId + '/order';
     return this.http.post(url, order )
       .map(
         (res: Response) => {
@@ -37,7 +37,7 @@ export class OrderService {
       );
   }
   findAllOrdersByRestaurant(restaurantId: String, state: any) {
-    const url = this.baseUrl + '/api/restaurant/' + restaurantId + '/state/' + state;
+    const url = this.baseUrl + '/api/restaurant/' + restaurantId + 'order?state=' + state;
     return this.http.get(url)
       .map(
         (res: Response) => {
@@ -64,7 +64,7 @@ export class OrderService {
       );
   }
   findAllDriverOrders(driverId: String, state: any) {
-    const url = this.baseUrl + '/api/driver/' + driverId + '/state/' + state;
+    const url = this.baseUrl + '/api/driver/' + driverId + 'order?state=' + state;
     return this.http.get(url)
       .map(
         (res: Response) => {
@@ -82,7 +82,7 @@ export class OrderService {
       );
   }
   findAllChefOrders(chefId: String, state: any) {
-    const url = this.baseUrl + '/api/chef/' + chefId + '/state/' + state;
+    const url = this.baseUrl + '/api/chef/' + chefId + 'order?state=' + state;
     return this.http.get(url)
       .map(
         (res: Response) => {
