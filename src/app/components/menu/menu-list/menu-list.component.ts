@@ -26,7 +26,7 @@ export class MenuListComponent implements OnInit {
     this.menuService.findMenuByRestroId(this.restaurantId)
       .subscribe(
         (menu: any) => {
-          this.menuId = menu.id;
+          this.menuId = menu._id;
           this.deliveryCharge = menu.deliveryCharge;
           this.orderLimit = menu.orderLimit;
           this.menuItems = menu.menuItems;
