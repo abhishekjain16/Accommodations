@@ -42,8 +42,8 @@ export class OrderService {
       );
   }
 
-  findAllOrders() {
-    const url = this.baseUrl + '/api/orders';
+  findAllOrdersByRestaurant(restaurantId: String, state: any) {
+    const url = this.baseUrl + '/api/restaurant/' + restaurantId + 'order?state=' + state;
     return this.http.get(url)
       .map(
         (res: Response) => {
@@ -69,8 +69,9 @@ export class OrderService {
         }
       );
   }
+
   findAllDriverOrders(driverId: String, state: any) {
-    const url = this.baseUrl + '/api/driver/' + driverId + '/state/' + state;
+    const url = this.baseUrl + '/api/driver/' + driverId + 'order?state=' + state;
     return this.http.get(url)
       .map(
         (res: Response) => {
@@ -78,6 +79,7 @@ export class OrderService {
         }
       );
   }
+
   findAllCustomerOrders(customerId: String, state: any) {
     const url = this.baseUrl + '/api/customer/' + customerId + '/state/' + state;
     return this.http.get(url)
@@ -87,8 +89,9 @@ export class OrderService {
         }
       );
   }
+
   findAllChefOrders(chefId: String, state: any) {
-    const url = this.baseUrl + '/api/chef/' + chefId + '/state/' + state;
+    const url = this.baseUrl + '/api/chef/' + chefId + 'order?state=' + state;
     return this.http.get(url)
       .map(
         (res: Response) => {
