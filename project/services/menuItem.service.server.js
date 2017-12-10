@@ -1,6 +1,6 @@
 module.exports = function (app) {
 
-  var MenuItemModel = require('../model/menu/menuItem.model.server');
+  var MenuItemModel = require('../model/menuItem/menuItem.model.server');
 
   app.post('/api/restaurant/menu/:menuId/menuItem', addMenuItemForMenu);
   app.get('/api/menu/menuItem/:menuItemId', findMenuItemByItemId);

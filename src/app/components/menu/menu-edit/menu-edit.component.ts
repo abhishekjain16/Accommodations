@@ -15,6 +15,7 @@ export class MenuEditComponent implements OnInit {
   deliveryCharge: String;
   orderLimit: String;
   menuItems: any;
+  error = '';
 
   constructor(private menuService: MenuService,
               private activatedRoute: ActivatedRoute,
@@ -32,7 +33,7 @@ export class MenuEditComponent implements OnInit {
     this.menuService.findMenuByRestroId(this.restaurantId)
       .subscribe(
         (menu: any) => {
-          this.menuId = menu.id;
+          this.menuId = menu._id;
           this.deliveryCharge = menu.deliveryCharge;
           this.orderLimit = menu.orderLimit;
           this.menuItems = menu.menuItems;
@@ -41,20 +42,25 @@ export class MenuEditComponent implements OnInit {
   }
 
   EditMenu() {
-    const editedMenu = {
-      'restaurantId': this.restaurantId,
-      'deliveryCharge': this.menuEditForm.value.delivery,
-      'orderLimit': this.menuEditForm.value.orderLimit,
-      'menuItems': this.menuItems
-    };
-    this.menuService.UpdateMenuByMenuId(this.menuId, editedMenu)
-      .subscribe(
-        (menu: any) => {
-          this.deliveryCharge = menu.deliveryCharge;
-          this.orderLimit = menu.orderLimit;
-          this.menuItems = menu.menuItems;
-        }
-      );
+    const delCharge = this.menuEditForm.value.deliveryCharge;
+    const orderLimit = this.menuEditForm.value.orderLimit;
+    if ( delCharge && orderLimit ) {
+      const editedMenu = {
+        'restaurantId': this.restaurantId,
+        'deliveryCharge': this.menuEditForm.value.deliveryCharge,
+        'orderLimit': this.menuEditForm.value.orderLimit
+      };
+      this.menuService.UpdateMenuByMenuId(this.menuId, editedMenu)
+        .subscribe(
+          (menu: any) => {
+            this.deliveryCharge = menu.deliveryCharge;
+            this.orderLimit = menu.orderLimit;
+            this.menuItems = menu.menuItems;
+          }
+        );
+    } else {
+      this.error = 'Please enter delivery charge and minimum order limit';
+    }
   }
   DeleteMenu() {
     this.menuService.deleteMenu(this.menuId)

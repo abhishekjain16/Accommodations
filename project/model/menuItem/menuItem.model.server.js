@@ -25,7 +25,7 @@ function updateMenuItemById(menuId, menu) {
 }
 
 function addMenuItemForMenu(menuId, menuItem) {
-  menu.menuId = menuId;
+  console.log(menuItem);
   return MenuItemModel.create(menuItem);
 }
 
