@@ -51,15 +51,7 @@ export class OrderService {
         }
       );
   }
-  findAllOrdersByRestaurant(restaurantId: String, state: any) {
-    const url = this.baseUrl + '/api/restaurant/' + restaurantId + '/state/' + state;
-    return this.http.get(url)
-      .map(
-        (res: Response) => {
-          return res.json();
-        }
-      );
-  }
+
   updateOrder(orderId: String, order: any) {
     const url = this.baseUrl + '/api/order/' + orderId;
     return this.http.put(url, order )

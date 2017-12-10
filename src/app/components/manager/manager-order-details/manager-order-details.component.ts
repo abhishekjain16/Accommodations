@@ -10,9 +10,9 @@ import {OrderService} from '../../../services/order.service.client';
 })
 export class ManagerOrderDetailsComponent implements OnInit {
 
-  restaurantId: String;
+  restaurantId: string;
   order: {};
-  orderId: String;
+  orderId: string;
   orderItems: [{}];
   constructor(private orderItemService: OrderItemService,
               private activatedRoute: ActivatedRoute,

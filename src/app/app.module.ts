@@ -48,8 +48,6 @@ import { MenuItemEditComponent } from './components/menuItem/menu-item-edit/menu
 import { MenuItemNewComponent } from './components/menuItem/menu-item-new/menu-item-new.component';
 import { OrderListComponent } from './components/order/order-list/order-list.component';
 import { OrderEditComponent } from './components/order/order-edit/order-edit.component';
-import { OrderNewComponent } from './components/order/order-new/order-new.component';
-import { OrderService} from './services/order.service.client';
 import { ManagerOrderDetailsComponent } from './components/manager/manager-order-details/manager-order-details.component';
 import { OrderItemService} from './services/orderItem.service.client';
 
@@ -79,7 +77,7 @@ import { OrderItemService} from './services/orderItem.service.client';
     ChefListComponent,
     RestaurantListComponent,
     OrderDetailComponent,
-    OrderCheckoutComponent
+    OrderCheckoutComponent,
     MenuNewComponent,
     MenuListComponent,
     MenuEditComponent,
@@ -88,7 +86,6 @@ import { OrderItemService} from './services/orderItem.service.client';
     MenuItemNewComponent,
     OrderListComponent,
     OrderEditComponent,
-    OrderNewComponent,
     ManagerOrderDetailsComponent
   ],
   imports: [
@@ -102,7 +99,7 @@ import { OrderItemService} from './services/orderItem.service.client';
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyB9yDXupcPoh_os3o48_KeUYys6hfxTsAM'})
   ],
   // Client Side services here
-  providers: [ TestService, UserService, YelpServiceClient, SharedService, AuthGuard, MenuService, MenuItemService, OrderService, OrderItemService],
+  providers: [ TestService, UserService, RestaurantServiceClient, SharedService, AuthGuard, MenuService, MenuItemService, OrderService, OrderItemService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
