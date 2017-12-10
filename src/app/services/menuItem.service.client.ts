@@ -28,11 +28,11 @@ export class MenuItemService {
   }
 
   findMenuItemByItemId(menuItemId: String) {
-    const url = this.baseUrl + '/api/menu/menuItem' + menuItemId;
+    const url = this.baseUrl + '/api/menu/menuItem/' + menuItemId;
     return this.http.get(url)
       .map(
         (res: Response) => {
-          res.json();
+          return res.json();
         }
       );
   }
@@ -46,7 +46,7 @@ export class MenuItemService {
       );
   }
   updateMenuItem(menuItemId: String, menuItem) {
-    const url = this.baseUrl + '/api/menu/menuItem' + menuItemId;
+    const url = this.baseUrl + '/api/menu/menuItem/' + menuItemId;
     return this.http.put(url, menuItem )
       .map(
         (res: Response) => {
@@ -56,7 +56,16 @@ export class MenuItemService {
       );
   }
   deleteMenuItem(menuItemId: String) {
-    const url = this.baseUrl + '/api/menu/menuItem' + menuItemId;
+    const url = this.baseUrl + '/api/menu/menuItem/' + menuItemId;
+    return this.http.delete(url)
+      .map(
+        (res: Response) => {
+          return res.json();
+        }
+      );
+  }
+  deleteMenuItemsByMenuId(menuId: String) {
+    const url = this.baseUrl + '/api/menu/' + menuId;
     return this.http.delete(url)
       .map(
         (res: Response) => {

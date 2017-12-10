@@ -1,3 +1,61 @@
-<p>
-  menu-item-edit works!
-</p>
+<form (ngSubmit) = "UpdateMenuItem()" #f="ngForm">
+
+  <nav class="navbar sadaab-navbar-color navbar-default navbar-fixed-top nav-collapse collapsing" style="height:60px">
+    <p class="navbar-text pull-left page-new-top-glyp-margin">
+      <a [routerLink]="['/manager', 'restaurant', restaurantId, 'menu', menuId ]" class="navbar-link">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+    </p>
+
+    <!--heading on the nav bar-->
+    <p class="navbar-header pull-left page-new-top-glyp-margin">
+      <a class="navbar-brand thick">
+        <b>Edit Menu Item</b>
+      </a>
+    </p>
+  </nav>
+
+
+  <div *ngIf="error"
+       class="alert alert-danger margin-top-huge">
+    {{error}}
+  </div>
+
+  <div class="container-fluid page-margin">
+    <div class="row">
+      <label class="">Name</label>
+      <input class="form-control"
+             type="text"
+             id = "name"
+             [(ngModel)] = "name"
+             placeholder="Name"
+             name="name"
+             required/>
+      <label class="">Price</label>
+      <input class="form-control"
+             type="text"
+             id = "price"
+             [(ngModel)] = "price"
+             placeholder="Price"
+             name="price"
+             required/>
+      <label class="">Category</label>
+      <input class="form-control"
+             type="text"
+             id = "category"
+             [(ngModel)] = "category"
+             placeholder="Category"
+             name="category"
+             required/>
+      <label class="">Description</label>
+      <textarea class="form-control"
+                id="description"
+                name="description"
+                required
+                placeholder="Menu Item Description"
+                [(ngModel)] = "description"></textarea>
+      <button type="submit" class="btn btn-primary btn-block">Update menu Item</button>
+      <button (click)="DeleteMenuItem()" class="btn btn-primary btn-block">Delete menu Item</button>
+    </div>
+  </div>
+</form>

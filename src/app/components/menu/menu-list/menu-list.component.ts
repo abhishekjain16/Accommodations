@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {MenuService} from '../../../services/menu.service.client';
+import {MenuItemService} from '../../../services/menuItem.service.client';
 
 @Component({
   selector: 'app-menu-list',
@@ -15,7 +16,8 @@ export class MenuListComponent implements OnInit {
   orderLimit: String;
   menuItems: any;
   constructor(private activatedRoute: ActivatedRoute,
-              private menuService: MenuService) { }
+              private menuService: MenuService,
+              private menuItemService: MenuItemService) { }
   ngOnInit() {
     this.activatedRoute.params
       .subscribe(
@@ -29,10 +31,14 @@ export class MenuListComponent implements OnInit {
           this.menuId = menu._id;
           this.deliveryCharge = menu.deliveryCharge;
           this.orderLimit = menu.orderLimit;
-          this.menuItems = menu.menuItems;
+          this.menuItemService.findMenuItemsByMenuId(menu._id)
+            .subscribe(
+              (items: any) => {
+                this.menuItems = items;
+              }
+            );
         }
       );
-
   }
 
 }

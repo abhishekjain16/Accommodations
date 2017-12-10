@@ -9,14 +9,16 @@ MenuItemModel.findMenuItemsByMenuId = findMenuItemsByMenuId;
 MenuItemModel.updateMenuItemById = updateMenuItemById;
 MenuItemModel.addMenuItemForMenu = addMenuItemForMenu;
 MenuItemModel.deleteMenuItem = deleteMenuItem;
+MenuItemModel.deleteMenuItemsByMenuId = deleteMenuItemsByMenuId;
 
 module.exports = MenuItemModel;
 
 function findMenuItemByItemId(menuItemId) {
-  return MenuItemModel.findOne({menuItemid: menuItemId});
+  return MenuItemModel.findOne({_id: menuItemId});
 }
 
 function findMenuItemsByMenuId(menuId){
+  console.log(menuId);
   return MenuItemModel.find({menuId: menuId});
 }
 
@@ -25,11 +27,15 @@ function updateMenuItemById(menuId, menu) {
 }
 
 function addMenuItemForMenu(menuId, menuItem) {
-  console.log(menuItem);
   return MenuItemModel.create(menuItem);
 }
 
 function deleteMenuItem(menuItemId) {
-  return MenuItemModel.remove({_id: menuId});
+  return MenuItemModel.remove({_id: menuItemId});
+}
+
+function deleteMenuItemsByMenuId(menuId) {
+  console.log("i m here");
+  // return MenuItemModel.remove({menuId: menuId});
 }
 

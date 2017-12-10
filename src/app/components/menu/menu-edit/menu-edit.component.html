@@ -2,7 +2,7 @@
 
   <nav class="navbar sadaab-navbar-color navbar-default navbar-fixed-top nav-collapse collapsing" style="height:60px">
     <p class="navbar-text pull-left page-new-top-glyp-margin">
-      <a [routerLink]="['/manager', 'restaurant', restaurantId, 'menu']" class="navbar-link">
+      <a [routerLink]="['/manager', 'restaurant', restaurantId, 'menu' ]" class="navbar-link">
         <span class="glyphicon glyphicon-chevron-left"></span>
       </a>
     </p>
@@ -10,27 +10,23 @@
     <!--heading on the nav bar-->
     <p class="navbar-header pull-left page-new-top-glyp-margin">
       <a class="navbar-brand thick">
-        <b>Edit Menu</b>
-      </a>
-    </p>
-
-    <p class="navbar-text pull-right page-new-top-glyp-margin">
-      <a (click)="EditMenu()"
-         [routerLink]="['/manager', 'restaurant', restaurantId, 'menu']"
-         class="navbar-link">
-        <span class="glyphicon glyphicon-ok"></span>
+        <b>Menu Edit</b>
       </a>
     </p>
   </nav>
 
-
-  <div *ngIf="error"
-       class="alert alert-danger margin-top-huge">
-    {{error}}
-  </div>
-
   <div class="container-fluid page-margin">
     <div class="row">
+      <button [routerLink]="['/manager', 'restaurant', this.restaurantId]"
+              (click)="DeleteMenu()"
+              class="btn btn-primary btn-block">
+        Delete Menu
+      </button>
+      <button [routerLink]="['/manager', 'restaurant', this.restaurantId, 'menu']"
+              type="submit"
+              class="btn btn-primary btn-block">
+              Done
+      </button>
       <label class="">Delivery Charge</label>
       <input class="form-control"
              type="text"
@@ -45,21 +41,54 @@
              [(ngModel)] = "orderLimit"
              placeholder="Minimum order limit"
              name="orderLimit"/>
+      <div class="row">
+        <div class="col-xs-9">
+          <label class="">Menu Items</label>
+        </div>
+        <div class="col-xs-3">
+          <button [routerLink]="['/manager', 'restaurant', restaurantId, 'menu', menuId, 'menuItem', 'new']"
+                  class="btn btn-primary btn-block">
+                  <i class="pull-right glyphicon glyphicon-plus"></i>Add Menu Item</button>
+        </div>
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item active">
+          <div class="row">
+            <div class="col-xs-9 col-sm-6 col-md-3">
+              Name
+            </div>
+            <div class="col-md-3 hidden-sm hidden-xs">
+              Price
+            </div>
+            <div class="col-sm-3 col-md-3 hidden-xs">
+              Category
+            </div>
+            <div class="col-xs-3">
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item" *ngFor="let item of menuItems">
+          <div class="row">
+            <div class="col-xs-9 col-sm-6 col-md-3">
+              <a>
+                {{item['name']}}
+              </a>
+            </div>
+            <div class="col-md-3 hidden-sm hidden-xs">
+              {{item['price']}}
+            </div>
+            <div class="col-sm-3 col-md-3 hidden-xs">
+              {{item['category']}}
+            </div>
+            <div class="col-xs-3">
+              <a class="pull-right" [routerLink]="['/manager', 'restaurant', restaurantId, 'menu', menuId, 'menuItem', item['_id']]">
+                <span class="glyphicon glyphicon-edit"></span>
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
-</form>
 
-<div class="container-fluid">
-  <a>
-    <span class="glyphicon glyphicon-plus pull-right"></span>
-  </a>
-  <ul class="list-group">
-    <li class="list-group-item" *ngFor="let item of menuItems">
-      <a>
-        {{item['name']}}
-      </a>
-      <a>
-        <span class="glyphicon glyphicon-cog pull-right"></span>
-      </a>
-  </ul>
-</div>
+</form>

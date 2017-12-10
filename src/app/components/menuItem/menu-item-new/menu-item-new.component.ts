@@ -39,16 +39,17 @@ export class MenuItemNewComponent implements OnInit {
     this.category = this.menuItemForm.value.category;
     if (this.name && this.price ) {
       const newMenuItem = {
-        restaurantId : this.restaurantId,
+        menuId : this.menuId,
         name: this.name,
         price: this.price,
         description: this.description,
         category: this.category
       };
+      console.log(this.menuId);
       this.menuItemService.createMenuItem(this.menuId, newMenuItem)
         .subscribe(
           (menuItem: any) => {
-            this.router.navigate(['manager', 'restaurant', this.restaurantId, 'menu']);
+            this.router.navigate(['manager', 'restaurant', this.restaurantId, 'menu', this.menuId]);
           }
         );
     } else {
