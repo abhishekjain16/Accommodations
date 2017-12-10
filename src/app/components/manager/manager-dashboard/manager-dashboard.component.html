@@ -2,22 +2,22 @@
   <div *ngIf="this.restaurantId;else header">
     <ul class="nav nav-tabs nav-justified">
       <li role="presentation" class="active">
-        <a [routerLink]="['/restaurant/', manager.restaurantId]" class="btn">
+        <a [routerLink]="['/restaurant/', restaurantId]" class="btn">
           {{manager.firstName}}'s Profile
         </a>
       </li>
       <li role="presentation">
-        <a [routerLink]="['/restaurant/', manager.restaurantId, 'chef']" class="btn">
+        <a [routerLink]="['/restaurant/', restaurantId, 'chef']" class="btn">
           View Chefs
         </a>
       </li>
       <li role="presentation">
-        <a [routerLink]="['/restaurant/', manager.restaurantId, 'driver']" class="btn">
+        <a [routerLink]="['/restaurant/', restaurantId, 'driver']" class="btn">
           View Drivers
         </a>
       </li>
       <li role="presentation">
-        <a [routerLink]="['/restaurant/', manager.restaurantId, 'order']" class="btn">
+        <a [routerLink]="['/manager/restaurant/', restaurantId, 'order']" class="btn">
           View Orders
         </a>
       </li>

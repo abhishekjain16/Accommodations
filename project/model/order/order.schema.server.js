@@ -10,10 +10,10 @@ var OrderSchema = mongoose.Schema({
   customerId: {type: mongoose.Schema.Types.ObjectId, ref: 'UserModel'},
   driverId: {type: mongoose.Schema.Types.ObjectId, ref:'UserModel'},
   chefId: {type: mongoose.Schema.Types.ObjectId, ref:'UserModel'},
-  state: {type: String, enum:['cart','paid','ready','delivered','cancelled'], default: 'cart'},
+  state: {type: String, enum:['cart','paid','ready','delivered','cancelled', 'accepted'], default: 'cart'},
   subTotal: {type: Number, default: 0.0},
-  dateCreated: {type: Date,default: Date.now()}
-  minOrderLimit: {type: Number, default: 0.0},
+  dateCreated: {type: Date,default: Date.now()},
+  minOrderLimit: {type: Number, default: 0.0}
 }, { collection: 'order' });
 
 module.exports = OrderSchema;
