@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RestaurantServiceClient} from '../../../services/restaurant.service.client';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {OrderService} from '../../../services/order.service.client';
+import {SharedService} from '../../../services/shared.service';
+import {UserService} from '../../../services/user.service.client';
 
 @Component({
   selector: 'app-restaurant.detail',
@@ -9,11 +12,11 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class RestaurantDetailComponent implements OnInit {
 
-  restaurantId: String;
-  name: String;
+  restaurantId: string;
+  name: string;
   image: any;
   ratings: any;
-  number: String;
+  number: string;
   images = [];
   restaurant = {};
   positions = [];
@@ -21,9 +24,15 @@ export class RestaurantDetailComponent implements OnInit {
   hours = [];
   days = [];
   reviews = [];
+  order = {};
+  user: any;
 
   constructor( private restaurantService: RestaurantServiceClient,
-               private activatedRoute: ActivatedRoute) { }
+               private activatedRoute: ActivatedRoute,
+               private orderService: OrderService,
+               private router: Router,
+               private sharedService: SharedService,
+               private userService: UserService) { }
 
   SearchBusinessById(id: String) {
     this.restaurantService.SearchBusinessById(id)
@@ -36,6 +45,10 @@ export class RestaurantDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.userService.currentUser()
+      .subscribe( (user) => {
+        this.user = user;
+      });
     this.activatedRoute.params
       .subscribe(
         (params: any) => {
@@ -67,5 +80,18 @@ export class RestaurantDetailComponent implements OnInit {
     } else {
       return '';
     }
+  }
+
+  createOrder() {
+    this.order = {
+      subTotal: 0,
+      restaurantId: this.restaurantId,
+      customerId: this.user
+    };
+    this.orderService.createOrder(this.order, this.restaurantId)
+      .subscribe(
+        (order: any) => this.router.navigate(['restaurant', this.restaurantId, 'order', order._id])
+      );
+
   }
 }

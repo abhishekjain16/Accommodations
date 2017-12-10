@@ -1,3 +1,195 @@
-<p>
-  order-detail works!
-</p>
+<header></header>
+<div class="container">
+  <div class="details">
+    <div class="image-container col-xs-3 col-sm-2">
+      <a [routerLink]="['/restaurant', restaurant.id]">
+        <img class="restro_image thumbnail" src="{{restaurant['image_url']}}" />
+      </a>
+    </div>
+    <h2>{{name}}</h2>
+    <div>
+      <rating [(ngModel)]="restaurant['rating']"
+              readonly="true"
+              [float]="true">
+      </rating>
+      <span class="reviews">Reviews: {{restaurant['review_count']}}</span>
+      <div class="costing clearfix">{{restaurant['price']}}</div>
+    </div>
+    <h3>Menu</h3>
+  </div>
+  <div class="row">
+    <div class="menu col-xs-12 col-sm-8">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-xs-9 menu-item">
+              Paneer Tikka
+              <span class="description">Paneer with spicy flavours</span>
+            </div>
+            <div class="col-xs-3 price">
+              $10.5
+              <a (click)="add()" class="pull-right">
+                Add
+                <span class="glyphicon glyphicon-plus"></span>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-xs-9 menu-item">
+              Ricotta Croccante
+              <span class="description">
+                Grilled rustic bread, hand pressed ricotta, spicy red pepper, truffle honey.
+              </span>
+            </div>
+            <div class="col-xs-3 price">
+              $13.0
+              <a (click)="add()" class="pull-right">
+                Add
+                <span class="glyphicon glyphicon-plus"></span>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-xs-9 menu-item">
+              Burrata
+              <span class="description">
+                Local burrata, sweet peppers, roasted cherry tomatoes, roasted garlic crostini, angel balsamic reduction.
+              </span>
+            </div>
+            <div class="col-xs-3 price">
+              $19.5
+              <a (click)="add()" class="pull-right">
+                Add
+                <span class="glyphicon glyphicon-plus"></span>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-xs-9 menu-item">
+              Cheese Pizza
+              <span class="description">Pizza with exotic vegetables</span>
+            </div>
+            <div class="col-xs-3 price">
+              $11.0
+              <a (click)="add()" class="pull-right">
+                Add
+                <span class="glyphicon glyphicon-plus"></span>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-xs-9 menu-item">
+              Piccola Italian Flatbread
+              <span class="description">
+                Goat cheese, balsamic cipollini onions, double, smoked bacon, arugula, fig reduction
+              </span>
+            </div>
+            <div class="col-xs-3 price">
+              $21.0
+              <a (click)="add()" class="pull-right">
+                Add
+                <span class="glyphicon glyphicon-plus"></span>
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="cart col-xs-12 col-sm-4">
+      <h3>{{name}}</h3>
+      <ul class="list-group">
+        <li class="list-group-item active">
+          <div class="row">
+            <div class="col-xs-6 col-sm-6">
+              Item
+            </div>
+            <div class="col-xs-3">
+              Qty
+            </div>
+            <div class="col-xs-3">
+              Price
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-xs-6 col-sm-6">
+              Paneer Tikka
+            </div>
+            <div class="col-xs-3">
+              1
+            </div>
+            <div class="col-xs-3">
+              $10.50
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-xs-6 col-sm-6">
+              Cheese Pizza
+            </div>
+            <div class="col-xs-3">
+              2
+            </div>
+            <div class="col-xs-3">
+              $22.0
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-xs-6 col-sm-6">
+              Burger
+            </div>
+            <div class="col-xs-3">
+              1
+            </div>
+            <div class="col-xs-3">
+              $9.0
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="cost_summary">
+        <div class="summary">
+          SubTotal:
+          <span>${{subTotal}}</span>
+        </div>
+        <div class="summary">
+          Tax:
+          <span>${{tax}}</span>
+        </div>
+        <div class="summary">
+          Delivery Charge:
+          <span>${{deliveryCharge}}</span>
+        </div>
+        <div class="summary">
+          Total:
+          <span>${{total}}</span>
+        </div>
+      </div>
+      <div *ngIf="state=='cart'">
+        <button [routerLink]="['/restaurant', restaurant['id'], 'order', orderId, 'checkout']"
+                class="btn btn-lg btn-success btn-block"
+                [disabled]="valid()">
+          CHECKOUT
+        </button>
+        <div class="minimum">
+          Delivery Minimum: ${{orderLimit}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+
+</footer>

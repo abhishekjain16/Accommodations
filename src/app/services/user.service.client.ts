@@ -28,7 +28,8 @@ export class UserService {
     'findManagerByRestaurantId' : this.findManagerByRestaurantId,
     'findUsersByRole': this.findUsersByRole,
     'findChefsByRestaurantId': this.findChefsByRestaurantId,
-    'findDriversByRestaurantId': this.findDriversByRestaurantId
+    'findDriversByRestaurantId': this.findDriversByRestaurantId,
+    'currentUser': this.currentUser
   };
 
   createUser(user: any) {
@@ -167,6 +168,21 @@ export class UserService {
             return true;
           } else {
             this.router.navigate(['/login']);
+            return false;
+          }
+        }
+      );
+  }
+
+  currentUser() {
+    this.options.withCredentials = true;
+    return this.http.post(this.baseUrl + '/api/loggedin', '', this.options)
+      .map(
+        (res: Response) => {
+          const user = res.json();
+          if (user !== 0) {
+            return user;
+          } else {
             return false;
           }
         }

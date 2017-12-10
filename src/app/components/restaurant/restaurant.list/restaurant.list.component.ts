@@ -32,7 +32,6 @@ export class RestaurantListComponent implements OnInit {
       .subscribe( (result) => {
         this.result = result;
         this.searchedRestro = result['businesses'];
-        console.log(this.searchedRestro[0]);
 
       });
   }

@@ -23,7 +23,7 @@ export class OrderService {
   };
 
   createOrder(order: any, restaurantId: string) {
-    return this.http.post(this.baseUrl + '/api/restaurant/' + restaurantId, order)
+    return this.http.post(this.baseUrl + '/api/restaurant/' + restaurantId + '/order', order)
       .map(
         (res: Response) => {
           const data = res.json();

@@ -5,8 +5,9 @@ module.exports = function (app) {
   app.get('/api/user/:userId/order', findUserOrders);
   app.get('/api/restaurant/:restaurantId/order', findRestaurantOrders);
   app.get('/api/chef/:chefId/order', findChefOrders);
+  app.get('/api/order/:orderId', findOrderById);
   app.get('/api/driver/:driverId/order', findDriverOrders);
-  app.post('/api/user/:userId/order', createOrder);
+  app.post('/api/restaurant/:restaurantId/order', createOrder);
   app.put('/api/order/:orderId/cancel', cancelOrder);
   app.put('/api/order/:orderId', updateOrder);
 
@@ -18,6 +19,19 @@ module.exports = function (app) {
       .then(
         function(orders) {
           res.json(orders);
+        },
+        function(err) {
+          res.status(400).send(err);
+        }
+      );
+  }
+
+  function findOrderById(req, res) {
+    var orderId = req.params['orderId'];
+    OrderModel.findById(orderId)
+      .then(
+        function(order) {
+          res.json(order);
         },
         function(err) {
           res.status(400).send(err);

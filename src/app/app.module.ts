@@ -13,8 +13,8 @@ import {UserService } from './services/user.service.client';
 import {LoginComponent} from './components/user/login/login.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
 import { RegisterComponent } from './components/user/register/register.component';
-import { RestaurantSearchComponent } from './components/yelp_api_test/restaurant.search/restaurant.search.component';
-import { RestaurantDetailComponent } from './components/yelp_api_test/restaurant.detail/restaurant.detail.component';
+import { RestaurantSearchComponent } from './components/restaurant/restaurant.search/restaurant.search.component';
+import { RestaurantDetailComponent } from './components/restaurant/restaurant.detail/restaurant.detail.component';
 import { RestaurantServiceClient } from './services/restaurant.service.client';
 import { ManagerRegisterComponent } from './components/manager/manager-register/manager-register.component';
 import { ManagerDashboardComponent } from './components/manager/manager-dashboard/manager-dashboard.component';
@@ -31,12 +31,13 @@ import { DriverListComponent } from './components/driver/driver-list/driver-list
 import { ChefListComponent } from './components/chef/chef-list/chef-list.component';
 import {SharedService} from './services/shared.service';
 import {AuthGuard} from './services/auth-guard.service';
-import { RestaurantListComponent } from './components/yelp_api_test/restaurant.list/restaurant.list.component';
+import { RestaurantListComponent } from './components/restaurant/restaurant.list/restaurant.list.component';
 import { RatingModule} from 'ng2-rating';
 import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 import { NguiMapModule} from '@ngui/map';
-import { OrderDetailComponent } from './components/order/order-detail/order-detail.component';
-import { OrderNewComponent } from './components/order/order-new/order-new.component';
+import {OrderDetailComponent} from './components/order/order-detail/order-detail.component';
+import {OrderService} from './services/order.service.client';
+import { OrderCheckoutComponent } from './components/order/order-checkout/order-checkout.component';
 
 @NgModule({
   // Declare components here
@@ -64,7 +65,7 @@ import { OrderNewComponent } from './components/order/order-new/order-new.compon
     ChefListComponent,
     RestaurantListComponent,
     OrderDetailComponent,
-    OrderNewComponent
+    OrderCheckoutComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +78,7 @@ import { OrderNewComponent } from './components/order/order-new/order-new.compon
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyB9yDXupcPoh_os3o48_KeUYys6hfxTsAM'})
   ],
   // Client Side services here
-  providers: [ TestService, UserService, RestaurantServiceClient, SharedService, AuthGuard],
+  providers: [ TestService, UserService, RestaurantServiceClient, SharedService, AuthGuard, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

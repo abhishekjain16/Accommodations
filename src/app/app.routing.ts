@@ -5,8 +5,8 @@ import {TestComponent} from './components/test/test.component';
 import {LoginComponent} from './components/user/login/login.component';
 import {RegisterComponent} from './components/user/register/register.component';
 import {ProfileComponent} from './components/user/profile/profile.component';
-import {RestaurantSearchComponent} from './components/yelp_api_test/restaurant.search/restaurant.search.component';
-import {RestaurantDetailComponent} from './components/yelp_api_test/restaurant.detail/restaurant.detail.component';
+import {RestaurantSearchComponent} from './components/restaurant/restaurant.search/restaurant.search.component';
+import {RestaurantDetailComponent} from './components/restaurant/restaurant.detail/restaurant.detail.component';
 import {ManagerRegisterComponent} from './components/manager/manager-register/manager-register.component';
 import {ManagerDashboardComponent} from './components/manager/manager-dashboard/manager-dashboard.component';
 import {ManagerOrderComponent} from './components/manager/manager-order/manager-order.component';
@@ -21,9 +21,9 @@ import {ChefListComponent} from './components/chef/chef-list/chef-list.component
 import {AdminUserListComponent} from './components/admin/admin-user-list/admin-user-list.component';
 import {AdminManagerListComponent} from './components/admin/admin-manager-list/admin-manager-list.component';
 import {AuthGuard} from './services/auth-guard.service';
-import {RestaurantListComponent} from './components/yelp_api_test/restaurant.list/restaurant.list.component';
+import {RestaurantListComponent} from './components/restaurant/restaurant.list/restaurant.list.component';
 import {OrderDetailComponent} from './components/order/order-detail/order-detail.component';
-import {OrderNewComponent} from './components/order/order-new/order-new.component';
+import {OrderCheckoutComponent} from './components/order/order-checkout/order-checkout.component';
 
 const APP_ROUTES: Routes = [
   {path: '', component : RestaurantSearchComponent},
@@ -32,10 +32,9 @@ const APP_ROUTES: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'search', component: RestaurantListComponent},
-  // {path: 'search/restaurant/:restaurant/location/:location', component: RestaurantListComponent},
   {path: 'restaurant/:restaurantId', component: RestaurantDetailComponent},
-  {path: 'restaurant/:restaurantId/order/new', component: OrderNewComponent},
-  {path: 'restaurant/:restaurantId/order/:orderId', component: OrderDetailComponent},
+  {path: 'restaurant/:restaurantId/order/:orderId', component: OrderDetailComponent, canActivate: [AuthGuard]},
+  {path: 'restaurant/:restaurantId/order/:orderId/checkout', component: OrderCheckoutComponent, canActivate: [AuthGuard]},
   {path: 'restaurant/:restaurantId/register', component: ManagerRegisterComponent},
   {path: 'manager/restaurant/:restaurantId', component: ManagerDashboardComponent, canActivate: [AuthGuard]},
   {path: 'manager/restaurant/:restaurantId/order', component: ManagerOrderComponent, canActivate: [AuthGuard]},

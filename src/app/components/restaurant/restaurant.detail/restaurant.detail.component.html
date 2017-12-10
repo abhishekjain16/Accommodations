@@ -49,7 +49,7 @@
   </div>
   <div class="row">
     <div class="col-xs-12 col-sm-8">
-      <h3>Some of Reviews from Yelp</h3>
+      <h3>Some of the Reviews from Yelp</h3>
       <ul>
         <li *ngFor="let review of reviews">
           {{review['text']}}
@@ -57,9 +57,11 @@
       </ul>
     </div>
     <div class="col-xs-12 col-sm-4 time-slot">
-      <a [routerLink]="['/restaurant', restaurantId, 'order', 'new']"
-         class="btn btn-success">Place an Order
-      </a>
+      <div *ngIf="user">
+        <a (click)="createOrder()"
+           class="btn btn-success">Place an Order
+        </a>
+      </div>
       <div>
         <h3>Hours of Operation</h3>
         <ul>
