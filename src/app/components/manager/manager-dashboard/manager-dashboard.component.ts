@@ -96,4 +96,7 @@ export class ManagerDashboardComponent implements OnInit {
         }
       );
   }
+  // ViewOrders() {
+  //   this.router.navigate(['manager/restaurant/', restaurantId, 'order']');
+  // }
 }

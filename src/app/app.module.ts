@@ -42,6 +42,9 @@ import { MenuItemNewComponent } from './components/menuItem/menu-item-new/menu-i
 import { OrderListComponent } from './components/order/order-list/order-list.component';
 import { OrderEditComponent } from './components/order/order-edit/order-edit.component';
 import { OrderNewComponent } from './components/order/order-new/order-new.component';
+import { OrderService} from './services/order.service.client';
+import { ManagerOrderDetailsComponent } from './components/manager/manager-order-details/manager-order-details.component';
+import { OrderItemService} from './services/orderItem.service.client';
 
 @NgModule({
   // Declare components here
@@ -75,7 +78,8 @@ import { OrderNewComponent } from './components/order/order-new/order-new.compon
     MenuItemNewComponent,
     OrderListComponent,
     OrderEditComponent,
-    OrderNewComponent
+    OrderNewComponent,
+    ManagerOrderDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +89,7 @@ import { OrderNewComponent } from './components/order/order-new/order-new.compon
     QuillEditorModule
   ],
   // Client Side services here
-  providers: [ TestService, UserService, YelpServiceClient, SharedService, AuthGuard, MenuService, MenuItemService],
+  providers: [ TestService, UserService, YelpServiceClient, SharedService, AuthGuard, MenuService, MenuItemService, OrderService, OrderItemService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

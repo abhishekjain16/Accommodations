@@ -89,7 +89,7 @@ module.exports = function (app) {
   function updateOrder(req, res) {
     var orderId = req.params['orderId'];
     var order = req.body;
-    OrderModel.updateOrder(orderIdId, order)
+    OrderModel.updateOrder(orderId, order)
       .then(function (status) {
         return OrderModel.findById(orderId);
       })
