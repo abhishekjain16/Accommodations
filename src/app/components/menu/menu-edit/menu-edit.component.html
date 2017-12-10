@@ -2,7 +2,7 @@
 
   <nav class="navbar sadaab-navbar-color navbar-default navbar-fixed-top nav-collapse collapsing" style="height:60px">
     <p class="navbar-text pull-left page-new-top-glyp-margin">
-      <a [routerLink]="['/manager', 'restaurant', restaurantId ]" class="navbar-link">
+      <a [routerLink]="['/manager', 'restaurant', restaurantId, 'menu']" class="navbar-link">
         <span class="glyphicon glyphicon-chevron-left"></span>
       </a>
     </p>
@@ -16,6 +16,7 @@
 
     <p class="navbar-text pull-right page-new-top-glyp-margin">
       <a (click)="EditMenu()"
+         [routerLink]="['/manager', 'restaurant', restaurantId, 'menu']"
          class="navbar-link">
         <span class="glyphicon glyphicon-ok"></span>
       </a>

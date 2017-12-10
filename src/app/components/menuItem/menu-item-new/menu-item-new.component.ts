@@ -39,6 +39,7 @@ export class MenuItemNewComponent implements OnInit {
     this.category = this.menuItemForm.value.category;
     if (this.name && this.price ) {
       const newMenuItem = {
+        restaurantId : this.restaurantId,
         name: this.name,
         price: this.price,
         description: this.description,
@@ -51,6 +52,7 @@ export class MenuItemNewComponent implements OnInit {
           }
         );
     } else {
-      this.error = 'Please enter Name and price of the Menuitem';}
+      this.error = 'Please enter Name and price of the Menuitem';
+    }
   }
 }

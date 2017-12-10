@@ -32,7 +32,6 @@ export class MenuService {
       );
   }
   findMenuByRestroId(restroId) {
-    console.log(restroId);
     const url = this.baseUrl + '/api/restaurant/' + restroId + '/menu';
     return this.http.get(url)
       .map(
@@ -43,7 +42,7 @@ export class MenuService {
       );
   }
   UpdateMenuByMenuId(menuId, menu) {
-    const url = this.baseUrl + '/api/restaurant/menu' + menuId;
+    const url = this.baseUrl + '/api/restaurant/menu/' + menuId;
     return this.http.put(url, menu )
       .map(
         (res: Response) => {
