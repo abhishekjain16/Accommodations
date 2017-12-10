@@ -15,50 +15,62 @@ export class MenuItemEditComponent implements OnInit {
               private menuItemService: MenuItemService,
               private activatedRoute: ActivatedRoute) { }
   restaurantId: String;
-  menuId: String;
+  error = '';
+  name: String;
+  price: String;
+  description: String;
+  category: String;
+  menuItem: {};
   menuItemId: String;
-  menuItem = {};
-  menuItems = [{}];
+  menuId: String;
   ngOnInit() {
     this.activatedRoute.params
       .subscribe(
         (params: any) => {
           this.restaurantId = params['restaurantId'];
-          this.menuId = params['menuId'];
           this.menuItemId = params['menuItemId'];
+          this.menuId = params['menuId'];
+          this.menuItemService.findMenuItemByItemId(this.menuItemId)
+            .subscribe(
+              (item: any) => {
+                console.log(item);
+                this.menuItem = item;
+                this.name = item.name;
+                this.price = item.price;
+                this.description = item.description;
+                this.category = item.category;
+              }
+            );
         }
-      );
-    this.menuItemService.findMenuItemByItemId(this.menuItemId)
-      .subscribe(
-        (item: any) => {
-          this.menuItem = item;
-        }
-      );
-    this.menuItemService.findMenuItemByItemId(this.menuId)
-      .subscribe(
-        (items: any) => {
-          this.menuItems = items;
-      }
       );
   }
 
   UpdateMenuItem() {
-    this.menuItem['name'] = this.menuItemEditForm.value.name;
-    this.menuItem['price'] = this.menuItemEditForm.value.price;
-    this.menuItem['description'] = this.menuItemEditForm.value.description;
-    this.menuItem['category'] = this.menuItemEditForm.value.category;
-    this.menuItemService.updateMenuItem(this.menuItemId, this.menuItem)
-      .subscribe(
-        (menuItem: any) => {
-        this.router.navigate(['manager', 'restaurant', this.restaurantId, 'menu']);
-      }
-    );
+    console.log(this.menuItemEditForm.value.name);
+    const name = this.menuItemEditForm.value.name;
+    const price = this.menuItemEditForm.value.price;
+    const description = this.menuItemEditForm.value.description;
+    const category = this.menuItemEditForm.value.category;
+    if ( name && price ) {
+      this.menuItem['name'] = name;
+      this.menuItem['price'] = price;
+      this.menuItem['description'] = description;
+      this.menuItem['category'] = category;
+      this.menuItemService.updateMenuItem(this.menuItemId, this.menuItem)
+        .subscribe(
+          (menuItem: any) => {
+            this.router.navigate(['manager', 'restaurant', this.restaurantId, 'menu', this.menuId]);
+          }
+        );
+    }else {
+      this.error = 'Please enter Name and price of the menu item';
+    }
   }
   DeleteMenuItem() {
     this.menuItemService.deleteMenuItem(this.menuItemId)
       .subscribe(
         (menuItem: any) => {
-          this.router.navigate(['manager', 'restaurant', this.restaurantId, 'menu']);
+          this.router.navigate(['manager', 'restaurant', this.restaurantId, 'menu', this.menuId]);
         }
       );
   }

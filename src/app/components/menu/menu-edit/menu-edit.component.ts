@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MenuService} from '../../../services/menu.service.client';
+import {MenuItemService} from '../../../services/menuItem.service.client';
 
 @Component({
   selector: 'app-menu-edit',
@@ -19,7 +20,8 @@ export class MenuEditComponent implements OnInit {
 
   constructor(private menuService: MenuService,
               private activatedRoute: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              private menuItemService: MenuItemService) {
   }
 
   ngOnInit() {
@@ -37,9 +39,15 @@ export class MenuEditComponent implements OnInit {
           this.deliveryCharge = menu.deliveryCharge;
           this.orderLimit = menu.orderLimit;
           this.menuItems = menu.menuItems;
+          this.menuItemService.findMenuItemsByMenuId(this.menuId)
+            .subscribe(
+              (items: any) => {
+                this.menuItems = items;
+              }
+            );
         }
-      );
-  }
+        );
+    }
 
   EditMenu() {
     const delCharge = this.menuEditForm.value.deliveryCharge;
@@ -66,7 +74,12 @@ export class MenuEditComponent implements OnInit {
     this.menuService.deleteMenu(this.menuId)
       .subscribe(
         (menu: any) => {
-          this.router.navigate(['/manager', 'restaurant', this.restaurantId]);
+          this.menuItemService.deleteMenuItemsByMenuId(this.menuId)
+            .subscribe(
+              (status: any) => {
+                this.router.navigate(['/manager', 'restaurant', this.restaurantId]);
+              }
+            );
         }
       );
   }
