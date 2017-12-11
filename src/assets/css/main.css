@@ -132,9 +132,19 @@ ul {
   font-size: medium;
 }
 
-.star-icon[_ngcontent-c2] {
-  font-size: 1em !important
-;
+.star-icon {
+  font-size: 1em !important;
+}
+
+.registration-success {
+  font-size: 120px;
+  color: #3e8f3e;
+  margin-top: 50px;
+  min-height: 150px;
+}
+
+.info {
+  font-size: 18px;
 }
 /* You can add global styles to this file, and also import other style files */
 
