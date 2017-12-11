@@ -10,7 +10,7 @@
     <ul class="nav nav-tabs nav-justified">
       <li role="presentation">
         <a [routerLink]="['/admin/manager/', managerId]" class="btn">
-          Manager's Profile
+          Admin's Profile
         </a>
       </li>
       <li role="presentation">
@@ -77,29 +77,56 @@
     <li class="list-group-item" *ngFor="let chef of chefs">
       <div class="row">
         <div class="col-xs-6 col-md-3">
-          <a [routerLink]="['/admin', 'manager', chef._id]">
-            {{chef.firstName}} {{chef.lastName}}
-            <span class="glyphicon glyphicon-edit"></span>
-          </a>
-        </div>
-        <div class="col-md-3 hidden-sm hidden-xs">
-          {{chef.email}}
-        </div>
-        <div class="col-md-2 hidden-xs hidden-sm">
-          {{chef.phone}}
-        </div>
-        <div class="col-xs-3">
-          {{chef.restaurantId}}
-        </div>
-        <div class="col-xs-3 col-md-1">
-          <div *ngIf="chef.active; else inactive" class="alert alert-success">
-            <strong>Active</strong>
+          <div *ngIf="role === 'Admin'; else manager">
+            <a [routerLink]="['/admin', 'manager', chef._id]">
+              {{chef.firstName}} {{chef.lastName}}
+              <span class="glyphicon glyphicon-edit"></span>
+            </a>
           </div>
-          <ng-template #inactive>
-            <div class="alert alert-danger">
-              <strong>Inactive</strong>
-            </div>
+          <ng-template #manager>
+            <label>
+              {{chef.firstName}} {{chef.lastName}}
+            </label>
           </ng-template>
+        </div>
+          <div class="col-md-3 hidden-sm hidden-xs">
+          {{chef.email}}
+          </div>
+          <div class="col-md-2 hidden-xs hidden-sm">
+            {{chef.phone}}
+          </div>
+          <div class="col-xs-3">
+            {{chef.restaurantId}}
+          </div>
+        <div class="col-xs-3 col-md-1">
+            <div *ngIf="chef.active; else inactive">
+              <div *ngIf="role === 'Admin'; else manager">
+                <div class="alert alert-success">
+                  <strong>Active</strong>
+                </div>
+              </div>
+              <ng-template #manager>
+                <button (click)="ToggleStatus(chef)" class="btn btn-danger btn-block"
+                >Deactivate</button>
+                <div class="alert alert-success">
+                  <strong>Active</strong>
+                </div>
+              </ng-template>
+            </div>
+            <ng-template #inactive>
+              <div *ngIf="role === 'Admin'; else manager">
+                <div class="alert alert-danger">
+                  <strong>Inactive</strong>
+                </div>
+              </div>
+              <ng-template #manager>
+                <button (click)="ToggleStatus(chef)" class="btn btn-success btn-block"
+                >Activate</button>
+                <div class="alert alert-danger">
+                  <strong>Inactive</strong>
+                </div>
+              </ng-template>
+            </ng-template>
         </div>
       </div>
     </li>

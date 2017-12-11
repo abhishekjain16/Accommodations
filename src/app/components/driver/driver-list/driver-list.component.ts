@@ -46,5 +46,18 @@ export class DriverListComponent implements OnInit {
         }
       );
   }
-
+  ToggleStatus(driver: any) {
+    driver['active'] = !driver['active'];
+    this.userService.updateUser(driver['_id'], driver)
+      .subscribe(
+        (user: any) => {
+          this.userService.findDriversByRestaurantId(this.restaurantId)
+            .subscribe(
+              (drivers: any) => {
+                this.drivers = drivers;
+              }
+            );
+        }
+      );
+  }
 }

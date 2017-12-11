@@ -29,7 +29,6 @@ export class ChefListComponent implements OnInit {
       );
     this.user = this.sharedService.user;
     this.role = this.user['role'];
-
     this.userService.findChefsByRestaurantId(this.restaurantId)
       .subscribe(
         (chefs: any) => {
@@ -44,6 +43,18 @@ export class ChefListComponent implements OnInit {
         }
       );
   }
-
-
+  ToggleStatus(chef: any) {
+    chef['active'] = !chef['active'];
+    this.userService.updateUser(chef['_id'], chef)
+      .subscribe(
+        (user: any) => {
+          this.userService.findChefsByRestaurantId(this.restaurantId)
+            .subscribe(
+              (chefs: any) => {
+                this.chefs = chefs;
+              }
+            );
+        }
+      );
+  }
 }
