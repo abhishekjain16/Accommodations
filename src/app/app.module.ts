@@ -50,6 +50,7 @@ import { OrderListComponent } from './components/order/order-list/order-list.com
 import { OrderEditComponent } from './components/order/order-edit/order-edit.component';
 import { ManagerOrderDetailsComponent } from './components/manager/manager-order-details/manager-order-details.component';
 import { OrderItemService} from './services/orderItem.service.client';
+import { OrderCompleteComponent } from './components/order/order-complete/order-complete.component';
 
 @NgModule({
   // Declare components here
@@ -86,7 +87,8 @@ import { OrderItemService} from './services/orderItem.service.client';
     MenuItemNewComponent,
     OrderListComponent,
     OrderEditComponent,
-    ManagerOrderDetailsComponent
+    ManagerOrderDetailsComponent,
+    OrderCompleteComponent
   ],
   imports: [
     BrowserModule,

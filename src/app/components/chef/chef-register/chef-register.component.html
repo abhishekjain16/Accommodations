@@ -1,7 +1,15 @@
 <div class="container-fluid">
   <div class="thanks" *ngIf="this.success">
-    <h4>Thanks for registering as a Chef for Restaurant {{restaurantName}}</h4>
-    <p>You would be able to access the system when your manager approves your request.</p>
+    <h1 class="text-center text-success">Thanks for registering as Chef.</h1>
+    <div class="text-center">
+      <span class="glyphicon glyphicon-ok-sign registration-success"></span>
+    </div>
+    <p class="info text-center">You should be able to access the account as soon as this request is approved.</p>
+    <a [routerLink]= "['/']"
+       class="btn btn-primary btn-block">
+      Homepage
+      <span class="glyphicon glyphicon-arrow-right"></span>
+    </a>
   </div>
   <div *ngIf="!this.success">
     <h1>Register</h1>

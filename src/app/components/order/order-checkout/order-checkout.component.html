@@ -1,3 +1,185 @@
-<p>
-  order-checkout works!
-</p>
+<div class="container">
+  <div class="details">
+    <div class="image-container col-xs-3 col-sm-2">
+      <a [routerLink]="['/restaurant', restaurant.id]">
+        <img class="restro_image thumbnail" src="{{restaurant['image_url']}}" />
+      </a>
+    </div>
+    <h2>{{rname}}</h2>
+    <div>
+      <rating [(ngModel)]="restaurant['rating']"
+              readonly="true"
+              [float]="true">
+      </rating>
+      <div class="costing clearfix">{{restaurant['price']}}</div>
+    </div>
+    <h3>Delivery Address</h3>
+  </div>
+  <form (ngSubmit) = "update()" #f="ngForm">
+
+    <div class="row">
+      <div class="delivery col-xs-12 col-sm-8">
+        <label class="label"
+               for="name">
+          Name
+        </label>
+        <input type="text"
+               id="name"
+               name="name"
+               [(ngModel)]="name"
+               required
+               #rrname="ngModel"
+               class="form-control"
+               placeholder="Name" />
+        <span class="help-block" *ngIf="!rrname.valid && rrname.touched">
+            Please enter Name!
+        </span>
+        <label for="street"
+               class="label">
+          Street Address
+        </label>
+        <input class="form-control"
+               id="street"
+               name="street"
+               #rrstreet="ngModel"
+               [(ngModel)]="street"
+               required
+               placeholder="Street Address" />
+        <span class="help-block" *ngIf="!rrstreet.valid && rrstreet.touched">
+            Please enter Street Address!
+        </span>
+        <label class="label"
+               for="apt">
+          Apartment/Building
+        </label>
+        <input type="text"
+               id="apt"
+               name="apt"
+               [(ngModel)]="apt"
+               #rrapt="ngModel"
+               class="form-control"
+               placeholder="Aptartment Number" />
+        <label class="label"
+               for="zipCode">
+          zipCode
+        </label>
+        <input type="text"
+               id="zipcode"
+               name="zipCode"
+               [(ngModel)]="zipCode"
+               required
+               #rrzipCode="ngModel"
+               class="form-control"
+               placeholder="zipCode" />
+        <span class="help-block" *ngIf="!rrzipCode.valid && rrzipCode.touched">
+            Please enter zipCode!
+        </span>
+        <label class="label"
+               for="city">
+          city
+        </label>
+        <input type="text"
+               id="city"
+               name="city"
+               [(ngModel)]="city"
+               required
+               #rrcity="ngModel"
+               class="form-control"
+               placeholder="city" />
+        <span class="help-block" *ngIf="!rrcity.valid && rrcity.touched">
+            Please enter city!
+        </span>
+        <label class="label"
+               for="state">
+          state
+        </label>
+        <input type="text"
+               id="state"
+               name="state"
+               [(ngModel)]="state"
+               required
+               #rrstate="ngModel"
+               class="form-control"
+               placeholder="state" />
+        <span class="help-block" *ngIf="!rrstate.valid && rrstate.touched">
+            Please enter state!
+        </span>
+        <label class="label"
+               for="phone">
+          phone
+        </label>
+        <input type="text"
+               id="phone"
+               name="phone"
+               [(ngModel)]="phone"
+               required
+               #rrphone="ngModel"
+               class="form-control"
+               placeholder="phone" />
+        <span class="help-block" *ngIf="!rrphone.valid && rrphone.touched">
+            Please enter phone!
+        </span>
+        <a [routerLink]="['/restaurant', restaurant.id, 'order', orderId]"
+           class="btn btn-block btn-default">
+          Back
+        </a>
+      </div>
+      <div class="cart col-xs-12 col-sm-4">
+        <h3>{{rname}}</h3>
+        <ul class="list-group">
+          <li class="list-group-item active">
+            <div class="row">
+              <div class="col-xs-6 col-sm-6">
+                Item
+              </div>
+              <div class="col-xs-3">
+                Qty
+              </div>
+              <div class="col-xs-3">
+                Price
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item" *ngFor="let item of items">
+            <div class="row">
+              <div class="col-xs-6">
+                {{item.name}}
+              </div>
+              <div class="col-xs-3">
+                {{item.quantity}}
+              </div>
+              <div class="col-xs-3">
+                ${{item.price}}
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="cost_summary">
+          <div class="summary">
+            SubTotal:
+            <span>${{subTotal}}</span>
+          </div>
+          <div class="summary">
+            Tax:
+            <span>${{tax}}</span>
+          </div>
+          <div class="summary">
+            Delivery Charge:
+            <span>${{deliveryCharge}}</span>
+          </div>
+          <div class="summary">
+            Total:
+            <span>${{total}}</span>
+          </div>
+        </div>
+        <div>
+          <button type="submit"
+                  class="btn btn-lg btn-success btn-block"
+                  [disabled]="!f.valid">
+            Complete
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

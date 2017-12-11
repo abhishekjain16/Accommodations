@@ -99,7 +99,9 @@ ul {
 }
 
 .logo {
+  padding: 2rem;
   text-align: center;
+  margin-left: 15%;
 }
 
 .search-box {
@@ -132,9 +134,19 @@ ul {
   font-size: medium;
 }
 
-.star-icon[_ngcontent-c2] {
-  font-size: 1em !important
-;
+.star-icon {
+  font-size: 1em !important;
+}
+
+.registration-success {
+  font-size: 120px;
+  color: #3e8f3e;
+  margin-top: 50px;
+  min-height: 150px;
+}
+
+.info {
+  font-size: 18px;
 }
 
 .sadaab-navbar-color

@@ -10,6 +10,7 @@ module.exports = function (app) {
   app.post('/api/restaurant/:restaurantId/order', createOrder);
   app.put('/api/order/:orderId/cancel', cancelOrder);
   app.put('/api/order/:orderId', updateOrder);
+  app.get('/api/restaurant/:restaurantId/customer/:cid/order', findOrderByRestaurantAndCustomer)
 
   function findUserOrders(req, res) {
     var state = req.query['state'];
@@ -113,6 +114,16 @@ module.exports = function (app) {
       },function (err) {
         res.sendStatus(404).send(err);
         return;
+      });
+  }
+
+  function findOrderByRestaurantAndCustomer(req, res) {
+    var cid = req.params['cid'];
+    var restaurantId = req.params['restaurantId'];
+    var state = req.query['state'];
+    OrderModel.findByCustomerAndRestaurantId(cid, restaurantId, state)
+      .then(function (order) {
+        res.json(order);
       });
   }
 }

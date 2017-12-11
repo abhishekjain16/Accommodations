@@ -1,0 +1,77 @@
+<header></header>
+<div class="container">
+  <h2 class="text-center text-success">{{stateText()}}</h2>
+  <div class="row">
+    <div class="address col-xs-6 col-sm-4">
+      Delivery Address:
+      <p>{{name}}</p>
+      <p>{{street}}</p>
+      <p>{{apt}}</p>
+      <p>{{city}}</p>
+      <p>{{state}} - {{zipCode}}</p>
+      <p>{{phone}}</p>
+    </div>
+    <div class="col-xs-6 col-sm-4">
+      <h2 class="text-center text-capitalize">{{rname}}</h2>
+      <div class="col-xs-6 details">
+        <a [routerLink]="['/restaurant', restaurant.id]">
+          <img class="image" src="{{restaurant['image_url']}}" />
+        </a>
+      </div>
+    </div>
+    <div class="cart col-xs-12 col-sm-4">
+      <h3>{{rname}}</h3>
+      <ul class="list-group">
+        <li class="list-group-item active">
+          <div class="row">
+            <div class="col-xs-6 col-sm-6">
+              Item
+            </div>
+            <div class="col-xs-3">
+              Qty
+            </div>
+            <div class="col-xs-3">
+              Price
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item" *ngFor="let item of items">
+          <div class="row">
+            <div class="col-xs-6">
+              {{item.name}}
+            </div>
+            <div class="col-xs-3">
+              {{item.quantity}}
+            </div>
+            <div class="col-xs-3">
+              ${{item.price}}
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="cost_summary">
+        <div class="summary">
+          SubTotal:
+          <span>${{subTotal}}</span>
+        </div>
+        <div class="summary">
+          Tax:
+          <span>${{tax}}</span>
+        </div>
+        <div class="summary">
+          Delivery Charge:
+          <span>${{deliveryCharge}}</span>
+        </div>
+        <div class="summary">
+          Total:
+          <span>${{total}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <a [routerLink]="['/']"
+     class="btn btn-block btn-primary">
+    Go to Homepage
+  </a>
+</div>

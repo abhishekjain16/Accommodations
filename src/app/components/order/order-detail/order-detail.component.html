@@ -20,81 +20,15 @@
   <div class="row">
     <div class="menu col-xs-12 col-sm-8">
       <ul class="list-group">
-        <li class="list-group-item">
+        <li class="list-group-item" *ngFor="let item of menuItems">
           <div class="row">
             <div class="col-xs-9 menu-item">
-              Paneer Tikka
-              <span class="description">Paneer with spicy flavours</span>
+              {{item.name}}
+              <span class="description">{{item.description}}</span>
             </div>
             <div class="col-xs-3 price">
-              $10.5
-              <a (click)="add()" class="pull-right">
-                Add
-                <span class="glyphicon glyphicon-plus"></span>
-              </a>
-            </div>
-          </div>
-        </li>
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-xs-9 menu-item">
-              Ricotta Croccante
-              <span class="description">
-                Grilled rustic bread, hand pressed ricotta, spicy red pepper, truffle honey.
-              </span>
-            </div>
-            <div class="col-xs-3 price">
-              $13.0
-              <a (click)="add()" class="pull-right">
-                Add
-                <span class="glyphicon glyphicon-plus"></span>
-              </a>
-            </div>
-          </div>
-        </li>
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-xs-9 menu-item">
-              Burrata
-              <span class="description">
-                Local burrata, sweet peppers, roasted cherry tomatoes, roasted garlic crostini, angel balsamic reduction.
-              </span>
-            </div>
-            <div class="col-xs-3 price">
-              $19.5
-              <a (click)="add()" class="pull-right">
-                Add
-                <span class="glyphicon glyphicon-plus"></span>
-              </a>
-            </div>
-          </div>
-        </li>
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-xs-9 menu-item">
-              Cheese Pizza
-              <span class="description">Pizza with exotic vegetables</span>
-            </div>
-            <div class="col-xs-3 price">
-              $11.0
-              <a (click)="add()" class="pull-right">
-                Add
-                <span class="glyphicon glyphicon-plus"></span>
-              </a>
-            </div>
-          </div>
-        </li>
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-xs-9 menu-item">
-              Piccola Italian Flatbread
-              <span class="description">
-                Goat cheese, balsamic cipollini onions, double, smoked bacon, arugula, fig reduction
-              </span>
-            </div>
-            <div class="col-xs-3 price">
-              $21.0
-              <a (click)="add()" class="pull-right">
+              ${{item.price}}
+              <a (click)="add(item)" class="pull-right">
                 Add
                 <span class="glyphicon glyphicon-plus"></span>
               </a>
@@ -119,42 +53,22 @@
             </div>
           </div>
         </li>
-        <li class="list-group-item">
+        <li class="list-group-item" *ngFor="let item of items">
           <div class="row">
-            <div class="col-xs-6 col-sm-6">
-              Paneer Tikka
+            <div class="col-xs-6">
+              {{item.name}}
             </div>
             <div class="col-xs-3">
-              1
+              <a class="glyphicon glyphicon-minus-sign" (click)="reduceQuantity(item)">
+              </a>
+              {{item.quantity}}
+              <a class="glyphicon glyphicon-plus-sign" (click)="addQuantity(item)">
+              </a>
             </div>
             <div class="col-xs-3">
-              $10.50
-            </div>
-          </div>
-        </li>
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-xs-6 col-sm-6">
-              Cheese Pizza
-            </div>
-            <div class="col-xs-3">
-              2
-            </div>
-            <div class="col-xs-3">
-              $22.0
-            </div>
-          </div>
-        </li>
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-xs-6 col-sm-6">
-              Burger
-            </div>
-            <div class="col-xs-3">
-              1
-            </div>
-            <div class="col-xs-3">
-              $9.0
+              ${{item.price}}
+              <a class="glyphicon glyphicon-remove-sign pull-right" (click)="deleteItem(item)">
+              </a>
             </div>
           </div>
         </li>
@@ -178,13 +92,15 @@
         </div>
       </div>
       <div *ngIf="state=='cart'">
-        <button [routerLink]="['/restaurant', restaurant['id'], 'order', orderId, 'checkout']"
+        <button [routerLink]="['/restaurant', restaurant.id, 'order', orderId, 'checkout']"
                 class="btn btn-lg btn-success btn-block"
                 [disabled]="valid()">
           CHECKOUT
         </button>
         <div class="minimum">
-          Delivery Minimum: ${{orderLimit}}
+          Delivery Minimum: ${{minOrderLimit}}
+          <br/>
+          <span class="small">*On SubTotal</span>
         </div>
       </div>
     </div>

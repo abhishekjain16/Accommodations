@@ -16,7 +16,7 @@ export class MenuItemService {
   }
 
   baseUrl = environment.baseUrl;
-  options = new RequestOptions();
+
   createMenuItem(menuId: String, item) {
     const url = this.baseUrl + '/api/restaurant/menu/' + menuId + '/menuItem';
     return this.http.post(url, item)

@@ -19,7 +19,13 @@ export class OrderService {
 
   api = {
     'createOrder'   : this.createOrder,
-    'findOrderById' : this.findOrderById
+    'findOrderById' : this.findOrderById,
+    'findAllOrdersByRestaurant': this.findAllOrdersByRestaurant,
+    'updateOrder': this.updateOrder,
+    'findAllDriverOrders': this.findAllDriverOrders,
+    'findAllCustomerOrders': this.findAllCustomerOrders,
+    'findAllChefOrders': this.findAllChefOrders,
+    'findOrderByRestaurantAndCustomer': this.findOrderByRestaurantAndCustomer
   };
 
   createOrder(order: any, restaurantId: string) {
@@ -84,6 +90,16 @@ export class OrderService {
 
   findAllChefOrders(chefId: String, state: any) {
     const url = this.baseUrl + '/api/chef/' + chefId + 'order?state=' + state;
+    return this.http.get(url)
+      .map(
+        (res: Response) => {
+          return res.json();
+        }
+      );
+  }
+
+  findOrderByRestaurantAndCustomer(restaurantId: String, customerId: String, state: String) {
+    const url = this.baseUrl + '/api/restaurant/' + restaurantId + '/customer/' + customerId + '/order?state=' + state;
     return this.http.get(url)
       .map(
         (res: Response) => {

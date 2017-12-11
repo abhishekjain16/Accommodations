@@ -42,7 +42,8 @@ module.exports = function(app) {
 
   function updateOrderItem(req, res) {
     var orderItemId = req.params['orderItemId'];
-    OrderItemModel.updateOrderItem(orderItemId)
+    var item = req.body;
+    OrderItemModel.updateOrderItem(orderItemId, item)
       .then(function (status) {
         res.json(status);
       })

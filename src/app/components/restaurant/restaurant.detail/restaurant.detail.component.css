@@ -15,3 +15,22 @@
 .white {
   color: #ffffff;
 }
+
+.timings {
+  padding: 1rem;
+  background-color: #efefef;
+}
+
+.name {
+  font-weight: 700;
+  font-size: large;
+}
+
+.review-text {
+  font-style: italic;
+}
+
+.time-slot a{
+  margin-bottom: 5px;
+  width: 100%;
+}
