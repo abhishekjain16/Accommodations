@@ -2,8 +2,8 @@
   <div *ngIf="this.restaurantId;else header">
     <ul class="nav nav-tabs nav-justified">
       <li role="presentation" class="active">
-        <a [routerLink]="['/restaurant/', restaurantId]" class="btn">
-          {{manager.firstName}}'s Profile
+        <a [routerLink]="['/manager','restaurant', restaurantId]" class="btn">
+          My Profile
         </a>
       </li>
       <li role="presentation">
