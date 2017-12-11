@@ -10,6 +10,7 @@ module.exports = function (app) {
   app.post('/api/restaurant/:restaurantId/order', createOrder);
   app.put('/api/order/:orderId/cancel', cancelOrder);
   app.put('/api/order/:orderId', updateOrder);
+  app.get('/api/user/:userId/order', findUserOrders);
   app.get('/api/restaurant/:restaurantId/customer/:cid/order', findOrderByRestaurantAndCustomer)
 
   function findUserOrders(req, res) {

@@ -116,8 +116,8 @@ export class OrderCompleteComponent implements OnInit {
       return 'Your Order has been delivered.';
     } else if (this.rstate === 'cancelled') {
       return 'Your order has been cancelled';
-    } else if (this.rstate == 'accepted') {
-      return 'Your Order is not being prepared';
+    } else if (this.rstate === 'accepted') {
+      return 'Your Order is now being prepared';
     }
   }
 }
