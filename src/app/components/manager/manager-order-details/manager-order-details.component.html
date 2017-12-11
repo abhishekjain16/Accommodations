@@ -17,6 +17,33 @@
 
 
   <div class="container-fluid page-margin">
+    <ul class="nav nav-tabs nav-justified">
+      <li role="presentation" class="active">
+        <a [routerLink]="['/manager','restaurant', restaurantId]" class="btn">
+          My Profile
+        </a>
+      </li>
+      <li role="presentation">
+        <a [routerLink]="['/manager','restaurant', restaurantId, 'chef']" class="btn">
+          View Chefs
+        </a>
+      </li>
+      <li role="presentation">
+        <a [routerLink]="['/manager', 'restaurant', restaurantId, 'driver']" class="btn">
+          View Drivers
+        </a>
+      </li>
+      <li role="presentation">
+        <a [routerLink]="['/manager/restaurant/', restaurantId, 'order']" class="btn">
+          View Orders
+        </a>
+      </li>
+      <li role="presentation">
+        <a (click)="AddOrViewMenu()" class="btn">
+          View Menu
+        </a>
+      </li>
+    </ul>
     <div *ngIf="address">
       <label>Deliver To: </label><br>
       <label>{{address['name']}} </label><br>

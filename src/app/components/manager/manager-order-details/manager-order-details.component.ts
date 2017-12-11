@@ -4,6 +4,7 @@ import {OrderService} from '../../../services/order.service.client';
 import {UserService} from '../../../services/user.service.client';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {NgForm} from '@angular/forms';
+import {MenuService} from '../../../services/menu.service.client';
 
 @Component({
   selector: 'app-manager-order-details',
@@ -25,7 +26,8 @@ export class ManagerOrderDetailsComponent implements OnInit {
               private activatedRoute: ActivatedRoute,
               private orderService: OrderService,
               private router: Router,
-              private userService: UserService) { }
+              private userService: UserService,
+              private menuService: MenuService) { }
 
   ngOnInit() {
     this.activatedRoute.params
@@ -83,7 +85,6 @@ export class ManagerOrderDetailsComponent implements OnInit {
       );
   }
   ChooseEmployee() {
-    alert(this.orderState);
     if ( this.orderState === 'accepted' ) {
       const employeeId = this.orderDetailsForm.value.chefId;
       this.order['chefId'] = employeeId;
@@ -91,11 +92,22 @@ export class ManagerOrderDetailsComponent implements OnInit {
       const employeeId = this.orderDetailsForm.value.driverId;
       this.order['driverId'] = employeeId;
     }
-    console.log('choose employee');
     this.orderService.updateOrder(this.orderId, this.order)
       .subscribe(
         (order: any) => {
         this.router.navigate(['/manager', 'restaurant', this.restaurantId, 'order'])  ;
+        }
+      );
+  }
+  AddOrViewMenu() {
+    this.menuService.findMenuByRestroId(this.restaurantId)
+      .subscribe(
+        (menu: any) => {
+          if (menu) {
+            this.router.navigate(['/manager/restaurant/', this.restaurantId, 'menu']);
+          } else {
+            this.router.navigate(['/manager/restaurant/', this.restaurantId, 'menu', 'new']);
+          }
         }
       );
   }
