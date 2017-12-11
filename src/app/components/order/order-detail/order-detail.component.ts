@@ -5,6 +5,8 @@ import {RestaurantServiceClient} from '../../../services/restaurant.service.clie
 import {MenuService} from '../../../services/menu.service.client';
 import {MenuItemService} from '../../../services/menuItem.service.client';
 import {OrderItemService} from '../../../services/orderItem.service.client';
+import {UserService} from '../../../services/user.service.client';
+import {SharedService} from '../../../services/shared.service';
 
 @Component({
   selector: 'app-order-detail',
@@ -18,6 +20,7 @@ export class OrderDetailComponent implements OnInit {
   state: string;
   total: Number;
   subTotal: Number;
+  user: String;
   items = [];
   menu: {};
   menuItems = [];
@@ -34,10 +37,13 @@ export class OrderDetailComponent implements OnInit {
               private activatedRoute: ActivatedRoute,
               private restaurantService: RestaurantServiceClient,
               private menuService: MenuService,
+              private sharedService: SharedService,
+              private userService: UserService,
               private menuItemService: MenuItemService,
               private orderItemService: OrderItemService) { }
 
   ngOnInit() {
+    this.user = this.sharedService.user;
     this.activatedRoute.params
       .subscribe(
         (params: any) => {
@@ -96,7 +102,7 @@ export class OrderDetailComponent implements OnInit {
     const order = {
       subTotal: this.subTotal + price,
       total: this.total + price
-    }
+    };
     this.orderService.updateOrder(this.orderId, order)
       .subscribe( (orderItem) => {
         this.loadOrders();
@@ -109,20 +115,25 @@ export class OrderDetailComponent implements OnInit {
       name: mItem.name,
       price: mItem.price,
       orderId: this.orderId
-    }
+    };
     this.orderItemService.createOrderitem(item)
       .subscribe( (orderItem) => {
         this.updateOrder(item.price);
         this.loadOrderItems();
       });
   }
-
+  logout() {
+    this.userService.logout()
+      .subscribe(
+        (data: any) => this.router.navigate(['/login'])
+      );
+  }
   addQuantity(oItem: any) {
     const addedPrice = oItem.price / oItem.quantity;
     const item = {
       quantity: oItem.quantity + 1,
       price: oItem.price + addedPrice
-    }
+    };
     this.orderItemService.updateOrderItem(oItem._id, item)
       .subscribe( (status) => {
         this.updateOrder(addedPrice);
@@ -135,7 +146,7 @@ export class OrderDetailComponent implements OnInit {
     const item = {
       quantity: oItem.quantity - 1,
       price: oItem.price - reducedPrice
-    }
+    };
     if (item.price <= 0) {
       this.deleteItem(oItem);
     } else {

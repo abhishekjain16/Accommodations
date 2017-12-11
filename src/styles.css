@@ -6,3 +6,22 @@
   margin-top: 50px;
   padding-top: 15px
 }
+.food-bottombuff
+{
+  margin-bottom: 70px;
+}
+
+.food-right
+{
+  text-align: right;
+}
+
+
+.food-center
+{
+  font-size: xx-large;
+}
+
+header .food-center {
+  padding: 0;
+}

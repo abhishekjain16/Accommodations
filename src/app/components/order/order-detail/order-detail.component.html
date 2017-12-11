@@ -1,5 +1,42 @@
-<header></header>
-<div class="container">
+<header><div class="container-fluid food-center">
+  <a [routerLink]="['/restaurant', restaurantId]" class="white pull-left"><span class="glyphicon glyphicon-chevron-left"></span></a>
+  <span class="food-center">FoOdSpOt </span>
+
+  <div class="login pull-right" *ngIf="this.user;else login">
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Account
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li>
+          <a [routerLink]="['profile']">
+            My Profile
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['orders']">
+            My Orders
+          </a>
+        </li>
+        <li>
+          <a (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <ng-template #login>
+    <div class="pull-right">
+      <a [routerLink]="['/login']" class="btn btn-default btn-lg">
+        Login
+      </a>
+      <a [routerLink]="['/register']" class="btn btn-primary btn-lg">
+        Sign Up
+      </a>
+    </div>
+  </ng-template>
+</div>
+</header>
+<div class="container food-bottombuff">
   <div class="details">
     <div class="image-container col-xs-3 col-sm-2">
       <a [routerLink]="['/restaurant', restaurant.id]">
@@ -107,5 +144,7 @@
   </div>
 </div>
 <footer>
-
+  <div class="food-right">
+    <p><b>© Abhishek Sadaab Vivek</b></p>
+  </div>
 </footer>

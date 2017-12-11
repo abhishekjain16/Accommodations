@@ -5,7 +5,7 @@ import {OrderService} from '../../../services/order.service.client';
 import {SharedService} from '../../../services/shared.service';
 import {UserService} from '../../../services/user.service.client';
 import {MenuService} from '../../../services/menu.service.client';
-import {NULL_EXPR} from "@angular/compiler/src/output/output_ast";
+import {NULL_EXPR} from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-restaurant.detail',
@@ -42,6 +42,7 @@ export class RestaurantDetailComponent implements OnInit {
                private menuService: MenuService) { }
 
   SearchBusinessById(id: String) {
+    // this.user = this.sharedService.user;
     this.restaurantService.SearchBusinessById(id)
       .subscribe( (result) => {
         this.name = result.name;
@@ -80,6 +81,7 @@ export class RestaurantDetailComponent implements OnInit {
         this.restaurant = result;
         this.positions = [[coordinates['latitude'], coordinates['longitude']]];
         this.center = coordinates['latitude'].toString() + ', ' + coordinates['longitude'].toString();
+        console.log(this.hours);
         this.hours = result.hours[0]['open'];
         this.days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
         this.city = result.location['city'];
@@ -102,6 +104,12 @@ export class RestaurantDetailComponent implements OnInit {
     } else {
       return '';
     }
+  }
+  logout() {
+    this.userService.logout()
+      .subscribe(
+        (data: any) => this.router.navigate(['/login'])
+      );
   }
 
   createOrder() {
@@ -134,4 +142,5 @@ export class RestaurantDetailComponent implements OnInit {
       });
 
   }
+
 }
