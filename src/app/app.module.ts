@@ -51,6 +51,9 @@ import { OrderEditComponent } from './components/order/order-edit/order-edit.com
 import { ManagerOrderDetailsComponent } from './components/manager/manager-order-details/manager-order-details.component';
 import { OrderItemService} from './services/orderItem.service.client';
 import { OrderCompleteComponent } from './components/order/order-complete/order-complete.component';
+import { AdminOrderListComponent } from './components/admin/admin-order-list/admin-order-list.component';
+import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
+import { AdminManagerDetailComponent } from './components/admin/admin-manager-detail/admin-manager-detail.component';
 
 @NgModule({
   // Declare components here
@@ -88,7 +91,10 @@ import { OrderCompleteComponent } from './components/order/order-complete/order-
     OrderListComponent,
     OrderEditComponent,
     ManagerOrderDetailsComponent,
-    OrderCompleteComponent
+    OrderCompleteComponent,
+    AdminOrderListComponent,
+    AdminDashboardComponent,
+    AdminManagerDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -32,7 +32,6 @@ export class DriverRegisterComponent implements OnInit {
       .subscribe(
         (params: any) => {
           this.restaurantId = params['restaurantId'];
-          this.restaurantName = 'ABC';
         }
       );
   }

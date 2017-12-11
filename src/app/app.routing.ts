@@ -20,6 +20,9 @@ import {ChefOrderListComponent} from './components/chef/chef-order-list/chef-ord
 import {ChefListComponent} from './components/chef/chef-list/chef-list.component';
 import {AdminUserListComponent} from './components/admin/admin-user-list/admin-user-list.component';
 import {AdminManagerListComponent} from './components/admin/admin-manager-list/admin-manager-list.component';
+import {AdminOrderListComponent} from './components/admin/admin-order-list/admin-order-list.component';
+import { AdminManagerDetailComponent } from './components/admin/admin-manager-detail/admin-manager-detail.component';
+import {AdminDashboardComponent} from './components/admin/admin-dashboard/admin-dashboard.component';
 import {AuthGuard} from './services/auth-guard.service';
 import {RestaurantListComponent} from './components/restaurant/restaurant.list/restaurant.list.component';
 import {OrderDetailComponent} from './components/order/order-detail/order-detail.component';
@@ -32,6 +35,7 @@ import {MenuItemNewComponent} from './components/menuItem/menu-item-new/menu-ite
 import {MenuItemListComponent} from './components/menuItem/menu-item-list/menu-item-list.component';
 import {MenuItemEditComponent} from './components/menuItem/menu-item-edit/menu-item-edit.component';
 import {ManagerOrderDetailsComponent} from './components/manager/manager-order-details/manager-order-details.component';
+import {OrderListComponent} from "./components/order/order-list/order-list.component";
 
 const APP_ROUTES: Routes = [
   {path: '', component : RestaurantSearchComponent},
@@ -64,10 +68,11 @@ const APP_ROUTES: Routes = [
   {path: 'driver/restaurant/:restaurantId/order/:orderId', component: DriverOrderDetailComponent, canActivate: [AuthGuard]},
   {path: 'admin/customer', component: AdminUserListComponent, canActivate: [AuthGuard]},
   {path: 'admin/manager', component: AdminManagerListComponent, canActivate: [AuthGuard]},
-  {path: 'admin/manager/:managerId', component: ManagerDashboardComponent, canActivate: [AuthGuard]},
+  {path: 'admin/manager/:managerId', component: AdminManagerDetailComponent, canActivate: [AuthGuard]},
   {path: 'admin/restaurant/:restaurantId/chef', component: ChefListComponent, canActivate: [AuthGuard]},
   {path: 'admin/restaurant/:restaurantId/driver', component: DriverListComponent, canActivate: [AuthGuard]},
-  {path: 'admin/restaurant/:restaurantId/order', component: AdminUserListComponent, canActivate: [AuthGuard]}
+  {path: 'admin/restaurant/:restaurantId/order', component: OrderListComponent, canActivate: [AuthGuard]},
+  {path: 'admin/profile', component: AdminDashboardComponent, canActivate: [AuthGuard]}
 ];
 
 // Export the routes as module providers

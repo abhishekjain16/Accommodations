@@ -39,6 +39,8 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['manager/restaurant', this.sharedService.user['restaurantId']]);
           } else if (this.role === 'Driver') {
             this.router.navigate(['driver/restaurant/',  this.sharedService.user['restaurantId'], 'order']);
+          } else if (this.role === 'Admin') {
+            this.router.navigate(['admin', 'manager']);
           } else {
             this.router.navigate(['/']);
           }
