@@ -3,6 +3,8 @@ import {OrderService} from '../../../services/order.service.client';
 import {ActivatedRoute, Router} from '@angular/router';
 import {RestaurantServiceClient} from '../../../services/restaurant.service.client';
 import {OrderItemService} from '../../../services/orderItem.service.client';
+import {UserService} from "../../../services/user.service.client";
+import {SharedService} from "../../../services/shared.service";
 
 @Component({
   selector: 'app-order-complete',
@@ -22,6 +24,7 @@ export class OrderCompleteComponent implements OnInit {
   minOrderLimit: Number;
   rname: string;
   rimage: any;
+  user: String;
   restaurant = {};
   address: {};
   street: string;
@@ -34,12 +37,15 @@ export class OrderCompleteComponent implements OnInit {
 
   constructor(private orderService: OrderService,
               private router: Router,
+              private userService: UserService,
+              private sharedService: SharedService,
               private activatedRoute: ActivatedRoute,
               private restaurantService: RestaurantServiceClient,
               private orderItemService: OrderItemService) { }
 
 
   ngOnInit() {
+    this.user = this.sharedService.user;
     this.activatedRoute.params
       .subscribe(
         (params: any) => {
@@ -85,6 +91,13 @@ export class OrderCompleteComponent implements OnInit {
             }
           }
         });
+  }
+
+  logout() {
+    this.userService.logout()
+      .subscribe(
+        (data: any) => this.router.navigate(['/login'])
+      );
   }
 
   loadOrderItems() {
