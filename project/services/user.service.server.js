@@ -1,10 +1,9 @@
 module.exports = function (app) {
-  // facebookConfig = {
-  //   clientID     : '382552615534382',
-  //   clientSecret : '0353493dfdbfdc9912a64837b593bc82',
-  //   callbackURL  : 'http://localhost:3000/auth/facebook/callback'
-  // };
-
+  facebookConfig = {
+    clientID     : '158085094917386',
+    clientSecret : '581df926a3b83c30b94804ea5a118bb2',
+    callbackURL  : 'https://food-spot.herokuapp.com/auth/facebook/callback'
+  };
   var UserModel = require('../model/user/user.model.server');
   var passport = require('passport');
   passport.serializeUser(serializeUser);
@@ -13,7 +12,7 @@ module.exports = function (app) {
   passport.use(new LocalStrategy(localStrategy));
   var bcrypt = require("bcrypt-nodejs");
   var FacebookStrategy = require('passport-facebook').Strategy;
-  // passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
+  passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
 
   app.get('/api/user', findUsers);
   app.get('/api/user/:userId', findUser);
@@ -26,7 +25,40 @@ module.exports = function (app) {
   app.post('/api/login', passport.authenticate('local'), login);
   app.post('/api/logout', logout);
   app.post('/api/loggedin', loggedin);
+  app.get ('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+  app.get('/auth/facebook/callback',
+    passport.authenticate('facebook', {
+      successRedirect: 'https://food-spot.herokuapp.com/',
+      failureRedirect: 'https://food-spot.herokuapp.com/login'
+      // successRedirect: 'https://food-spot:herokuapp.com/profile',
+      // failureRedirect: 'https://food-spot.herokuapp.com/login'
+    }));
 
+
+
+  function facebookStrategy(token, refreshToken, profile, done) {
+    UserModel
+      .findUserByFacebookId(profile.id)
+      .then(function (user) {
+        if (user) {
+          return done(null, user);
+        } else {
+          const user = {
+            firstName: profile.name['givenName'],
+            lastName: profile.name['familyName'],
+            username: profile.username,
+            facebook: {
+              id: profile.id,
+              token: token
+            }
+          }
+          UserModel.createUser(user)
+            .then(function (user) {
+              return done(null, user);
+            })
+        }
+      })
+  }
 
   function findUsers(req, res) {
     var username = req.query['username'];

@@ -13,12 +13,17 @@ UserModel.updateUser = updateUser;
 UserModel.findByRoleAndRestaurantId = findByRoleAndRestaurantId;
 UserModel.findUserByUsername = findUserByUsername;
 UserModel.findUserByRole = findUserByRole;
+UserModel.findUserByFacebookId = findUserByFacebookId;
 
 module.exports = UserModel;
 
 
 function findUserByCredentials(username, password) {
   return UserModel.findOne({username: username, password: password});
+}
+
+function findUserByFacebookId(facebookId) {
+  return UserModel.findOne({'facebook.id': facebookId});
 }
 
 function findUserById(id) {
