@@ -11,6 +11,7 @@ UserModel.findAllUsers = findAllUsers;
 UserModel.deleteUser = deleteUser;
 UserModel.updateUser = updateUser;
 UserModel.findByRoleAndRestaurantId = findByRoleAndRestaurantId;
+UserModel.findByActiveRoleAndRestaurantId = findByActiveRoleAndRestaurantId;
 UserModel.findUserByUsername = findUserByUsername;
 UserModel.findUserByRole = findUserByRole;
 
@@ -47,6 +48,10 @@ function updateUser(id, user) {
 
 function findByRoleAndRestaurantId(role, restaurantId) {
   return UserModel.find({role: role, restaurantId: restaurantId});
+}
+
+function findByActiveRoleAndRestaurantId(role, restaurantId) {
+  return UserModel.find({role: role, restaurantId: restaurantId, active: true});
 }
 
 function findUserByRole(role) {

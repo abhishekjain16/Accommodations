@@ -80,6 +80,24 @@ export class UserService {
         }
       );
   }
+  findActiveChefsByRestaurantId(restaurantId: string) {
+    return this.http.get(this.baseUrl + '/api/restaurant/' + restaurantId + '/chef/active')
+      .map(
+        (res: Response) => {
+          const data = res.json();
+          return data;
+        }
+      );
+  }
+  findActiveDriversByRestaurantId(restaurantId: string) {
+    return this.http.get(this.baseUrl + '/api/restaurant/' + restaurantId + '/driver/active')
+      .map(
+        (res: Response) => {
+          const data = res.json();
+          return data;
+        }
+      );
+  }
 
   findUserByUsername(username: string) {
     return this.http.get(this.baseUrl + '/api/user?username=' + username)

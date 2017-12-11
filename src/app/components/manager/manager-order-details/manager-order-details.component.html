@@ -1,57 +1,98 @@
-<nav class="navbar sadaab-navbar-color navbar-default navbar-fixed-top nav-collapse collapsing" style="height:60px">
-  <p class="navbar-text pull-left page-new-top-glyp-margin">
-    <a [routerLink]="['/manager', 'restaurant', restaurantId, 'order' ]" class="navbar-link">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-    </a>
-  </p>
+<form #f="ngForm">
 
-  <!--heading on the nav bar-->
-  <p class="navbar-header pull-left page-new-top-glyp-margin">
-    <a class="navbar-brand thick">
-      <b>Order Number : {{orderId}}</b>
-    </a>
-  </p>
-</nav>
+  <nav class="navbar sadaab-navbar-color navbar-default navbar-fixed-top nav-collapse collapsing" style="height:60px">
+    <p class="navbar-text pull-left page-new-top-glyp-margin">
+      <a [routerLink]="['/manager', 'restaurant', restaurantId, 'order']" class="navbar-link">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+    </p>
 
-<div class="container-fluid page-margin">
-  <ul class="list-group">
-    <li class="list-group-item active">
-      <div class="row">
-        <div class="col-sm-3 col-md-4 col-xs-6">
-          Name
+    <!--heading on the nav bar-->
+    <p class="navbar-header pull-left page-new-top-glyp-margin">
+      <a class="navbar-brand thick">
+        <b>Order Number : {{orderId}}</b>
+      </a>
+    </p>
+  </nav>
+
+  <div class="container-fluid page-margin">
+    <ul class="list-group">
+      <li class="list-group-item active">
+        <div class="row">
+          <div class="col-sm-3 col-md-4 col-xs-6">
+            Name
+          </div>
+          <div class="col-md-2 col-sm-3 hidden-xs">
+            Price
+          </div>
+          <div class="col-sm-3 col-md-2 hidden-xs">
+            Quantity
+          </div>
+          <div class="col-sm-3 col-md-4 hidden-6">
+            Instructions
+          </div>
         </div>
-        <div class="col-md-2 col-sm-3 hidden-xs">
-          Price
+      </li>
+      <li class="list-group-item" *ngFor="let item of orderItems">
+        <div class="row">
+          <div class="col-sm-3 col-md-4 col-xs-6">
+            <a>
+              {{item['name']}}
+            </a>
+          </div>
+          <div class="col-md-2 col-sm-3 hidden-xs">
+            {{item['price']}}
+          </div>
+          <div class="col-sm-3 col-md-2 hidden-xs">
+            {{item['quantity']}}
+          </div>
+          <div class="col-sm-3 col-md-4 hidden-6">
+            {{item['instructions']}}
+          </div>
         </div>
-        <div class="col-sm-3 col-md-2 hidden-xs">
-          Quantity
-        </div>
-        <div class="col-sm-3 col-md-4 hidden-6">
-          Instructions
-        </div>
+      </li>
+    </ul>
+    <div [ngSwitch]="orderState">
+      <div *ngSwitchCase="'paid'">
+        <button (click)="AcceptOrder()" class="btn btn-primary btn-block"
+        >Accept Order</button>
+        <button (click)="CancelOrder()" class="btn btn-primary btn-block"
+        >Cancel</button>
       </div>
-    </li>
-    <li class="list-group-item" *ngFor="let item of orderItems">
-      <div class="row">
-        <div class="col-sm-3 col-md-4 col-xs-6">
-          <a>
-            {{item['name']}}
-          </a>
-        </div>
-        <div class="col-md-2 col-sm-3 hidden-xs">
-          {{item['price']}}
-        </div>
-        <div class="col-sm-3 col-md-2 hidden-xs">
-          {{item['quantity']}}
-        </div>
-        <div class="col-sm-3 col-md-4 hidden-6">
-          {{item['instructions']}}
-        </div>
+      <div *ngSwitchCase="'accepted'">
+        <label class="">Choose Chef</label>
+        <select class="form-control"
+                name="chefId"
+                id = "chefId"
+                ngModel>
+          <option *ngFor="let chef of chefs"
+                  value={{chef._id}}
+                  selected = "order['chefId'] == {{chef._id}}">
+            {{chef.firstName}} {{chef.lastName}}
+          </option>
+        </select>
+        <button (click)="ChooseEmployee()" class="btn btn-primary btn-block margin-top-button"
+        >Ok</button>
+        <button (click)="CancelOrder()" class="btn btn-primary btn-block"
+        >Cancel</button>
       </div>
-    </li>
-  </ul>
-  <button (click)="AcceptOrder()" class="btn btn-primary btn-block"
-  >Accept & Choose Chef</button>
-  <button (click)="CancelOrder()" class="btn btn-primary btn-block"
-  >Cancel</button>
-</div>
+      <div *ngSwitchCase="'ready'">
+        <label class="">Choose Driver</label>
+        <select class="form-control"
+                name="driverId"
+                id = "driverId"
+                ngModel>
+          <option *ngFor="let driver of drivers"
+                  value={{driver._id}}
+                  selected = "order['driverId'] == {{driver._id}}">
+            {{driver.firstName}} {{driver.lastName}}
+          </option>
+        </select>
+        <button (click)="ChooseEmployee()" class="btn btn-primary btn-block margin-top-button"
+        >Ok</button>
+        <button (click)="CancelOrder()" class="btn btn-primary btn-block"
+        >Cancel</button>
+      </div>
+    </div>
+  </div>
+</form>

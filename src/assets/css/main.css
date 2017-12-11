@@ -136,6 +136,17 @@ ul {
   font-size: 1em !important
 ;
 }
+
+.sadaab-navbar-color
+{
+  color:blue;
+  background-color: lightskyblue !important;
+}
+
+.margin-top-button
+{
+  margin-top: 10px;
+}
 /* You can add global styles to this file, and also import other style files */
 
 /*#home_page_background {*/

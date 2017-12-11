@@ -18,7 +18,7 @@ export class OrderItemService {
   options = new RequestOptions();
 
   findAllByOrder(orderId: String) {
-    const url = this.baseUrl + '/api/order/' + orderId;
+    const url = this.baseUrl + '/api/order/' + orderId + '/orderItem';
     return this.http.get(url)
       .map(
         (res: Response) => {

@@ -2,7 +2,7 @@ module.exports = function(app) {
 
   var OrderItemModel = require('../model/orderItem/orderItem.model.server');
 
-  app.get('/api/order/:orderId', findAllByOrder);
+  app.get('/api/order/:orderId/orderItem', findAllByOrder);
   app.get('/api/orderItem/:orderItemId',findById);
   app.post('/api/order/orderItem', createOrderitem);
   app.delete('/api/order/orderItem/:orderItemId',deleteOrderItem);

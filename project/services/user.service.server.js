@@ -23,6 +23,8 @@ module.exports = function (app) {
   app.get('/api/restaurant/:restaurantId/manager', findManagerByRestaurantId);
   app.get('/api/restaurant/:restaurantId/chef', findChefByRestaurantId);
   app.get('/api/restaurant/:restaurantId/driver', findDriverByRestaurantId);
+  app.get('/api/restaurant/:restaurantId/chef/active', findActiveChefByRestaurantId);
+  app.get('/api/restaurant/:restaurantId/driver/active', findActiveDriverByRestaurantId);
   app.post('/api/login', passport.authenticate('local'), login);
   app.post('/api/logout', logout);
   app.post('/api/loggedin', loggedin);
@@ -87,6 +89,20 @@ module.exports = function (app) {
   function findChefByRestaurantId(req, res) {
     var restaurantId = req.params['restaurantId'];
     UserModel.findByRoleAndRestaurantId("Chef", restaurantId)
+      .then(function (user) {
+        res.json(user);
+      })
+  }
+  function findActiveDriverByRestaurantId(req, res) {
+    var restaurantId = req.params['restaurantId'];
+    UserModel.findByActiveRoleAndRestaurantId("Driver", restaurantId)
+      .then(function (user) {
+        res.json(user);
+      })
+  }
+  function findActiveChefByRestaurantId(req, res) {
+    var restaurantId = req.params['restaurantId'];
+    UserModel.findByActiveRoleAndRestaurantId("Chef", restaurantId)
       .then(function (user) {
         res.json(user);
       })

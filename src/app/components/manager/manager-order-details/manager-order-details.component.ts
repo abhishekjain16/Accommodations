@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {OrderItemService} from '../../../services/orderItem.service.client';
 import {OrderService} from '../../../services/order.service.client';
+import {UserService} from '../../../services/user.service.client';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-manager-order-details',
@@ -9,14 +11,20 @@ import {OrderService} from '../../../services/order.service.client';
   styleUrls: ['./manager-order-details.component.css']
 })
 export class ManagerOrderDetailsComponent implements OnInit {
+  @ViewChild('f') orderDetailsForm: NgForm;
 
   restaurantId: string;
   order: {};
   orderId: string;
-  orderItems: [{}];
+  orderItems = [{}];
+  orderState: String;
+  chefs: String;
+  drivers: String;
   constructor(private orderItemService: OrderItemService,
               private activatedRoute: ActivatedRoute,
-              private orderService: OrderService) { }
+              private orderService: OrderService,
+              private router: Router,
+              private userService: UserService) { }
 
   ngOnInit() {
     this.activatedRoute.params
@@ -30,6 +38,7 @@ export class ManagerOrderDetailsComponent implements OnInit {
       .subscribe(
         (order: any) => {
           this.order = order;
+          this.orderState = order['state'];
         }
       );
     this.orderItemService.findAllByOrder(this.orderId)
@@ -38,23 +47,54 @@ export class ManagerOrderDetailsComponent implements OnInit {
           this.orderItems = orderItems;
         }
       );
+    this.userService.findActiveChefsByRestaurantId(this.restaurantId)
+      .subscribe(
+        (chefs: any) => {
+          this.chefs = chefs;
+        }
+      );
+    this.userService.findActiveDriversByRestaurantId(this.restaurantId)
+      .subscribe(
+        (drivers: any) => {
+          this.drivers = drivers;
+        }
+      );
   }
 
   AcceptOrder() {
     this.order['state'] = 'accepted';
+    console.log('accepting order');
     this.orderService.updateOrder(this.orderId, this.order)
       .subscribe(
         (order: any) => {
-          // Inform the customer order was accepted
+          this.router.navigate(['/manager', 'restaurant', this.restaurantId, 'order']);
         }
       );
   }
   CancelOrder() {
     this.order['state'] = 'cancelled';
+    console.log('cancel order');
     this.orderService.updateOrder(this.orderId, this.order)
       .subscribe(
         (order: any) => {
-          // Inform the customer order was cancelled
+          this.router.navigate(['/manager', 'restaurant', this.restaurantId, 'order']);
+        }
+      );
+  }
+  ChooseEmployee() {
+    if ( this.orderState === 'accepted' ) {
+      const employeeId = this.orderDetailsForm.value.chefId;
+      this.order['chefId'] = employeeId;
+    } else if ( this.orderState === 'ready' ) {
+      const employeeId = this.orderDetailsForm.value.driverId;
+      this.order['driverId'] = employeeId;
+      console.log(employeeId);
+    }
+    console.log('choose employee');
+    this.orderService.updateOrder(this.orderId, this.order)
+      .subscribe(
+        (order: any) => {
+        this.router.navigate(['/manager', 'restaurant', this.restaurantId, 'order'])  ;
         }
       );
   }
