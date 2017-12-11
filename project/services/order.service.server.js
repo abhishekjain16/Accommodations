@@ -62,10 +62,10 @@ module.exports = function (app) {
     OrderModel.findAllChefOrders(chefId, state)
       .then(
         function(orders) {
-          res.json(orders);
+          return res.json(orders);
         },
         function(err) {
-          res.status(400).send(err);
+          return res.status(400).send(err);
         }
       );
   }

@@ -48,25 +48,25 @@ function updateOrder(id, order) {
 
 function findAllDriverOrders(driverId, state) {
   if (state) {
-    return OrderModel.findAll({driverId: driverId, state: state});
+    return OrderModel.find({driverId: driverId, state: state});
   } else {
-    return OrderModel.findAll({driverId: driverId});
+    return OrderModel.find({driverId: driverId});
   }
 }
 
 function findAllCustomerOrders(customerId, state) {
   if (state) {
-    return OrderModel.findAll({customerId: customerId, state: state});
+    return OrderModel.find({customerId: customerId, state: state});
   } else {
-    return OrderModel.findAll({customerId: customerId});
+    return OrderModel.find({customerId: customerId});
   }
 }
 
 function findAllChefOrders(chefId, state) {
   if (state) {
-    return OrderModel.findAll({chefId: chefId, state: state});
+    return OrderModel.find({chefId: chefId, state: state});
   } else {
-    return OrderModel.findAll({chefId: chefId});
+    return OrderModel.find({chefId: chefId});
   }
 }
 

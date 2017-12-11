@@ -1,3 +1,53 @@
-<p>
-  chef-order-list works!
-</p>
+<nav class="navbar sadaab-navbar-color navbar-default navbar-fixed-top nav-collapse collapsing" style="height:60px">
+  <p class="navbar-text pull-left page-new-top-glyp-margin">
+    <a [routerLink]="['/login' ]" class="navbar-link">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+  </p>
+
+  <!--heading on the nav bar-->
+  <p class="navbar-header pull-left page-new-top-glyp-margin">
+    <a class="navbar-brand thick">
+      <b>Chef Order list</b>
+    </a>
+  </p>
+</nav>
+
+<div class="container-fluid page-margin">
+  <ul class="list-group">
+    <li class="list-group-item active">
+      <div class="row">
+        <div class="col-xs-9 col-sm-6 col-md-3">
+          Order Number
+        </div>
+        <div class="col-md-3 hidden-sm hidden-xs">
+          Order Price
+        </div>
+        <div class="col-sm-3 col-md-3 hidden-xs">
+          Order Date
+        </div>
+        <div class="col-xs-3">
+        </div>
+      </div>
+    </li>
+    <li class="list-group-item" *ngFor="let order of orders">
+      <div class="row">
+        <div class="col-xs-9 col-sm-6 col-md-3">
+          <a>
+            {{order['_id']}}
+          </a>
+        </div>
+        <div class="col-md-3 hidden-sm hidden-xs">
+          {{order['total']}}
+        </div>
+        <div class="col-sm-3 col-md-3 hidden-xs">
+          {{order['dateCreated']}}
+        </div>
+        <div class="col-xs-3">
+          <button [routerLink]="['/chef', 'restaurant', restaurantId, 'order', order._id]"
+                  class="btn btn-success btn-block">View Order</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

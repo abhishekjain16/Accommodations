@@ -84,13 +84,15 @@ export class ManagerOrderDetailsComponent implements OnInit {
       );
   }
   ChooseEmployee() {
+    alert(this.orderState);
     if ( this.orderState === 'accepted' ) {
       const employeeId = this.orderDetailsForm.value.chefId;
+      alert(employeeId);
       this.order['chefId'] = employeeId;
     } else if ( this.orderState === 'ready' ) {
       const employeeId = this.orderDetailsForm.value.driverId;
       this.order['driverId'] = employeeId;
-      console.log(employeeId);
+      alert(employeeId);
     }
     console.log('choose employee');
     this.orderService.updateOrder(this.orderId, this.order)
