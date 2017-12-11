@@ -99,7 +99,9 @@ ul {
 }
 
 .logo {
+  padding: 2rem;
   text-align: center;
+  margin-left: 15%;
 }
 
 .search-box {

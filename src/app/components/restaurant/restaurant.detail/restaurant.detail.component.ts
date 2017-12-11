@@ -5,6 +5,7 @@ import {OrderService} from '../../../services/order.service.client';
 import {SharedService} from '../../../services/shared.service';
 import {UserService} from '../../../services/user.service.client';
 import {MenuService} from '../../../services/menu.service.client';
+import {NULL_EXPR} from "@angular/compiler/src/output/output_ast";
 
 @Component({
   selector: 'app-restaurant.detail',
@@ -28,6 +29,9 @@ export class RestaurantDetailComponent implements OnInit {
   order = {};
   user: any;
   menu = {};
+  city: string;
+  shouldShow: boolean;
+  manager = {};
 
   constructor( private restaurantService: RestaurantServiceClient,
                private activatedRoute: ActivatedRoute,
@@ -63,7 +67,6 @@ export class RestaurantDetailComponent implements OnInit {
                 this.order = order;
               }
             });
-
       });
 
     this.restaurantService.SearchBusinessById(this.restaurantId)
@@ -79,6 +82,13 @@ export class RestaurantDetailComponent implements OnInit {
         this.center = coordinates['latitude'].toString() + ', ' + coordinates['longitude'].toString();
         this.hours = result.hours[0]['open'];
         this.days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+        this.city = result.location['city'];
+        this.canOrder();
+      });
+
+    this.userService.findManagerByRestaurantId(this.restaurantId)
+      .subscribe( (result) => {
+        this.manager = result;
       });
 
     this.restaurantService.getReviewsById(this.restaurantId)
@@ -109,6 +119,18 @@ export class RestaurantDetailComponent implements OnInit {
           .subscribe(
             (order: any) => this.router.navigate(['restaurant', this.restaurantId, 'order', order._id])
           );
+      });
+
+  }
+
+  canOrder() {
+    this.menuService.findMenuByRestroId(this.restaurantId)
+      .subscribe( (menu) => {
+        if (menu) {
+          this.shouldShow = true;
+        } else {
+          this.shouldShow = false;
+        }
       });
 
   }

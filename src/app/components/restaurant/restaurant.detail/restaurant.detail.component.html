@@ -1,7 +1,21 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-4">
-      <h2>{{name}}</h2>
+      <h1>{{name}}</h1>
+      <div *ngIf="(manager | json) == '{}'; else other">
+        <a [routerLink]="['/restaurant', restaurant.id, 'register']" class="pull-right">
+          Claim this restaurant
+        </a>
+      </div>
+      <ng-template #other>
+        <a [routerLink]="['/restaurant', restaurant.id, 'chef', 'register']" class="pull-right">
+          Register as a Chef
+        </a>
+        <br/>
+        <a [routerLink]="['/restaurant', restaurant.id, 'driver', 'register']" class="pull-right">
+          Register as a Delivery agent
+        </a>
+      </ng-template>
       <div>
         <rating [(ngModel)]="restaurant['rating']"
                 readonly="true"
@@ -9,13 +23,15 @@
         </rating>
         <span class="reviews">Reviews: {{restaurant['review_count']}}</span>
         <div class="price">{{restaurant['price']}}</div>
-        <div class="categories">{{categories(restaurant['categories'])}} </div>
+        <div class="categories">
+          Categories:
+          {{categories(restaurant['categories'])}}
+        </div>
       </div>
 
       <ngui-map
-        zoom="12"
-        center="Boston, USA"
-        [geoFallbackCenter]="positions[0]">
+        zoom="11"
+        [center]="city">
         <marker *ngFor="let pos of positions"
                 [position]="pos"></marker>
       </ngui-map>
@@ -49,31 +65,64 @@
   </div>
   <div class="row">
     <div class="col-xs-12 col-sm-8">
-      <h3>Some of the Reviews from Yelp</h3>
-      <ul>
-        <li *ngFor="let review of reviews">
-          {{review['text']}}
-        </li>
-      </ul>
+      <div *ngIf="reviews.length > 0">
+        <h3>Some of the Reviews from Yelp</h3>
+        <ul class="list-group">
+          <li *ngFor="let review of reviews" class="list-group-item">
+            <div class="row">
+              <div class="col-xs-6 col-sm-2">
+                <img class="restro_image thumbnail" src="{{review['user']['image_url']}}" />
+              </div>
+              <div class="name col-xs-6 col-sm-10">
+                {{review['user']['name']}}
+              </div>
+              <div class="review-text">
+                {{review['text']}}
+                <a [href]="review['url']" target="_blank">
+                  Read more
+                </a>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="more">
+          <a [href]="restaurant['url']"
+             target="_blank">
+            Read more reviews on Yelp
+            <span class="glyphicon glyphicon-arrow-right"></span>
+          </a>
+        </div>
+      </div>
     </div>
     <div class="col-xs-12 col-sm-4 time-slot">
-      <div *ngIf="user && (order | json) == '{}';else second">
-        <a (click)="createOrder()"
-           class="btn btn-success">Place an Order
-        </a>
-      </div>
-      <ng-template #second>
-        <ng-container *ngIf="user">
-          <a [routerLink]="['/restaurant', restaurant.id, 'order', order['_id']]"
-             class="btn btn-success">
-            Continue your Order
+      <div *ngIf="shouldShow">
+        <div *ngIf="user && (order | json) == '{}';else second">
+          <a (click)="createOrder()"
+             class="btn btn-success">Place an Order
           </a>
-        </ng-container>
-      </ng-template>
-      <div>
+        </div>
+        <ng-template #second>
+          <ng-container *ngIf="user; else third">
+            <a [routerLink]="['/restaurant', restaurant.id, 'order', order['_id']]"
+               class="btn btn-success">
+              Continue your Order
+            </a>
+          </ng-container>
+        </ng-template>
+        <ng-template #third>
+          <a [routerLink]="['login']"
+             class="btn btn-primary btn-lg">
+            Login/Sign up to Order online
+          </a>
+        </ng-template>
+      </div>
+      <div class="timings">
         <h3>Hours of Operation</h3>
-        <ul>
-          <li *ngFor="let day of days; let i = index" [attr.data-index]="i">
+        <div class="text-info">
+          Contact Information: {{restaurant['display_phone']}}
+        </div>
+        <ul class="list-group">
+          <li *ngFor="let day of days; let i = index" [attr.data-index]="i" class="list-group-item">
             {{day}} : {{ hours[i]['start']}} - {{hours[i]['end']}}
           </li>
         </ul>
