@@ -4,6 +4,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {RestaurantServiceClient} from '../../../services/restaurant.service.client';
 import {OrderItemService} from '../../../services/orderItem.service.client';
 import {NgForm} from '@angular/forms';
+import {UserService} from "../../../services/user.service.client";
+import {SharedService} from '../../../services/shared.service';
 
 @Component({
   selector: 'app-order-checkout',
@@ -24,6 +26,7 @@ export class OrderCheckoutComponent implements OnInit {
   minOrderLimit: Number;
   rname: string;
   rimage: any;
+  user: String;
   restaurant = {};
   address: {};
   street: string;
@@ -36,21 +39,22 @@ export class OrderCheckoutComponent implements OnInit {
 
   constructor(private orderService: OrderService,
               private router: Router,
+              private userService: UserService,
               private activatedRoute: ActivatedRoute,
+              private sharedService: SharedService,
               private restaurantService: RestaurantServiceClient,
               private orderItemService: OrderItemService) { }
 
 
   ngOnInit() {
+    this.user = this.sharedService.user;
     this.activatedRoute.params
       .subscribe(
         (params: any) => {
           this.restaurantId = params['restaurantId'];
           this.orderId = params['orderId'];
         });
-
     this.loadOrder();
-
     this.restaurantService.SearchBusinessById(this.restaurantId)
       .subscribe( (result) => {
         this.rname = result.name;
@@ -95,7 +99,12 @@ export class OrderCheckoutComponent implements OnInit {
         this.items = items;
       });
   }
-
+  logout() {
+    this.userService.logout()
+      .subscribe(
+        (data: any) => this.router.navigate(['/login'])
+      );
+  }
   update() {
     const order = {
       address: {
