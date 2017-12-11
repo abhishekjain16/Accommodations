@@ -49,7 +49,7 @@ export class OrderService {
   }
 
   findAllOrdersByRestaurant(restaurantId: String, state: any) {
-    var url = '';
+    let url = '';
     if (state) {
       url = this.baseUrl + '/api/restaurant/' + restaurantId + '/order?state=' + state;
     } else {
@@ -84,7 +84,12 @@ export class OrderService {
   }
 
   findAllCustomerOrders(customerId: String, state: any) {
-    const url = this.baseUrl + '/api/customer/' + customerId + '/state/' + state;
+    let url = '';
+    if (state) {
+      url = this.baseUrl + '/api/user/' + customerId + '/order?state=' + state;
+    } else {
+      url = this.baseUrl + '/api/user/' + customerId + '/order';
+    }
     return this.http.get(url)
       .map(
         (res: Response) => {

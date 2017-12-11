@@ -58,7 +58,7 @@ function findAllCustomerOrders(customerId, state) {
   if (state) {
     return OrderModel.find({customerId: customerId, state: state});
   } else {
-    return OrderModel.find({customerId: customerId});
+    return OrderModel.find({customerId: customerId, state: {$nin: ['cart']}});
   }
 }
 

@@ -35,7 +35,8 @@ import {MenuItemNewComponent} from './components/menuItem/menu-item-new/menu-ite
 import {MenuItemListComponent} from './components/menuItem/menu-item-list/menu-item-list.component';
 import {MenuItemEditComponent} from './components/menuItem/menu-item-edit/menu-item-edit.component';
 import {ManagerOrderDetailsComponent} from './components/manager/manager-order-details/manager-order-details.component';
-import {OrderListComponent} from "./components/order/order-list/order-list.component";
+import {OrderListComponent} from './components/order/order-list/order-list.component';
+import {UserOrderListComponent} from './components/user/user-order-list/user-order-list.component';
 
 const APP_ROUTES: Routes = [
   {path: '', component : RestaurantSearchComponent},
@@ -45,6 +46,7 @@ const APP_ROUTES: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'search', component: RestaurantListComponent},
   {path: 'restaurant/:restaurantId', component: RestaurantDetailComponent},
+  {path: 'orders', component: UserOrderListComponent, canActivate: [AuthGuard]},
   {path: 'restaurant/:restaurantId/order/:orderId', component: OrderDetailComponent, canActivate: [AuthGuard]},
   {path: 'restaurant/:restaurantId/order/:orderId/checkout', component: OrderCheckoutComponent, canActivate: [AuthGuard]},
   {path: 'restaurant/:restaurantId/order/:orderId/complete', component: OrderCompleteComponent},

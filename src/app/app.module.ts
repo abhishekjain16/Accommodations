@@ -54,6 +54,7 @@ import { OrderCompleteComponent } from './components/order/order-complete/order-
 import { AdminOrderListComponent } from './components/admin/admin-order-list/admin-order-list.component';
 import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
 import { AdminManagerDetailComponent } from './components/admin/admin-manager-detail/admin-manager-detail.component';
+import { UserOrderListComponent } from './components/user/user-order-list/user-order-list.component';
 
 @NgModule({
   // Declare components here
@@ -94,7 +95,8 @@ import { AdminManagerDetailComponent } from './components/admin/admin-manager-de
     OrderCompleteComponent,
     AdminOrderListComponent,
     AdminDashboardComponent,
-    AdminManagerDetailComponent
+    AdminManagerDetailComponent,
+    UserOrderListComponent
   ],
   imports: [
     BrowserModule,

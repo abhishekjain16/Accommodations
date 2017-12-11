@@ -17,12 +17,14 @@
 
 
   <div class="container-fluid page-margin">
-    <label>Deliver To: </label><br>
-    <label>{{address['name']}} </label><br>
-    <label>{{address['apt']}} {{address['street']}} </label><br>
-    <label> {{address['city']}} {{address['zipCode']}}</label><br>
-    <label> {{address['state']}}</label><br>
-    <label> {{address['phone']}}</label><br>
+    <div *ngIf="address">
+      <label>Deliver To: </label><br>
+      <label>{{address['name']}} </label><br>
+      <label>{{address['apt']}} {{address['street']}} </label><br>
+      <label> {{address['city']}} {{address['zipCode']}}</label><br>
+      <label> {{address['state']}}</label><br>
+      <label> {{address['phone']}}</label><br>
+    </div>
     <ul class="list-group">
       <li class="list-group-item active">
         <div class="row">
@@ -71,10 +73,10 @@
         <select class="form-control"
                 name="chefId"
                 id = "chefId"
-                ngModel>
+                [(ngModel)]="order['chefId']">
           <option *ngFor="let chef of chefs"
-                  value={{chef._id}}
-                  selected = "order['chefId'] == {{chef._id}}">
+                  [value]="chef._id"
+                  [selected] = "order['chefId'] == chef._id">
             {{chef.firstName}} {{chef.lastName}}
           </option>
         </select>
@@ -88,10 +90,10 @@
         <select class="form-control"
                 name="driverId"
                 id = "driverId"
-                ngModel>
+                [(ngModel)]="order['chefId']">
           <option *ngFor="let driver of drivers"
-                  value={{driver._id}}
-                  selected = "order['driverId'] == {{driver._id}}">
+                  [value]="driver._id"
+                  [selected] = "order['driverId'] == driver._id">
             {{driver.firstName}} {{driver.lastName}}
           </option>
         </select>
