@@ -15,6 +15,7 @@ UserModel.findByActiveRoleAndRestaurantId = findByActiveRoleAndRestaurantId;
 UserModel.findUserByUsername = findUserByUsername;
 UserModel.findUserByRole = findUserByRole;
 UserModel.findUserByFacebookId = findUserByFacebookId;
+UserModel.findActiveUserByUsername = findActiveUserByUsername;
 
 module.exports = UserModel;
 
@@ -33,6 +34,10 @@ function findUserById(id) {
 
 function findUserByUsername(username) {
   return UserModel.findOne({username: username});
+}
+
+function findActiveUserByUsername(username) {
+  return UserModel.findOne({username: username, active: true});
 }
 
 function createUser(user) {

@@ -49,7 +49,12 @@ export class OrderService {
   }
 
   findAllOrdersByRestaurant(restaurantId: String, state: any) {
-    const url = this.baseUrl + '/api/restaurant/' + restaurantId + '/order?state=' + state;
+    var url = '';
+    if (state) {
+      url = this.baseUrl + '/api/restaurant/' + restaurantId + '/order?state=' + state;
+    } else {
+      url = this.baseUrl + '/api/restaurant/' + restaurantId + '/order';
+    }
     return this.http.get(url)
       .map(
         (res: Response) => {

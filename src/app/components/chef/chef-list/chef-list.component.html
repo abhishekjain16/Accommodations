@@ -1,11 +1,59 @@
 
 <div class="container-fluid">
-  <ul class="nav nav-tabs nav-justified">
-    <li role="presentation" class="active"><a [routerLink]="['/admin/restaurant/:restaurantId/chef']">Chefs</a></li>
-    <li role="presentation"><a [routerLink]="['/admin/restaurant/', this.restaurantId, 'driver']">Drivers</a></li>
-    <li role="presentation"><a [routerLink]="['/admin/restaurant/', this.restaurantId, 'order']">Orders</a></li>
-  </ul>
+  <div *ngIf="role === 'Admin'; else manager">
+    <ul class="nav nav-tabs nav-justified">
+      <li role="presentation"><a [routerLink]="['/admin/customer']">Customers</a></li>
+      <li role="presentation"><a [routerLink]="['/admin/manager']">Managers</a></li>
+      <li role="presentation"><a [routerLink]="['/admin/profile']">Profile</a></li>
+    </ul>
 
+    <ul class="nav nav-tabs nav-justified">
+      <li role="presentation">
+        <a [routerLink]="['/admin/manager/', managerId]" class="btn">
+          Manager's Profile
+        </a>
+      </li>
+      <li role="presentation">
+        <a [routerLink]="['/admin/restaurant/', restaurantId, 'driver']" class="btn">
+          View Drivers
+        </a>
+      </li>
+      <li role="presentation" class="active">
+        <a [routerLink]="['/admin/restaurant/', restaurantId, 'chef']" class="btn">
+          View Chefs
+        </a>
+      </li>
+      <li role="presentation">
+        <a [routerLink]="['/admin/restaurant/', restaurantId, 'order']" class="btn">
+          View Orders
+        </a>
+      </li>
+    </ul>
+  </div>
+  <ng-template #manager>
+    <ul class="nav nav-tabs nav-justified">
+      <li role="presentation">
+        <a [routerLink]="['/manager/restaurant', restaurantId]" class="btn">
+          Manager's Profile
+        </a>
+      </li>
+      <li role="presentation">
+        <a [routerLink]="['/manager/restaurant/', restaurantId, 'driver']" class="btn">
+          View Drivers
+        </a>
+      </li>
+      <li role="presentation" class="active">
+        <a [routerLink]="['/manager/restaurant/', restaurantId, 'chef']" class="btn">
+          View Chefs
+        </a>
+      </li>
+      <li role="presentation">
+        <a [routerLink]="['/manager/restaurant/', restaurantId, 'order']" class="btn">
+          View Orders
+        </a>
+      </li>
+    </ul>
+  </ng-template>
   <ul class="list-group">
     <li class="list-group-item active">
       <div class="row">

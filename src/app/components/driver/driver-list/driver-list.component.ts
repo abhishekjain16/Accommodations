@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {UserService} from '../../../services/user.service.client';
+import {SharedService} from '../../../services/shared.service';
 
 @Component({
   selector: 'app-driver-list',
@@ -11,9 +12,14 @@ export class DriverListComponent implements OnInit {
 
   restaurantId: string;
   drivers: [{}];
+  user = {};
+  role: string;
+  managerId: string;
+  manager = {};
 
   constructor(private userService: UserService,
-              private activatedRoute: ActivatedRoute) { }
+              private activatedRoute: ActivatedRoute,
+              private sharedService: SharedService) { }
 
   ngOnInit() {
     this.activatedRoute.params
@@ -23,10 +29,20 @@ export class DriverListComponent implements OnInit {
         }
       );
 
+    this.user = this.sharedService.user;
+    this.role = this.user['role'];
+
     this.userService.findDriversByRestaurantId(this.restaurantId)
       .subscribe(
         (drivers: any) => {
           this.drivers = drivers;
+        }
+      );
+    this.userService.findManagerByRestaurantId(this.restaurantId)
+      .subscribe(
+        (manager: any) => {
+          this.managerId = manager['_id'];
+          this.manager = manager;
         }
       );
   }
