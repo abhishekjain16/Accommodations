@@ -7,6 +7,10 @@ var UserSchema = mongoose.Schema({
   lastName: String,
   email: String,
   phone: String,
+  facebook: {
+    id:    String,
+    token: String
+  },
   role: {type: String, default: 'Customer', enum: ['Customer', 'Admin', 'Chef', 'Driver', 'Manager']},
   restaurantId: String,
   active: {type: Boolean, default: false},
