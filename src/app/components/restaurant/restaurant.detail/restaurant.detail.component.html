@@ -57,11 +57,19 @@
       </ul>
     </div>
     <div class="col-xs-12 col-sm-4 time-slot">
-      <div *ngIf="user">
+      <div *ngIf="user && (order | json) == '{}';else second">
         <a (click)="createOrder()"
            class="btn btn-success">Place an Order
         </a>
       </div>
+      <ng-template #second>
+        <ng-container *ngIf="user">
+          <a [routerLink]="['/restaurant', restaurant.id, 'order', order['_id']]"
+             class="btn btn-success">
+            Continue your Order
+          </a>
+        </ng-container>
+      </ng-template>
       <div>
         <h3>Hours of Operation</h3>
         <ul>

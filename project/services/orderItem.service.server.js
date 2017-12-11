@@ -2,7 +2,7 @@ module.exports = function(app) {
 
   var OrderItemModel = require('../model/orderItem/orderItem.model.server');
 
-  app.get('/api/order/:orderId', findAllByOrder);
+  app.get('/api/order/:orderId/item', findAllByOrder);
   app.get('/api/orderItem/:orderItemId',findById);
   app.post('/api/order/orderItem', createOrderitem);
   app.delete('/api/order/orderItem/:orderItemId',deleteOrderItem);
@@ -42,7 +42,8 @@ module.exports = function(app) {
 
   function updateOrderItem(req, res) {
     var orderItemId = req.params['orderItemId'];
-    OrderItemModel.updateOrderItem(orderItemId)
+    var item = req.body;
+    OrderItemModel.updateOrderItem(orderItemId, item)
       .then(function (status) {
         res.json(status);
       })

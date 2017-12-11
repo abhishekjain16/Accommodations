@@ -18,7 +18,7 @@ export class OrderItemService {
   options = new RequestOptions();
 
   findAllByOrder(orderId: String) {
-    const url = this.baseUrl + '/api/order/' + orderId;
+    const url = this.baseUrl + '/api/order/' + orderId + '/item';
     return this.http.get(url)
       .map(
         (res: Response) => {
@@ -27,7 +27,7 @@ export class OrderItemService {
       );
   }
   findById(orderItemId: String) {
-    const url = this.baseUrl + '/api/orderItem/orderItemId' + orderItemId;
+    const url = this.baseUrl + '/api/orderItem/orderItemId/' + orderItemId;
     return this.http.get(url)
       .map(
         (res: Response) => {
@@ -45,7 +45,7 @@ export class OrderItemService {
       );
   }
   deleteOrderItem(orderItemId: String) {
-    const url = this.baseUrl + '/api/order/orderItem' + orderItemId;
+    const url = this.baseUrl + '/api/order/orderItem/' + orderItemId;
     return this.http.delete(url)
       .map(
         (res: Response) => {
@@ -54,7 +54,7 @@ export class OrderItemService {
       );
   }
   updateOrderItem(orderItemId: String, orderItem: any) {
-    const url = this.baseUrl + '/api/order/orderItem' + orderItemId;
+    const url = this.baseUrl + '/api/orderItem/' + orderItemId;
     return this.http.put(url, orderItem)
       .map(
         (res: Response) => {

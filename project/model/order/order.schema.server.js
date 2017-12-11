@@ -1,6 +1,15 @@
 var mongoose = require('mongoose');
 
 var OrderSchema = mongoose.Schema({
+  address: {
+    street: String,
+    name: String,
+    zipCode: String,
+    state: String,
+    city: String,
+    apt: String,
+    phone: String
+  },
   total: {type: Number, default: 0.0},
   restaurantId: String,
   deliveryId: {type: mongoose.Schema.Types.ObjectId, ref:'AddressModel'},

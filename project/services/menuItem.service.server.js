@@ -31,6 +31,8 @@ module.exports = function (app) {
     MenuItemModel.findMenuItemsByMenuId(menuId)
       .then(function (items) {
         res.json(items);
+      }, function (err) {
+        console.log(err);
       });
   }
   function deleteMenuItem(req,res) {

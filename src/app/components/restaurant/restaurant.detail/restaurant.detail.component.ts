@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {OrderService} from '../../../services/order.service.client';
 import {SharedService} from '../../../services/shared.service';
 import {UserService} from '../../../services/user.service.client';
+import {MenuService} from '../../../services/menu.service.client';
 
 @Component({
   selector: 'app-restaurant.detail',
@@ -26,13 +27,15 @@ export class RestaurantDetailComponent implements OnInit {
   reviews = [];
   order = {};
   user: any;
+  menu = {};
 
   constructor( private restaurantService: RestaurantServiceClient,
                private activatedRoute: ActivatedRoute,
                private orderService: OrderService,
                private router: Router,
                private sharedService: SharedService,
-               private userService: UserService) { }
+               private userService: UserService,
+               private menuService: MenuService) { }
 
   SearchBusinessById(id: String) {
     this.restaurantService.SearchBusinessById(id)
@@ -45,15 +48,24 @@ export class RestaurantDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userService.currentUser()
-      .subscribe( (user) => {
-        this.user = user;
-      });
     this.activatedRoute.params
       .subscribe(
         (params: any) => {
           this.restaurantId = params['restaurantId'];
         });
+    this.userService.currentUser()
+      .subscribe( (user) => {
+        this.user = user;
+        this.orderService.findOrderByRestaurantAndCustomer(this.restaurantId, this.user._id, 'cart')
+          .subscribe(
+            (order: any) => {
+              if (order) {
+                this.order = order;
+              }
+            });
+
+      });
+
     this.restaurantService.SearchBusinessById(this.restaurantId)
       .subscribe( (result) => {
         const coordinates = result['coordinates'];
@@ -83,15 +95,21 @@ export class RestaurantDetailComponent implements OnInit {
   }
 
   createOrder() {
-    this.order = {
-      subTotal: 0,
-      restaurantId: this.restaurantId,
-      customerId: this.user
-    };
-    this.orderService.createOrder(this.order, this.restaurantId)
-      .subscribe(
-        (order: any) => this.router.navigate(['restaurant', this.restaurantId, 'order', order._id])
-      );
+    this.menuService.findMenuByRestroId(this.restaurantId)
+      .subscribe( (menu) => {
+        this.menu = menu;
+        this.order = {
+          restaurantId: this.restaurantId,
+          customerId: this.user,
+          deliveryCharge: this.menu['deliveryCharge'],
+          minOrderLimit: this.menu['orderLimit'],
+          total: this.menu['deliveryCharge']
+        };
+        this.orderService.createOrder(this.order, this.restaurantId)
+          .subscribe(
+            (order: any) => this.router.navigate(['restaurant', this.restaurantId, 'order', order._id])
+          );
+      });
 
   }
 }

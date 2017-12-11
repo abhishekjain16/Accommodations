@@ -24,6 +24,7 @@ import {AuthGuard} from './services/auth-guard.service';
 import {RestaurantListComponent} from './components/restaurant/restaurant.list/restaurant.list.component';
 import {OrderDetailComponent} from './components/order/order-detail/order-detail.component';
 import {OrderCheckoutComponent} from './components/order/order-checkout/order-checkout.component';
+import {OrderCompleteComponent} from './components/order/order-complete/order-complete.component';
 import {MenuListComponent} from './components/menu/menu-list/menu-list.component';
 import {MenuNewComponent} from './components/menu/menu-new/menu-new.component';
 import {MenuEditComponent} from './components/menu/menu-edit/menu-edit.component';
@@ -42,6 +43,7 @@ const APP_ROUTES: Routes = [
   {path: 'restaurant/:restaurantId', component: RestaurantDetailComponent},
   {path: 'restaurant/:restaurantId/order/:orderId', component: OrderDetailComponent, canActivate: [AuthGuard]},
   {path: 'restaurant/:restaurantId/order/:orderId/checkout', component: OrderCheckoutComponent, canActivate: [AuthGuard]},
+  {path: 'restaurant/:restaurantId/order/:orderId/complete', component: OrderCompleteComponent},
   {path: 'restaurant/:restaurantId/register', component: ManagerRegisterComponent},
   {path: 'manager/restaurant/:restaurantId', component: ManagerDashboardComponent, canActivate: [AuthGuard]},
   {path: 'manager/restaurant/:restaurantId/order', component: ManagerOrderComponent, canActivate: [AuthGuard]},

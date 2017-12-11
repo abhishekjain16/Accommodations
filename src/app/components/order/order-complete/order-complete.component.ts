@@ -1,17 +1,15 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {OrderService} from '../../../services/order.service.client';
 import {ActivatedRoute, Router} from '@angular/router';
 import {RestaurantServiceClient} from '../../../services/restaurant.service.client';
 import {OrderItemService} from '../../../services/orderItem.service.client';
-import {NgForm} from '@angular/forms';
 
 @Component({
-  selector: 'app-order-checkout',
-  templateUrl: './order-checkout.component.html',
-  styleUrls: ['./order-checkout.component.css']
+  selector: 'app-order-complete',
+  templateUrl: './order-complete.component.html',
+  styleUrls: ['./order-complete.component.css']
 })
-export class OrderCheckoutComponent implements OnInit {
-  @ViewChild('f') addressForm: NgForm;
+export class OrderCompleteComponent implements OnInit {
   restaurantId: string;
   order: {};
   orderId: string;
@@ -66,11 +64,11 @@ export class OrderCheckoutComponent implements OnInit {
       .subscribe(
         (order: any) => {
           this.order = order;
-          this.subTotal = order.subTotal;
-          this.total = order.total;
-          if (this.subTotal <= 0) {
+          if (this.order === 'cart') {
             this.router.navigate(['restaurant', this.restaurantId, 'order', this.orderId]);
           } else {
+            this.total = order.total;
+            this.subTotal = order.subTotal;
             this.rstate = order.state;
             this.deliveryCharge = order.deliveryCharge;
             this.minOrderLimit = order.minOrderLimit;
@@ -96,26 +94,17 @@ export class OrderCheckoutComponent implements OnInit {
       });
   }
 
-  update() {
-    const order = {
-      address: {
-        name: this.addressForm.value.name,
-        street: this.addressForm.value.street,
-        city: this.addressForm.value.city,
-        zipCode: this.addressForm.value.zipCode,
-        state: this.addressForm.value.state,
-        apt: this.addressForm.value.apt,
-        phone: this.addressForm.value.phone
-      },
-      state: 'paid'
+  stateText() {
+    if (this.rstate === 'paid') {
+      return 'Thanks for Completeing the Order!';
+    } else if (this.rstate === 'ready') {
+      return 'Your Order is ready for delivery.';
+    } else if (this.rstate === 'delivered') {
+      return 'Your Order has been delivered.';
+    } else if (this.rstate === 'cancelled') {
+      return 'Your order has been cancelled';
+    } else if (this.rstate == 'accepted') {
+      return 'Your Order is not being prepared';
     }
-    this.orderService.updateOrder(this.orderId, order)
-      .subscribe(
-        (status: any) => {
-          this.router.navigate(['restaurant', this.restaurantId, 'order', this.orderId, 'complete']);
-        }
-      );
   }
-
-
 }

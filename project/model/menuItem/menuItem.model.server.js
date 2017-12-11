@@ -18,7 +18,6 @@ function findMenuItemByItemId(menuItemId) {
 }
 
 function findMenuItemsByMenuId(menuId){
-  console.log(menuId);
   return MenuItemModel.find({menuId: menuId});
 }
 
@@ -35,7 +34,6 @@ function deleteMenuItem(menuItemId) {
 }
 
 function deleteMenuItemsByMenuId(menuId) {
-  console.log("i m here");
   // return MenuItemModel.remove({menuId: menuId});
 }
 

@@ -1,0 +1,9 @@
+.cart {
+  background-color: #efefef;
+  padding: 2rem;
+}
+
+.summary span {
+  float: right;
+  margin-right: 1rem;
+}

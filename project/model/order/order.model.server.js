@@ -13,6 +13,7 @@ OrderModel.findAllDriverOrders = findAllDriverOrders;
 OrderModel.findAllChefOrders = findAllChefOrders;
 OrderModel.findAllOrders = findAllOrders;
 OrderModel.cancelOrder = cancelOrder;
+OrderModel.findByCustomerAndRestaurantId = findByCustomerAndRestaurantId;
 
 module.exports = OrderModel;
 
@@ -67,4 +68,13 @@ function findAllChefOrders(chefId, state) {
   } else {
     return OrderModel.findAll({chefId: chefId});
   }
+}
+
+function findByCustomerAndRestaurantId(cid, restaurantId, state) {
+  if (state) {
+    return OrderModel.findOne({customerId: cid, restaurantId: restaurantId, state: state});
+  } else {
+    return OrderModel.findOne({customerId: cid, restaurantId: restaurantId});
+  }
+
 }
