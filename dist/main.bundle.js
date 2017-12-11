@@ -4211,6 +4211,11 @@ var UserOrderListComponent = (function () {
             this.router.navigate(['/']);
         }
     };
+    UserOrderListComponent.prototype.logout = function () {
+        var _this = this;
+        this.userService.logout()
+            .subscribe(function (data) { return _this.router.navigate(['/login']); });
+    };
     return UserOrderListComponent;
 }());
 UserOrderListComponent = __decorate([
