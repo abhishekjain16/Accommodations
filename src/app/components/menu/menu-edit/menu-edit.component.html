@@ -19,12 +19,12 @@
     <div class="row">
       <button [routerLink]="['/manager', 'restaurant', this.restaurantId]"
               (click)="DeleteMenu()"
-              class="btn btn-primary btn-block">
+              class="btn btn-danger btn-block">
         Delete Menu
       </button>
       <button [routerLink]="['/manager', 'restaurant', this.restaurantId, 'menu']"
               type="submit"
-              class="btn btn-primary btn-block">
+              class="btn btn-success btn-block">
               Done
       </button>
       <label class="">Delivery Charge</label>

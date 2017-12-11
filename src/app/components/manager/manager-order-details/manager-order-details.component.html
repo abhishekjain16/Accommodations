@@ -15,7 +15,14 @@
     </p>
   </nav>
 
+
   <div class="container-fluid page-margin">
+    <label>Deliver To: </label><br>
+    <label>{{address['name']}} </label><br>
+    <label>{{address['apt']}} {{address['street']}} </label><br>
+    <label> {{address['city']}} {{address['zipCode']}}</label><br>
+    <label> {{address['state']}}</label><br>
+    <label> {{address['phone']}}</label><br>
     <ul class="list-group">
       <li class="list-group-item active">
         <div class="row">
@@ -54,9 +61,9 @@
     </ul>
     <div [ngSwitch]="orderState">
       <div *ngSwitchCase="'paid'">
-        <button (click)="AcceptOrder()" class="btn btn-primary btn-block"
+        <button (click)="AcceptOrder()" class="btn btn-success btn-block"
         >Accept Order</button>
-        <button (click)="CancelOrder()" class="btn btn-primary btn-block"
+        <button (click)="CancelOrder()" class="btn btn-danger btn-block"
         >Cancel</button>
       </div>
       <div *ngSwitchCase="'accepted'">
@@ -71,9 +78,9 @@
             {{chef.firstName}} {{chef.lastName}}
           </option>
         </select>
-        <button (click)="ChooseEmployee()" class="btn btn-primary btn-block margin-top-button"
-        >Ok</button>
-        <button (click)="CancelOrder()" class="btn btn-primary btn-block"
+        <button (click)="ChooseEmployee()" class="btn btn-success btn-block margin-top-button"
+        >Done</button>
+        <button (click)="CancelOrder()" class="btn btn-danger btn-block"
         >Cancel</button>
       </div>
       <div *ngSwitchCase="'ready'">
@@ -88,9 +95,9 @@
             {{driver.firstName}} {{driver.lastName}}
           </option>
         </select>
-        <button (click)="ChooseEmployee()" class="btn btn-primary btn-block margin-top-button"
-        >Ok</button>
-        <button (click)="CancelOrder()" class="btn btn-primary btn-block"
+        <button (click)="ChooseEmployee()" class="btn btn-success btn-block margin-top-button"
+        >Done</button>
+        <button (click)="CancelOrder()" class="btn btn-danger btn-block"
         >Cancel</button>
       </div>
     </div>

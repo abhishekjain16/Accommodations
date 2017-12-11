@@ -27,7 +27,7 @@ export class OrderDetailComponent implements OnInit {
   name: string;
   image: any;
   restaurant = {};
-
+  address = {};
 
   constructor(private orderService: OrderService,
               private router: Router,

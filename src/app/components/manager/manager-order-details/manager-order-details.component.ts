@@ -20,6 +20,7 @@ export class ManagerOrderDetailsComponent implements OnInit {
   orderState: String;
   chefs: String;
   drivers: String;
+  address: String;
   constructor(private orderItemService: OrderItemService,
               private activatedRoute: ActivatedRoute,
               private orderService: OrderService,
@@ -38,6 +39,7 @@ export class ManagerOrderDetailsComponent implements OnInit {
       .subscribe(
         (order: any) => {
           this.order = order;
+          this.address = order['address'];
           this.orderState = order['state'];
         }
       );
