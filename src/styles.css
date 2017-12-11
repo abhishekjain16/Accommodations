@@ -19,5 +19,9 @@
 
 .food-center
 {
-  text-align: center;
+  font-size: xx-large;
+}
+
+header .food-center {
+  padding: 0;
 }

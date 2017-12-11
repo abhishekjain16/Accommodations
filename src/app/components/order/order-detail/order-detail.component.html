@@ -1,5 +1,6 @@
-<header><div class="container food-center">
+<header><div class="container-fluid food-center">
   <a [routerLink]="['/restaurant', restaurantId]" class="white pull-left"><span class="glyphicon glyphicon-chevron-left"></span></a>
+  <span class="food-center">FoOdSpOt </span>
 
   <div class="login pull-right" *ngIf="this.user;else login">
     <div class="dropdown">
@@ -33,7 +34,6 @@
       </a>
     </div>
   </ng-template>
-  <span class="food-center">FoOdSpOt </span>
 </div>
 </header>
 <div class="container food-bottombuff">
