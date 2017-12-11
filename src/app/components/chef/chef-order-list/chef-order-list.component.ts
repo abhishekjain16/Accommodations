@@ -33,24 +33,8 @@ export class ChefOrderListComponent implements OnInit {
     this.orderService.findAllChefOrders(this.chefId, 'accepted' )
       .subscribe(
         (orders: any) => {
-          console.log(orders);
           this.orders = orders;
         }
       );
   }
-  MarkReady(order: any) {
-    order['state'] = 'ready';
-    this.orderService.updateOrder(order['_id'], order)
-      .subscribe(
-        () => {
-          this.orderService.findAllChefOrders(this.chefId, 'accepted' )
-            .subscribe(
-              (orders: any) => {
-                this.orders = orders;
-              }
-            );
-        }
-      );
-  }
-
 }
