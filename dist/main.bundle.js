@@ -840,7 +840,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/chef/chef-list/chef-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"container-fluid\">\n  <div *ngIf=\"role === 'Admin'; else manager\">\n    <ul class=\"nav nav-tabs nav-justified\">\n      <li role=\"presentation\"><a [routerLink]=\"['/admin/customer']\">Customers</a></li>\n      <li role=\"presentation\"><a [routerLink]=\"['/admin/manager']\">Managers</a></li>\n      <li role=\"presentation\"><a [routerLink]=\"['/admin/profile']\">Profile</a></li>\n    </ul>\n\n    <ul class=\"nav nav-tabs nav-justified\">\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/admin/manager/', managerId]\" class=\"btn\">\n          My Profile\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/admin/restaurant/', restaurantId, 'driver']\" class=\"btn\">\n          View Drivers\n        </a>\n      </li>\n      <li role=\"presentation\" class=\"active\">\n        <a [routerLink]=\"['/admin/restaurant/', restaurantId, 'chef']\" class=\"btn\">\n          View Chefs\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/admin/restaurant/', restaurantId, 'order']\" class=\"btn\">\n          View Orders\n        </a>\n      </li>\n    </ul>\n  </div>\n  <ng-template #manager>\n    <ul class=\"nav nav-tabs nav-justified\">\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager/restaurant', restaurantId]\" class=\"btn\">\n          My Profile\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager/restaurant/', restaurantId, 'driver']\" class=\"btn\">\n          View Drivers\n        </a>\n      </li>\n      <li role=\"presentation\" class=\"active\">\n        <a [routerLink]=\"['/manager/restaurant/', restaurantId, 'chef']\" class=\"btn\">\n          View Chefs\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager/restaurant/', restaurantId, 'order']\" class=\"btn\">\n          View Orders\n        </a>\n      </li>\n    </ul>\n  </ng-template>\n  <ul class=\"list-group\">\n    <li class=\"list-group-item active\">\n      <div class=\"row\">\n        <div class=\"col-xs-6 col-md-3\">\n          Name\n        </div>\n        <div class=\"col-md-3 hidden-sm hidden-xs\">\n          Email\n        </div>\n        <div class=\"col-md-2 hidden-xs hidden-sm\">\n          Phone\n        </div>\n        <div class=\"col-xs-3\">\n          Restaurant\n        </div>\n        <div class=\"col-xs-3 col-md-2\">\n        </div>\n      </div>\n    </li>\n\n    <li class=\"list-group-item\" *ngFor=\"let chef of chefs\">\n      <div class=\"row\">\n        <div class=\"col-xs-6 col-md-3\">\n          <div *ngIf=\"role === 'Admin'; else manager\">\n            <a [routerLink]=\"['/admin', 'manager', chef._id]\">\n              {{chef.firstName}} {{chef.lastName}}\n              <span class=\"glyphicon glyphicon-edit\"></span>\n            </a>\n          </div>\n          <ng-template #manager>\n            <label>\n              {{chef.firstName}} {{chef.lastName}}\n            </label>\n          </ng-template>\n        </div>\n          <div class=\"col-md-3 hidden-sm hidden-xs\">\n          {{chef.email}}\n          </div>\n          <div class=\"col-md-2 hidden-xs hidden-sm\">\n            {{chef.phone}}\n          </div>\n          <div class=\"col-xs-3\">\n            {{chef.restaurantId}}\n          </div>\n        <div class=\"col-xs-3 col-md-1\">\n            <div *ngIf=\"chef.active; else inactive\">\n              <div *ngIf=\"role === 'Admin'; else manager\">\n                <div class=\"alert alert-success\">\n                  <strong>Active</strong>\n                </div>\n              </div>\n              <ng-template #manager>\n                <button (click)=\"ToggleStatus(chef)\" class=\"btn btn-danger btn-block\"\n                >Deactivate</button>\n                <div class=\"alert alert-success\">\n                  <strong>Active</strong>\n                </div>\n              </ng-template>\n            </div>\n            <ng-template #inactive>\n              <div *ngIf=\"role === 'Admin'; else manager\">\n                <div class=\"alert alert-danger\">\n                  <strong>Inactive</strong>\n                </div>\n              </div>\n              <ng-template #manager>\n                <button (click)=\"ToggleStatus(chef)\" class=\"btn btn-success btn-block\"\n                >Activate</button>\n                <div class=\"alert alert-danger\">\n                  <strong>Inactive</strong>\n                </div>\n              </ng-template>\n            </ng-template>\n        </div>\n      </div>\n    </li>\n  </ul>\n</div>\n"
+module.exports = "\n<div class=\"container-fluid\">\n  <div *ngIf=\"role === 'Admin'; else manager\">\n    <ul class=\"nav nav-tabs nav-justified\">\n      <li role=\"presentation\"><a [routerLink]=\"['/admin/customer']\">Customers</a></li>\n      <li role=\"presentation\"><a [routerLink]=\"['/admin/manager']\">Managers</a></li>\n      <li role=\"presentation\"><a [routerLink]=\"['/admin/profile']\">Profile</a></li>\n    </ul>\n\n    <ul class=\"nav nav-tabs nav-justified\">\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/admin/manager/', managerId]\" class=\"btn\">\n          My Profile\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/admin/restaurant/', restaurantId, 'driver']\" class=\"btn\">\n          View Drivers\n        </a>\n      </li>\n      <li role=\"presentation\" class=\"active\">\n        <a [routerLink]=\"['/admin/restaurant/', restaurantId, 'chef']\" class=\"btn\">\n          View Chefs\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/admin/restaurant/', restaurantId, 'order']\" class=\"btn\">\n          View Orders\n        </a>\n      </li>\n    </ul>\n  </div>\n  <ng-template #manager>\n    <ul class=\"nav nav-tabs nav-justified\">\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager/restaurant', restaurantId]\" class=\"btn\">\n          My Profile\n        </a>\n      </li>\n      <li role=\"presentation\" class=\"active\">\n        <a [routerLink]=\"['/manager/restaurant/', restaurantId, 'chef']\" class=\"btn\">\n          View Chefs\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager/restaurant/', restaurantId, 'driver']\" class=\"btn\">\n          View Drivers\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager/restaurant/', restaurantId, 'order']\" class=\"btn\">\n          View Orders\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a (click)=\"AddOrViewMenu()\" class=\"btn\">\n          View Menu\n        </a>\n      </li>\n    </ul>\n  </ng-template>\n  <ul class=\"list-group\">\n    <li class=\"list-group-item active\">\n      <div class=\"row\">\n        <div class=\"col-xs-6 col-md-3\">\n          Name\n        </div>\n        <div class=\"col-md-3 hidden-sm hidden-xs\">\n          Email\n        </div>\n        <div class=\"col-md-2 hidden-xs hidden-sm\">\n          Phone\n        </div>\n        <div class=\"col-xs-3\">\n          Restaurant\n        </div>\n        <div class=\"col-xs-3 col-md-2\">\n        </div>\n      </div>\n    </li>\n\n    <li class=\"list-group-item\" *ngFor=\"let chef of chefs\">\n      <div class=\"row\">\n        <div class=\"col-xs-6 col-md-3\">\n          <div *ngIf=\"role === 'Admin'; else manager\">\n            <a [routerLink]=\"['/admin', 'manager', chef._id]\">\n              {{chef.firstName}} {{chef.lastName}}\n              <span class=\"glyphicon glyphicon-edit\"></span>\n            </a>\n          </div>\n          <ng-template #manager>\n            <label>\n              {{chef.firstName}} {{chef.lastName}}\n            </label>\n          </ng-template>\n        </div>\n          <div class=\"col-md-3 hidden-sm hidden-xs\">\n          {{chef.email}}\n          </div>\n          <div class=\"col-md-2 hidden-xs hidden-sm\">\n            {{chef.phone}}\n          </div>\n          <div class=\"col-xs-3\">\n            {{chef.restaurantId}}\n          </div>\n        <div class=\"col-xs-3 col-md-1\">\n            <div *ngIf=\"chef.active; else inactive\">\n              <div *ngIf=\"role === 'Admin'; else manager\">\n                <div class=\"alert alert-success\">\n                  <strong>Active</strong>\n                </div>\n              </div>\n              <ng-template #manager>\n                <button (click)=\"ToggleStatus(chef)\" class=\"btn btn-danger btn-block\"\n                >Deactivate</button>\n                <div class=\"alert alert-success\">\n                  <strong>Active</strong>\n                </div>\n              </ng-template>\n            </div>\n            <ng-template #inactive>\n              <div *ngIf=\"role === 'Admin'; else manager\">\n                <div class=\"alert alert-danger\">\n                  <strong>Inactive</strong>\n                </div>\n              </div>\n              <ng-template #manager>\n                <button (click)=\"ToggleStatus(chef)\" class=\"btn btn-success btn-block\"\n                >Activate</button>\n                <div class=\"alert alert-danger\">\n                  <strong>Inactive</strong>\n                </div>\n              </ng-template>\n            </ng-template>\n        </div>\n      </div>\n    </li>\n  </ul>\n</div>\n"
 
 /***/ }),
 
@@ -853,6 +853,7 @@ module.exports = "\n<div class=\"container-fluid\">\n  <div *ngIf=\"role === 'Ad
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__ = __webpack_require__("../../../../../src/app/services/user.service.client.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_shared_service__ = __webpack_require__("../../../../../src/app/services/shared.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_menu_service_client__ = __webpack_require__("../../../../../src/app/services/menu.service.client.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -866,11 +867,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ChefListComponent = (function () {
-    function ChefListComponent(userService, activatedRoute, sharedService) {
+    function ChefListComponent(userService, activatedRoute, sharedService, menuService, router) {
         this.userService = userService;
         this.activatedRoute = activatedRoute;
         this.sharedService = sharedService;
+        this.menuService = menuService;
+        this.router = router;
         this.user = {};
         this.manager = {};
     }
@@ -903,6 +907,18 @@ var ChefListComponent = (function () {
             });
         });
     };
+    ChefListComponent.prototype.AddOrViewMenu = function () {
+        var _this = this;
+        this.menuService.findMenuByRestroId(this.restaurantId)
+            .subscribe(function (menu) {
+            if (menu) {
+                _this.router.navigate(['/manager/restaurant/', _this.restaurantId, 'menu']);
+            }
+            else {
+                _this.router.navigate(['/manager/restaurant/', _this.restaurantId, 'menu', 'new']);
+            }
+        });
+    };
     return ChefListComponent;
 }());
 ChefListComponent = __decorate([
@@ -911,10 +927,10 @@ ChefListComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/chef/chef-list/chef-list.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/chef/chef-list/chef-list.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__["a" /* UserService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_shared_service__["a" /* SharedService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_shared_service__["a" /* SharedService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__["a" /* UserService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_shared_service__["a" /* SharedService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_shared_service__["a" /* SharedService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__services_menu_service_client__["a" /* MenuService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_menu_service_client__["a" /* MenuService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _e || Object])
 ], ChefListComponent);
 
-var _a, _b, _c;
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=chef-list.component.js.map
 
 /***/ }),
@@ -940,7 +956,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/chef/chef-order-detail/chef-order-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  chef-order-detail works!\n</p>\n"
+module.exports = "<form #f=\"ngForm\">\n\n  <nav class=\"navbar sadaab-navbar-color navbar-default navbar-fixed-top nav-collapse collapsing\" style=\"height:60px\">\n    <p class=\"navbar-text pull-left page-new-top-glyp-margin\">\n      <a [routerLink]=\"['/chef', 'restaurant', restaurantId, 'order']\" class=\"navbar-link\">\n        <span class=\"glyphicon glyphicon-chevron-left\"></span>\n      </a>\n    </p>\n\n    <!--heading on the nav bar-->\n    <p class=\"navbar-header pull-left page-new-top-glyp-margin\">\n      <a class=\"navbar-brand thick\">\n        <b>Order Number : {{orderId}}</b>\n      </a>\n    </p>\n  </nav>\n\n\n  <div class=\"container-fluid page-margin\">\n    <div *ngIf=\"address\">\n      <label>Deliver To: </label><br>\n      <label>{{address['name']}} </label><br>\n      <label>{{address['apt']}} {{address['street']}} </label><br>\n      <label> {{address['city']}} {{address['zipCode']}}</label><br>\n      <label> {{address['state']}}</label><br>\n      <label> {{address['phone']}}</label><br>\n    </div>\n    <ul class=\"list-group\">\n      <li class=\"list-group-item active\">\n        <div class=\"row\">\n          <div class=\"col-sm-3 col-md-4 col-xs-6\">\n            Name\n          </div>\n          <div class=\"col-md-2 col-sm-3 hidden-xs\">\n            Price\n          </div>\n          <div class=\"col-sm-3 col-md-2 hidden-xs\">\n            Quantity\n          </div>\n          <div class=\"col-sm-3 col-md-4 hidden-6\">\n            Instructions\n          </div>\n        </div>\n      </li>\n      <li class=\"list-group-item\" *ngFor=\"let item of orderItems\">\n        <div class=\"row\">\n          <div class=\"col-sm-3 col-md-4 col-xs-6\">\n            <a>\n              {{item['name']}}\n            </a>\n          </div>\n          <div class=\"col-md-2 col-sm-3 hidden-xs\">\n            {{item['price']}}\n          </div>\n          <div class=\"col-sm-3 col-md-2 hidden-xs\">\n            {{item['quantity']}}\n          </div>\n          <div class=\"col-sm-3 col-md-4 hidden-6\">\n            {{item['instructions']}}\n          </div>\n        </div>\n      </li>\n    </ul>\n    <button (click)=\"MarkReady()\" class=\"btn btn-success btn-block margin-top-button\"\n    >Mark as Ready</button>\n  </div>\n</form>\n"
 
 /***/ }),
 
@@ -949,7 +965,11 @@ module.exports = "<p>\n  chef-order-detail works!\n</p>\n"
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChefOrderDetailComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_orderItem_service_client__ = __webpack_require__("../../../../../src/app/services/orderItem.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_order_service_client__ = __webpack_require__("../../../../../src/app/services/order.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__ = __webpack_require__("../../../../../src/app/services/user.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -960,22 +980,56 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
 var ChefOrderDetailComponent = (function () {
-    function ChefOrderDetailComponent() {
+    function ChefOrderDetailComponent(orderItemService, activatedRoute, orderService, router, userService) {
+        this.orderItemService = orderItemService;
+        this.activatedRoute = activatedRoute;
+        this.orderService = orderService;
+        this.router = router;
+        this.userService = userService;
+        this.orderItems = [{}];
     }
     ChefOrderDetailComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.activatedRoute.params
+            .subscribe(function (params) {
+            _this.restaurantId = params['restaurantId'];
+            _this.orderId = params['orderId'];
+        });
+        this.orderService.findOrderById(this.orderId)
+            .subscribe(function (order) {
+            _this.order = order;
+            _this.address = order['address'];
+        });
+        this.orderItemService.findAllByOrder(this.orderId)
+            .subscribe(function (orderItems) {
+            _this.orderItems = orderItems;
+        });
+    };
+    ChefOrderDetailComponent.prototype.MarkReady = function () {
+        var _this = this;
+        this.order['state'] = 'ready';
+        this.orderService.updateOrder(this.order['_id'], this.order)
+            .subscribe(function () {
+            _this.router.navigate(['/chef', 'restaurant', _this.restaurantId, 'order']);
+        });
     };
     return ChefOrderDetailComponent;
 }());
 ChefOrderDetailComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["Component"])({
         selector: 'app-chef-order-detail',
         template: __webpack_require__("../../../../../src/app/components/chef/chef-order-detail/chef-order-detail.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/chef/chef-order-detail/chef-order-detail.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_orderItem_service_client__["a" /* OrderItemService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_orderItem_service_client__["a" /* OrderItemService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_order_service_client__["a" /* OrderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_order_service_client__["a" /* OrderService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__["a" /* UserService */]) === "function" && _e || Object])
 ], ChefOrderDetailComponent);
 
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=chef-order-detail.component.js.map
 
 /***/ }),
@@ -1001,7 +1055,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/chef/chef-order-list/chef-order-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  chef-order-list works!\n</p>\n"
+module.exports = "<nav class=\"navbar sadaab-navbar-color navbar-default navbar-fixed-top nav-collapse collapsing\" style=\"height:60px\">\n  <p class=\"navbar-text pull-left page-new-top-glyp-margin\">\n    <a [routerLink]=\"['/login' ]\" class=\"navbar-link\">\n      <span class=\"glyphicon glyphicon-chevron-left\"></span>\n    </a>\n  </p>\n\n  <!--heading on the nav bar-->\n  <p class=\"navbar-header pull-left page-new-top-glyp-margin\">\n    <a class=\"navbar-brand thick\">\n      <b>Chef Order list</b>\n    </a>\n  </p>\n</nav>\n\n<div class=\"container-fluid page-margin\">\n  <ul class=\"list-group\">\n    <li class=\"list-group-item active\">\n      <div class=\"row\">\n        <div class=\"col-xs-9 col-sm-6 col-md-3\">\n          Order Number\n        </div>\n        <div class=\"col-md-3 hidden-sm hidden-xs\">\n          Order Price\n        </div>\n        <div class=\"col-sm-3 col-md-3 hidden-xs\">\n          Order Date\n        </div>\n        <div class=\"col-xs-3\">\n        </div>\n      </div>\n    </li>\n    <li class=\"list-group-item\" *ngFor=\"let order of orders\">\n      <div class=\"row\">\n        <div class=\"col-xs-9 col-sm-6 col-md-3\">\n          <a>\n            {{order['_id']}}\n          </a>\n        </div>\n        <div class=\"col-md-3 hidden-sm hidden-xs\">\n          {{order['total']}}\n        </div>\n        <div class=\"col-sm-3 col-md-3 hidden-xs\">\n          {{order['dateCreated']}}\n        </div>\n        <div class=\"col-xs-3\">\n          <button [routerLink]=\"['/chef', 'restaurant', restaurantId, 'order', order._id]\"\n                  class=\"btn btn-success btn-block\">View Order</button>\n        </div>\n      </div>\n    </li>\n  </ul>\n</div>\n"
 
 /***/ }),
 
@@ -1011,6 +1065,10 @@ module.exports = "<p>\n  chef-order-list works!\n</p>\n"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChefOrderListComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_order_service_client__ = __webpack_require__("../../../../../src/app/services/order.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__ = __webpack_require__("../../../../../src/app/services/user.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_shared_service__ = __webpack_require__("../../../../../src/app/services/shared.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1021,10 +1079,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
 var ChefOrderListComponent = (function () {
-    function ChefOrderListComponent() {
+    function ChefOrderListComponent(activatedRoute, orderService, userService, sharedService) {
+        this.activatedRoute = activatedRoute;
+        this.orderService = orderService;
+        this.userService = userService;
+        this.sharedService = sharedService;
     }
     ChefOrderListComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.chef = this.sharedService.user;
+        this.chefId = this.chef['_id'];
+        console.log(this.chefId);
+        this.activatedRoute.params
+            .subscribe(function (params) {
+            _this.restaurantId = params['restaurantId'];
+        });
+        this.orderService.findAllChefOrders(this.chefId, 'accepted')
+            .subscribe(function (orders) {
+            _this.orders = orders;
+        });
     };
     return ChefOrderListComponent;
 }());
@@ -1034,9 +1112,10 @@ ChefOrderListComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/chef/chef-order-list/chef-order-list.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/chef/chef-order-list/chef-order-list.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_order_service_client__["a" /* OrderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_order_service_client__["a" /* OrderService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__["a" /* UserService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__services_shared_service__["a" /* SharedService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_shared_service__["a" /* SharedService */]) === "function" && _d || Object])
 ], ChefOrderListComponent);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=chef-order-list.component.js.map
 
 /***/ }),
@@ -1171,7 +1250,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/driver/driver-list/driver-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"container-fluid\">\n  <div *ngIf=\"role === 'Admin'; else manager\">\n    <ul class=\"nav nav-tabs nav-justified\">\n      <li role=\"presentation\"><a [routerLink]=\"['/admin/customer']\">Customers</a></li>\n      <li role=\"presentation\"><a [routerLink]=\"['/admin/manager']\">Managers</a></li>\n      <li role=\"presentation\"><a [routerLink]=\"['/admin/profile']\">Profile</a></li>\n    </ul>\n\n    <ul class=\"nav nav-tabs nav-justified\">\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/admin/manager/', managerId]\" class=\"btn\">\n          My Profile\n        </a>\n      </li>\n      <li role=\"presentation\" class=\"active\">\n        <a [routerLink]=\"['/admin/restaurant/', restaurantId, 'driver']\" class=\"btn\">\n          View Drivers\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/admin/restaurant/', restaurantId, 'driver']\" class=\"btn\">\n          View drivers\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/admin/restaurant/', restaurantId, 'order']\" class=\"btn\">\n          View Orders\n        </a>\n      </li>\n    </ul>\n  </div>\n  <ng-template #manager>\n    <ul class=\"nav nav-tabs nav-justified\">\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager/restaurant', restaurantId]\" class=\"btn\">\n          My Profile\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager/restaurant/', restaurantId, 'chef']\" class=\"btn\">\n          View Chefs\n        </a>\n      </li>\n      <li role=\"presentation\" class=\"active\">\n        <a [routerLink]=\"['/manager/restaurant/', restaurantId, 'driver']\" class=\"btn\">\n          View drivers\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager/restaurant/', restaurantId, 'order']\" class=\"btn\">\n          View Orders\n        </a>\n      </li>\n    </ul>\n  </ng-template>\n  <ul class=\"list-group\">\n    <li class=\"list-group-item active\">\n      <div class=\"row\">\n        <div class=\"col-xs-6 col-md-3\">\n          Name\n        </div>\n        <div class=\"col-md-3 hidden-sm hidden-xs\">\n          Email\n        </div>\n        <div class=\"col-md-2 hidden-xs hidden-sm\">\n          Phone\n        </div>\n        <div class=\"col-xs-3\">\n          Restaurant\n        </div>\n        <div class=\"col-xs-3 col-md-2\">\n        </div>\n      </div>\n    </li>\n\n    <li class=\"list-group-item\" *ngFor=\"let driver of drivers\">\n      <div class=\"row\">\n        <div class=\"col-xs-6 col-md-3\">\n          <div *ngIf=\"role === 'Admin'; else manager\">\n            <a [routerLink]=\"['/admin', 'manager', driver._id]\">\n              {{driver.firstName}} {{driver.lastName}}\n              <span class=\"glyphicon glyphicon-edit\"></span>\n            </a>\n          </div>\n          <ng-template #manager>\n            <label>\n              {{driver.firstName}} {{driver.lastName}}\n            </label>\n          </ng-template>\n        </div>\n        <div class=\"col-md-3 hidden-sm hidden-xs\">\n          {{driver.email}}\n        </div>\n        <div class=\"col-md-2 hidden-xs hidden-sm\">\n          {{driver.phone}}\n        </div>\n        <div class=\"col-xs-3\">\n          {{driver.restaurantId}}\n        </div>\n        <div class=\"col-xs-3 col-md-1\">\n          <div *ngIf=\"driver.active; else inactive\">\n            <div *ngIf=\"role === 'Admin'; else manager\">\n              <div class=\"alert alert-success\">\n                <strong>Active</strong>\n              </div>\n            </div>\n            <ng-template #manager>\n              <button (click)=\"ToggleStatus(driver)\" class=\"btn btn-danger btn-block\"\n              >Deactivate</button>\n              <div class=\"alert alert-success\">\n                <strong>Active</strong>\n              </div>\n            </ng-template>\n          </div>\n          <ng-template #inactive>\n            <div *ngIf=\"role === 'Admin'; else manager\">\n              <div class=\"alert alert-danger\">\n                <strong>Inactive</strong>\n              </div>\n            </div>\n            <ng-template #manager>\n              <button (click)=\"ToggleStatus(driver)\" class=\"btn btn-success btn-block\"\n              >Activate</button>\n              <div class=\"alert alert-danger\">\n                <strong>Inactive</strong>\n              </div>\n            </ng-template>\n          </ng-template>\n        </div>\n      </div>\n    </li>\n  </ul>\n</div>\n"
+module.exports = "\n<div class=\"container-fluid\">\n  <div *ngIf=\"role === 'Admin'; else manager\">\n    <ul class=\"nav nav-tabs nav-justified\">\n      <li role=\"presentation\"><a [routerLink]=\"['/admin/customer']\">Customers</a></li>\n      <li role=\"presentation\"><a [routerLink]=\"['/admin/manager']\">Managers</a></li>\n      <li role=\"presentation\"><a [routerLink]=\"['/admin/profile']\">Profile</a></li>\n    </ul>\n\n    <ul class=\"nav nav-tabs nav-justified\">\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/admin/manager/', managerId]\" class=\"btn\">\n          My Profile\n        </a>\n      </li>\n      <li role=\"presentation\" class=\"active\">\n        <a [routerLink]=\"['/admin/restaurant/', restaurantId, 'driver']\" class=\"btn\">\n          View Drivers\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/admin/restaurant/', restaurantId, 'driver']\" class=\"btn\">\n          View drivers\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/admin/restaurant/', restaurantId, 'order']\" class=\"btn\">\n          View Orders\n        </a>\n      </li>\n    </ul>\n  </div>\n  <ng-template #manager>\n    <ul class=\"nav nav-tabs nav-justified\">\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager/restaurant', restaurantId]\" class=\"btn\">\n          My Profile\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager/restaurant/', restaurantId, 'chef']\" class=\"btn\">\n          View Chefs\n        </a>\n      </li>\n      <li role=\"presentation\" class=\"active\">\n        <a [routerLink]=\"['/manager/restaurant/', restaurantId, 'driver']\" class=\"btn\">\n          View drivers\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager/restaurant/', restaurantId, 'order']\" class=\"btn\">\n          View Orders\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a (click)=\"AddOrViewMenu()\" class=\"btn\">\n          View Menu\n        </a>\n      </li>\n    </ul>\n  </ng-template>\n  <ul class=\"list-group\">\n    <li class=\"list-group-item active\">\n      <div class=\"row\">\n        <div class=\"col-xs-6 col-md-3\">\n          Name\n        </div>\n        <div class=\"col-md-3 hidden-sm hidden-xs\">\n          Email\n        </div>\n        <div class=\"col-md-2 hidden-xs hidden-sm\">\n          Phone\n        </div>\n        <div class=\"col-xs-3\">\n          Restaurant\n        </div>\n        <div class=\"col-xs-3 col-md-2\">\n        </div>\n      </div>\n    </li>\n\n    <li class=\"list-group-item\" *ngFor=\"let driver of drivers\">\n      <div class=\"row\">\n        <div class=\"col-xs-6 col-md-3\">\n          <div *ngIf=\"role === 'Admin'; else manager\">\n            <a [routerLink]=\"['/admin', 'manager', driver._id]\">\n              {{driver.firstName}} {{driver.lastName}}\n              <span class=\"glyphicon glyphicon-edit\"></span>\n            </a>\n          </div>\n          <ng-template #manager>\n            <label>\n              {{driver.firstName}} {{driver.lastName}}\n            </label>\n          </ng-template>\n        </div>\n        <div class=\"col-md-3 hidden-sm hidden-xs\">\n          {{driver.email}}\n        </div>\n        <div class=\"col-md-2 hidden-xs hidden-sm\">\n          {{driver.phone}}\n        </div>\n        <div class=\"col-xs-3\">\n          {{driver.restaurantId}}\n        </div>\n        <div class=\"col-xs-3 col-md-1\">\n          <div *ngIf=\"driver.active; else inactive\">\n            <div *ngIf=\"role === 'Admin'; else manager\">\n              <div class=\"alert alert-success\">\n                <strong>Active</strong>\n              </div>\n            </div>\n            <ng-template #manager>\n              <button (click)=\"ToggleStatus(driver)\" class=\"btn btn-danger btn-block\"\n              >Deactivate</button>\n              <div class=\"alert alert-success\">\n                <strong>Active</strong>\n              </div>\n            </ng-template>\n          </div>\n          <ng-template #inactive>\n            <div *ngIf=\"role === 'Admin'; else manager\">\n              <div class=\"alert alert-danger\">\n                <strong>Inactive</strong>\n              </div>\n            </div>\n            <ng-template #manager>\n              <button (click)=\"ToggleStatus(driver)\" class=\"btn btn-success btn-block\"\n              >Activate</button>\n              <div class=\"alert alert-danger\">\n                <strong>Inactive</strong>\n              </div>\n            </ng-template>\n          </ng-template>\n        </div>\n      </div>\n    </li>\n  </ul>\n</div>\n"
 
 /***/ }),
 
@@ -1184,6 +1263,7 @@ module.exports = "\n<div class=\"container-fluid\">\n  <div *ngIf=\"role === 'Ad
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__ = __webpack_require__("../../../../../src/app/services/user.service.client.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_shared_service__ = __webpack_require__("../../../../../src/app/services/shared.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_menu_service_client__ = __webpack_require__("../../../../../src/app/services/menu.service.client.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1197,11 +1277,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var DriverListComponent = (function () {
-    function DriverListComponent(userService, activatedRoute, sharedService) {
+    function DriverListComponent(userService, activatedRoute, sharedService, menuService, router) {
         this.userService = userService;
         this.activatedRoute = activatedRoute;
         this.sharedService = sharedService;
+        this.menuService = menuService;
+        this.router = router;
         this.user = {};
         this.manager = {};
     }
@@ -1234,6 +1317,18 @@ var DriverListComponent = (function () {
             });
         });
     };
+    DriverListComponent.prototype.AddOrViewMenu = function () {
+        var _this = this;
+        this.menuService.findMenuByRestroId(this.restaurantId)
+            .subscribe(function (menu) {
+            if (menu) {
+                _this.router.navigate(['/manager/restaurant/', _this.restaurantId, 'menu']);
+            }
+            else {
+                _this.router.navigate(['/manager/restaurant/', _this.restaurantId, 'menu', 'new']);
+            }
+        });
+    };
     return DriverListComponent;
 }());
 DriverListComponent = __decorate([
@@ -1242,10 +1337,10 @@ DriverListComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/driver/driver-list/driver-list.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/driver/driver-list/driver-list.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__["a" /* UserService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_shared_service__["a" /* SharedService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_shared_service__["a" /* SharedService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__["a" /* UserService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_shared_service__["a" /* SharedService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_shared_service__["a" /* SharedService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__services_menu_service_client__["a" /* MenuService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_menu_service_client__["a" /* MenuService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _e || Object])
 ], DriverListComponent);
 
-var _a, _b, _c;
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=driver-list.component.js.map
 
 /***/ }),
@@ -1271,7 +1366,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/driver/driver-order-detail/driver-order-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  driver-order-detail works!\n</p>\n"
+module.exports = "<form #f=\"ngForm\">\n\n  <nav class=\"navbar sadaab-navbar-color navbar-default navbar-fixed-top nav-collapse collapsing\" style=\"height:60px\">\n    <p class=\"navbar-text pull-left page-new-top-glyp-margin\">\n      <a [routerLink]=\"['/driver', 'restaurant', restaurantId, 'order']\" class=\"navbar-link\">\n        <span class=\"glyphicon glyphicon-chevron-left\"></span>\n      </a>\n    </p>\n\n    <!--heading on the nav bar-->\n    <p class=\"navbar-header pull-left page-new-top-glyp-margin\">\n      <a class=\"navbar-brand thick\">\n        <b>Order Number : {{orderId}}</b>\n      </a>\n    </p>\n  </nav>\n\n\n  <div class=\"container-fluid page-margin\">\n    <div *ngIf=\"address\">\n      <label>Deliver To: </label><br>\n      <label>{{address['name']}} </label><br>\n      <label>{{address['apt']}} {{address['street']}} </label><br>\n      <label> {{address['city']}} {{address['zipCode']}}</label><br>\n      <label> {{address['state']}}</label><br>\n      <label> {{address['phone']}}</label><br>\n    </div>\n    <ul class=\"list-group\">\n      <li class=\"list-group-item active\">\n        <div class=\"row\">\n          <div class=\"col-sm-3 col-md-4 col-xs-6\">\n            Name\n          </div>\n          <div class=\"col-md-2 col-sm-3 hidden-xs\">\n            Price\n          </div>\n          <div class=\"col-sm-3 col-md-2 hidden-xs\">\n            Quantity\n          </div>\n          <div class=\"col-sm-3 col-md-4 hidden-6\">\n            Instructions\n          </div>\n        </div>\n      </li>\n      <li class=\"list-group-item\" *ngFor=\"let item of orderItems\">\n        <div class=\"row\">\n          <div class=\"col-sm-3 col-md-4 col-xs-6\">\n            <a>\n              {{item['name']}}\n            </a>\n          </div>\n          <div class=\"col-md-2 col-sm-3 hidden-xs\">\n            {{item['price']}}\n          </div>\n          <div class=\"col-sm-3 col-md-2 hidden-xs\">\n            {{item['quantity']}}\n          </div>\n          <div class=\"col-sm-3 col-md-4 hidden-6\">\n            {{item['instructions']}}\n          </div>\n        </div>\n      </li>\n    </ul>\n    <button (click)=\"MarkDelivered()\" class=\"btn btn-success btn-block margin-top-button\"\n    >Mark as Deliverd</button>\n  </div>\n</form>\n"
 
 /***/ }),
 
@@ -1280,7 +1375,11 @@ module.exports = "<p>\n  driver-order-detail works!\n</p>\n"
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DriverOrderDetailComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_orderItem_service_client__ = __webpack_require__("../../../../../src/app/services/orderItem.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_order_service_client__ = __webpack_require__("../../../../../src/app/services/order.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__ = __webpack_require__("../../../../../src/app/services/user.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1291,22 +1390,56 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
 var DriverOrderDetailComponent = (function () {
-    function DriverOrderDetailComponent() {
+    function DriverOrderDetailComponent(orderItemService, activatedRoute, orderService, router, userService) {
+        this.orderItemService = orderItemService;
+        this.activatedRoute = activatedRoute;
+        this.orderService = orderService;
+        this.router = router;
+        this.userService = userService;
+        this.orderItems = [{}];
     }
     DriverOrderDetailComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.activatedRoute.params
+            .subscribe(function (params) {
+            _this.restaurantId = params['restaurantId'];
+            _this.orderId = params['orderId'];
+        });
+        this.orderService.findOrderById(this.orderId)
+            .subscribe(function (order) {
+            _this.order = order;
+            _this.address = order['address'];
+        });
+        this.orderItemService.findAllByOrder(this.orderId)
+            .subscribe(function (orderItems) {
+            _this.orderItems = orderItems;
+        });
+    };
+    DriverOrderDetailComponent.prototype.MarkDelivered = function () {
+        var _this = this;
+        this.order['state'] = 'delivered';
+        this.orderService.updateOrder(this.order['_id'], this.order)
+            .subscribe(function () {
+            _this.router.navigate(['/driver', 'restaurant', _this.restaurantId, 'order']);
+        });
     };
     return DriverOrderDetailComponent;
 }());
 DriverOrderDetailComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["Component"])({
         selector: 'app-driver-order-detail',
         template: __webpack_require__("../../../../../src/app/components/driver/driver-order-detail/driver-order-detail.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/driver/driver-order-detail/driver-order-detail.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_orderItem_service_client__["a" /* OrderItemService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_orderItem_service_client__["a" /* OrderItemService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_order_service_client__["a" /* OrderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_order_service_client__["a" /* OrderService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__["a" /* UserService */]) === "function" && _e || Object])
 ], DriverOrderDetailComponent);
 
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=driver-order-detail.component.js.map
 
 /***/ }),
@@ -1332,7 +1465,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/driver/driver-order-list/driver-order-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  driver-order-list works!\n</p>\n"
+module.exports = "<nav class=\"navbar sadaab-navbar-color navbar-default navbar-fixed-top nav-collapse collapsing\" style=\"height:60px\">\n  <p class=\"navbar-text pull-left page-new-top-glyp-margin\">\n    <a [routerLink]=\"['/login' ]\" class=\"navbar-link\">\n      <span class=\"glyphicon glyphicon-chevron-left\"></span>\n    </a>\n  </p>\n\n  <!--heading on the nav bar-->\n  <p class=\"navbar-header pull-left page-new-top-glyp-margin\">\n    <a class=\"navbar-brand thick\">\n      <b>Driver Order list</b>\n    </a>\n  </p>\n</nav>\n\n<div class=\"container-fluid page-margin\">\n  <ul class=\"list-group\">\n    <li class=\"list-group-item active\">\n      <div class=\"row\">\n        <div class=\"col-xs-9 col-sm-6 col-md-3\">\n          Order Number\n        </div>\n        <div class=\"col-md-3 hidden-sm hidden-xs\">\n          Order Price\n        </div>\n        <div class=\"col-sm-3 col-md-3 hidden-xs\">\n          Order Date\n        </div>\n        <div class=\"col-xs-3\">\n        </div>\n      </div>\n    </li>\n    <li class=\"list-group-item\" *ngFor=\"let order of orders\">\n      <div class=\"row\">\n        <div class=\"col-xs-9 col-sm-6 col-md-3\">\n          <a>\n            {{order['_id']}}\n          </a>\n        </div>\n        <div class=\"col-md-3 hidden-sm hidden-xs\">\n          {{order['total']}}\n        </div>\n        <div class=\"col-sm-3 col-md-3 hidden-xs\">\n          {{order['dateCreated']}}\n        </div>\n        <div class=\"col-xs-3\">\n          <button [routerLink]=\"['/driver', 'restaurant', restaurantId, 'order', order._id]\"\n                  class=\"btn btn-success btn-block\">View Order</button>\n        </div>\n      </div>\n    </li>\n  </ul>\n</div>\n"
 
 /***/ }),
 
@@ -1342,6 +1475,10 @@ module.exports = "<p>\n  driver-order-list works!\n</p>\n"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DriverOrderListComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_order_service_client__ = __webpack_require__("../../../../../src/app/services/order.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__ = __webpack_require__("../../../../../src/app/services/user.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_shared_service__ = __webpack_require__("../../../../../src/app/services/shared.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1352,10 +1489,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
 var DriverOrderListComponent = (function () {
-    function DriverOrderListComponent() {
+    function DriverOrderListComponent(activatedRoute, orderService, userService, sharedService) {
+        this.activatedRoute = activatedRoute;
+        this.orderService = orderService;
+        this.userService = userService;
+        this.sharedService = sharedService;
     }
     DriverOrderListComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.driver = this.sharedService.user;
+        this.driverId = this.driver['_id'];
+        this.activatedRoute.params
+            .subscribe(function (params) {
+            _this.restaurantId = params['restaurantId'];
+        });
+        this.orderService.findAllDriverOrders(this.driverId, 'ready')
+            .subscribe(function (orders) {
+            _this.orders = orders;
+        });
     };
     return DriverOrderListComponent;
 }());
@@ -1365,9 +1521,10 @@ DriverOrderListComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/driver/driver-order-list/driver-order-list.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/driver/driver-order-list/driver-order-list.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_order_service_client__["a" /* OrderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_order_service_client__["a" /* OrderService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__["a" /* UserService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__services_shared_service__["a" /* SharedService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_shared_service__["a" /* SharedService */]) === "function" && _d || Object])
 ], DriverOrderListComponent);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=driver-order-list.component.js.map
 
 /***/ }),
@@ -1562,7 +1719,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/manager/manager-dashboard/manager-dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <div *ngIf=\"this.restaurantId;else header\">\n    <ul class=\"nav nav-tabs nav-justified\">\n      <li role=\"presentation\" class=\"active\">\n        <a [routerLink]=\"['/manager','restaurant', restaurantId]\" class=\"btn\">\n          My Profile\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager','restaurant', restaurantId, 'chef']\" class=\"btn\">\n          View Chefs\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager', 'restaurant', restaurantId, 'driver']\" class=\"btn\">\n          View Drivers\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager/restaurant/', restaurantId, 'order']\" class=\"btn\">\n          View Orders\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a (click)=\"AddOrViewMenu()\" class=\"btn\">\n          View Menu\n        </a>\n      </li>\n    </ul>\n  </div>\n  <ng-template #header>\n    <header>\n      <a [routerLink]=\"['/admin/manager']\" class=\"white\"><span class=\"glyphicon glyphicon-chevron-left\"></span></a>\n    </header>\n    <ul class=\"nav nav-tabs nav-justified\">\n      <li role=\"presentation\" class=\"active\">\n        <a [routerLink]=\"['/restaurant/', manager.restaurantId]\" class=\"btn\">\n          My Profile\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/admin/restaurant/', manager.restaurantId, 'driver']\" class=\"btn\">\n          View Drivers\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/admin/restaurant/', manager.restaurantId, 'chef']\" class=\"btn\">\n          View Chefs\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a class=\"btn\">\n          View Menu\n        </a>\n      </li>\n    </ul>\n  </ng-template>\n  <h3 class=\"text-center\">Edit Manager of Restaurant {{manager.restaurantId}}</h3>\n  <form (ngSubmit) = \"update()\" #f=\"ngForm\">\n    <div class=\"container-fluid profile clearfix\">\n      <label for=\"username\" class=\"label\">Username</label>\n      <input type=\"text\"\n             id=\"username\"\n             name=\"username\"\n             [(ngModel)]=\"username\"\n             class=\"form-control\" />\n\n      <label for=\"email\" class=\"label\">Email</label>\n      <input type=\"email\"\n             id=\"email\"\n             name=\"email\"\n             [(ngModel)]=\"email\"\n             class=\"form-control\" />\n\n      <label for=\"first_name\" class=\"label\">First Name</label>\n      <input type=\"text\"\n             id=\"first_name\"\n             name=\"first_name\"\n             [(ngModel)]=\"firstName\"\n             class=\"form-control\" />\n\n      <label for=\"last_name\" class=\"label\">Last Name</label>\n      <input type=\"text\"\n             id=\"last_name\"\n             name=\"last_name\"\n             [(ngModel)]=\"lastName\"\n             class=\"form-control\" />\n\n      <label for=\"phone\" class=\"label\">Phone</label>\n      <input type=\"text\"\n             id=\"phone\"\n             name=\"phone\"\n             [(ngModel)]=\"phone\"\n             class=\"form-control\" />\n      <div *ngIf=\"!this.restaurantId\">\n        <label for=\"active\" class=\"label\">Active?</label>\n        <input type=\"checkbox\"\n               id=\"active\"\n               name=\"active\"\n               [(ngModel)]=\"active\">\n      </div>\n      <button type=\"submit\"\n              class=\"btn btn-primary form-control\"\n              [disabled]=\"!f.valid\">Update Profile</button>\n    </div>\n  </form>\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <div *ngIf=\"this.restaurantId;else header\">\n    <ul class=\"nav nav-tabs nav-justified\">\n      <li role=\"presentation\" class=\"active\">\n        <a [routerLink]=\"['/manager','restaurant', restaurantId]\" class=\"btn\">\n          My Profile\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager','restaurant', restaurantId, 'chef']\" class=\"btn\">\n          View Chefs\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager', 'restaurant', restaurantId, 'driver']\" class=\"btn\">\n          View Drivers\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager/restaurant/', restaurantId, 'order']\" class=\"btn\">\n          View Orders\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a (click)=\"AddOrViewMenu()\" class=\"btn\">\n          View Menu\n        </a>\n      </li>\n    </ul>\n  </div>\n  <ng-template #header>\n    <header>\n      <a [routerLink]=\"['/admin/manager']\" class=\"white\"><span class=\"glyphicon glyphicon-chevron-left\"></span></a>\n    </header>\n    <ul class=\"nav nav-tabs nav-justified\">\n      <li role=\"presentation\" class=\"active\">\n        <a [routerLink]=\"['/restaurant/', manager.restaurantId]\" class=\"btn\">\n          My Profile\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/admin/restaurant/', manager.restaurantId, 'driver']\" class=\"btn\">\n          View Drivers\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/admin/restaurant/', manager.restaurantId, 'chef']\" class=\"btn\">\n          View Chefs\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a class=\"btn\">\n          View Menu\n        </a>\n      </li>\n    </ul>\n  </ng-template>\n  <h3 class=\"text-center\">Edit Manager of Restaurant {{manager.restaurantId}}</h3>\n  <form (ngSubmit) = \"update()\" #f=\"ngForm\">\n    <div class=\"container-fluid profile clearfix\">\n      <label for=\"username\" class=\"label\">Username</label>\n      <input type=\"text\"\n             id=\"username\"\n             name=\"username\"\n             [(ngModel)]=\"username\"\n             class=\"form-control\" />\n\n      <label for=\"email\" class=\"label\">Email</label>\n      <input type=\"email\"\n             id=\"email\"\n             name=\"email\"\n             [(ngModel)]=\"email\"\n             class=\"form-control\" />\n\n      <label for=\"first_name\" class=\"label\">First Name</label>\n      <input type=\"text\"\n             id=\"first_name\"\n             name=\"first_name\"\n             [(ngModel)]=\"firstName\"\n             class=\"form-control\" />\n\n      <label for=\"last_name\" class=\"label\">Last Name</label>\n      <input type=\"text\"\n             id=\"last_name\"\n             name=\"last_name\"\n             [(ngModel)]=\"lastName\"\n             class=\"form-control\" />\n\n      <label for=\"phone\" class=\"label\">Phone</label>\n      <input type=\"text\"\n             id=\"phone\"\n             name=\"phone\"\n             [(ngModel)]=\"phone\"\n             class=\"form-control\" />\n      <div *ngIf=\"!this.restaurantId\">\n        <label for=\"active\" class=\"label\">Active?</label>\n        <input type=\"checkbox\"\n               id=\"active\"\n               name=\"active\"\n               [(ngModel)]=\"active\">\n      </div>\n      <button type=\"submit\"\n              class=\"btn btn-primary form-control\"\n              [disabled]=\"!f.valid\">Update Profile</button>\n      <a (click)=\"logout()\" class=\"btn btn-danger btn-block\">Logout</a>\n    </div>\n  </form>\n</div>\n"
 
 /***/ }),
 
@@ -1659,6 +1816,11 @@ var ManagerDashboardComponent = (function () {
             }
         });
     };
+    ManagerDashboardComponent.prototype.logout = function () {
+        var _this = this;
+        this.userService.logout()
+            .subscribe(function (data) { return _this.router.navigate(['/login']); });
+    };
     return ManagerDashboardComponent;
 }());
 __decorate([
@@ -1700,7 +1862,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/manager/manager-order-details/manager-order-details.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form #f=\"ngForm\">\n\n  <nav class=\"navbar sadaab-navbar-color navbar-default navbar-fixed-top nav-collapse collapsing\" style=\"height:60px\">\n    <p class=\"navbar-text pull-left page-new-top-glyp-margin\">\n      <a [routerLink]=\"['/manager', 'restaurant', restaurantId, 'order']\" class=\"navbar-link\">\n        <span class=\"glyphicon glyphicon-chevron-left\"></span>\n      </a>\n    </p>\n\n    <!--heading on the nav bar-->\n    <p class=\"navbar-header pull-left page-new-top-glyp-margin\">\n      <a class=\"navbar-brand thick\">\n        <b>Order Number : {{orderId}}</b>\n      </a>\n    </p>\n  </nav>\n\n\n  <div class=\"container-fluid page-margin\">\n    <div *ngIf=\"address\">\n      <label>Deliver To: </label><br>\n      <label>{{address['name']}} </label><br>\n      <label>{{address['apt']}} {{address['street']}} </label><br>\n      <label> {{address['city']}} {{address['zipCode']}}</label><br>\n      <label> {{address['state']}}</label><br>\n      <label> {{address['phone']}}</label><br>\n    </div>\n    <ul class=\"list-group\">\n      <li class=\"list-group-item active\">\n        <div class=\"row\">\n          <div class=\"col-sm-3 col-md-4 col-xs-6\">\n            Name\n          </div>\n          <div class=\"col-md-2 col-sm-3 hidden-xs\">\n            Price\n          </div>\n          <div class=\"col-sm-3 col-md-2 hidden-xs\">\n            Quantity\n          </div>\n          <div class=\"col-sm-3 col-md-4 hidden-6\">\n            Instructions\n          </div>\n        </div>\n      </li>\n      <li class=\"list-group-item\" *ngFor=\"let item of orderItems\">\n        <div class=\"row\">\n          <div class=\"col-sm-3 col-md-4 col-xs-6\">\n            <a>\n              {{item['name']}}\n            </a>\n          </div>\n          <div class=\"col-md-2 col-sm-3 hidden-xs\">\n            {{item['price']}}\n          </div>\n          <div class=\"col-sm-3 col-md-2 hidden-xs\">\n            {{item['quantity']}}\n          </div>\n          <div class=\"col-sm-3 col-md-4 hidden-6\">\n            {{item['instructions']}}\n          </div>\n        </div>\n      </li>\n    </ul>\n    <div [ngSwitch]=\"orderState\">\n      <div *ngSwitchCase=\"'paid'\">\n        <button (click)=\"AcceptOrder()\" class=\"btn btn-success btn-block\"\n        >Accept Order</button>\n        <button (click)=\"CancelOrder()\" class=\"btn btn-danger btn-block\"\n        >Cancel</button>\n      </div>\n      <div *ngSwitchCase=\"'accepted'\">\n        <label class=\"\">Choose Chef</label>\n        <select class=\"form-control\"\n                name=\"chefId\"\n                id = \"chefId\"\n                [(ngModel)]=\"order['chefId']\">\n          <option *ngFor=\"let chef of chefs\"\n                  [value]=\"chef._id\"\n                  [selected] = \"order['chefId'] == chef._id\">\n            {{chef.firstName}} {{chef.lastName}}\n          </option>\n        </select>\n        <button (click)=\"ChooseEmployee()\" class=\"btn btn-success btn-block margin-top-button\"\n        >Done</button>\n        <button (click)=\"CancelOrder()\" class=\"btn btn-danger btn-block\"\n        >Cancel</button>\n      </div>\n      <div *ngSwitchCase=\"'ready'\">\n        <label class=\"\">Choose Driver</label>\n        <select class=\"form-control\"\n                name=\"driverId\"\n                id = \"driverId\"\n                [(ngModel)]=\"order['chefId']\">\n          <option *ngFor=\"let driver of drivers\"\n                  [value]=\"driver._id\"\n                  [selected] = \"order['driverId'] == driver._id\">\n            {{driver.firstName}} {{driver.lastName}}\n          </option>\n        </select>\n        <button (click)=\"ChooseEmployee()\" class=\"btn btn-success btn-block margin-top-button\"\n        >Done</button>\n        <button (click)=\"CancelOrder()\" class=\"btn btn-danger btn-block\"\n        >Cancel</button>\n      </div>\n    </div>\n  </div>\n</form>\n"
+module.exports = "<form #f=\"ngForm\">\n\n  <nav class=\"navbar sadaab-navbar-color navbar-default navbar-fixed-top nav-collapse collapsing\" style=\"height:60px\">\n    <p class=\"navbar-text pull-left page-new-top-glyp-margin\">\n      <a [routerLink]=\"['/manager', 'restaurant', restaurantId, 'order']\" class=\"navbar-link\">\n        <span class=\"glyphicon glyphicon-chevron-left\"></span>\n      </a>\n    </p>\n\n    <!--heading on the nav bar-->\n    <p class=\"navbar-header pull-left page-new-top-glyp-margin\">\n      <a class=\"navbar-brand thick\">\n        <b>Order Number : {{orderId}}</b>\n      </a>\n    </p>\n  </nav>\n\n\n  <div class=\"container-fluid page-margin\">\n    <ul class=\"nav nav-tabs nav-justified\">\n      <li role=\"presentation\" class=\"active\">\n        <a [routerLink]=\"['/manager','restaurant', restaurantId]\" class=\"btn\">\n          My Profile\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager','restaurant', restaurantId, 'chef']\" class=\"btn\">\n          View Chefs\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager', 'restaurant', restaurantId, 'driver']\" class=\"btn\">\n          View Drivers\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager/restaurant/', restaurantId, 'order']\" class=\"btn\">\n          View Orders\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a (click)=\"AddOrViewMenu()\" class=\"btn\">\n          View Menu\n        </a>\n      </li>\n    </ul>\n    <div *ngIf=\"address\">\n      <label>Deliver To: </label><br>\n      <label>{{address['name']}} </label><br>\n      <label>{{address['apt']}} {{address['street']}} </label><br>\n      <label> {{address['city']}} {{address['zipCode']}}</label><br>\n      <label> {{address['state']}}</label><br>\n      <label> {{address['phone']}}</label><br>\n    </div>\n    <ul class=\"list-group\">\n      <li class=\"list-group-item active\">\n        <div class=\"row\">\n          <div class=\"col-sm-3 col-md-4 col-xs-6\">\n            Name\n          </div>\n          <div class=\"col-md-2 col-sm-3 hidden-xs\">\n            Price\n          </div>\n          <div class=\"col-sm-3 col-md-2 hidden-xs\">\n            Quantity\n          </div>\n          <div class=\"col-sm-3 col-md-4 hidden-6\">\n            Instructions\n          </div>\n        </div>\n      </li>\n      <li class=\"list-group-item\" *ngFor=\"let item of orderItems\">\n        <div class=\"row\">\n          <div class=\"col-sm-3 col-md-4 col-xs-6\">\n            <a>\n              {{item['name']}}\n            </a>\n          </div>\n          <div class=\"col-md-2 col-sm-3 hidden-xs\">\n            {{item['price']}}\n          </div>\n          <div class=\"col-sm-3 col-md-2 hidden-xs\">\n            {{item['quantity']}}\n          </div>\n          <div class=\"col-sm-3 col-md-4 hidden-6\">\n            {{item['instructions']}}\n          </div>\n        </div>\n      </li>\n    </ul>\n    <div [ngSwitch]=\"orderState\">\n      <div *ngSwitchCase=\"'paid'\">\n        <button (click)=\"AcceptOrder()\" class=\"btn btn-success btn-block\"\n        >Accept Order</button>\n        <button (click)=\"CancelOrder()\" class=\"btn btn-danger btn-block\"\n        >Cancel</button>\n      </div>\n      <div *ngSwitchCase=\"'accepted'\">\n        <label class=\"\">Choose Chef</label>\n        <select class=\"form-control\"\n                name=\"chefId\"\n                id = \"chefId\"\n                [(ngModel)]=\"order['chefId']\">\n          <option *ngFor=\"let chef of chefs\"\n                  [value]=\"chef._id\"\n                  [selected] = \"order['chefId'] == chef._id\">\n            {{chef.firstName}} {{chef.lastName}}\n          </option>\n        </select>\n        <button (click)=\"ChooseEmployee()\" class=\"btn btn-success btn-block margin-top-button\"\n        >Done</button>\n        <button (click)=\"CancelOrder()\" class=\"btn btn-danger btn-block\"\n        >Cancel</button>\n      </div>\n      <div *ngSwitchCase=\"'ready'\">\n        <label class=\"\">Choose Driver</label>\n        <select class=\"form-control\"\n                name=\"driverId\"\n                id = \"driverId\"\n                [(ngModel)]=\"order['chefId']\">\n          <option *ngFor=\"let driver of drivers\"\n                  [value]=\"driver._id\"\n                  [selected] = \"order['driverId'] == driver._id\">\n            {{driver.firstName}} {{driver.lastName}}\n          </option>\n        </select>\n        <button (click)=\"ChooseEmployee()\" class=\"btn btn-success btn-block margin-top-button\"\n        >Done</button>\n        <button (click)=\"CancelOrder()\" class=\"btn btn-danger btn-block\"\n        >Cancel</button>\n      </div>\n    </div>\n  </div>\n</form>\n"
 
 /***/ }),
 
@@ -1715,6 +1877,7 @@ module.exports = "<form #f=\"ngForm\">\n\n  <nav class=\"navbar sadaab-navbar-co
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__ = __webpack_require__("../../../../../src/app/services/user.service.client.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_menu_service_client__ = __webpack_require__("../../../../../src/app/services/menu.service.client.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1730,13 +1893,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ManagerOrderDetailsComponent = (function () {
-    function ManagerOrderDetailsComponent(orderItemService, activatedRoute, orderService, router, userService) {
+    function ManagerOrderDetailsComponent(orderItemService, activatedRoute, orderService, router, userService, menuService) {
         this.orderItemService = orderItemService;
         this.activatedRoute = activatedRoute;
         this.orderService = orderService;
         this.router = router;
         this.userService = userService;
+        this.menuService = menuService;
         this.orderItems = [{}];
     }
     ManagerOrderDetailsComponent.prototype.ngOnInit = function () {
@@ -1777,7 +1942,6 @@ var ManagerOrderDetailsComponent = (function () {
     ManagerOrderDetailsComponent.prototype.CancelOrder = function () {
         var _this = this;
         this.order['state'] = 'cancelled';
-        console.log('cancel order');
         this.orderService.updateOrder(this.orderId, this.order)
             .subscribe(function (order) {
             _this.router.navigate(['/manager', 'restaurant', _this.restaurantId, 'order']);
@@ -1792,12 +1956,22 @@ var ManagerOrderDetailsComponent = (function () {
         else if (this.orderState === 'ready') {
             var employeeId = this.orderDetailsForm.value.driverId;
             this.order['driverId'] = employeeId;
-            console.log(employeeId);
         }
-        console.log('choose employee');
         this.orderService.updateOrder(this.orderId, this.order)
             .subscribe(function (order) {
             _this.router.navigate(['/manager', 'restaurant', _this.restaurantId, 'order']);
+        });
+    };
+    ManagerOrderDetailsComponent.prototype.AddOrViewMenu = function () {
+        var _this = this;
+        this.menuService.findMenuByRestroId(this.restaurantId)
+            .subscribe(function (menu) {
+            if (menu) {
+                _this.router.navigate(['/manager/restaurant/', _this.restaurantId, 'menu']);
+            }
+            else {
+                _this.router.navigate(['/manager/restaurant/', _this.restaurantId, 'menu', 'new']);
+            }
         });
     };
     return ManagerOrderDetailsComponent;
@@ -1812,10 +1986,10 @@ ManagerOrderDetailsComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/manager/manager-order-details/manager-order-details.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/manager/manager-order-details/manager-order-details.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_orderItem_service_client__["a" /* OrderItemService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_orderItem_service_client__["a" /* OrderItemService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__services_order_service_client__["a" /* OrderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_order_service_client__["a" /* OrderService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__["a" /* UserService */]) === "function" && _f || Object])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_orderItem_service_client__["a" /* OrderItemService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_orderItem_service_client__["a" /* OrderItemService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__services_order_service_client__["a" /* OrderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_order_service_client__["a" /* OrderService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__["a" /* UserService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_6__services_menu_service_client__["a" /* MenuService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__services_menu_service_client__["a" /* MenuService */]) === "function" && _g || Object])
 ], ManagerOrderDetailsComponent);
 
-var _a, _b, _c, _d, _e, _f;
+var _a, _b, _c, _d, _e, _f, _g;
 //# sourceMappingURL=manager-order-details.component.js.map
 
 /***/ }),
@@ -1841,7 +2015,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/manager/manager-order/manager-order.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<nav class=\"navbar sadaab-navbar-color navbar-default navbar-fixed-top nav-collapse collapsing\" style=\"height:60px\">\n  <p class=\"navbar-text pull-left page-new-top-glyp-margin\">\n    <a [routerLink]=\"['/manager', 'restaurant', restaurantId ]\" class=\"navbar-link\">\n      <span class=\"glyphicon glyphicon-chevron-left\"></span>\n    </a>\n  </p>\n\n  <!--heading on the nav bar-->\n  <p class=\"navbar-header pull-left page-new-top-glyp-margin\">\n    <a class=\"navbar-brand thick\">\n      <b>Order list</b>\n    </a>\n  </p>\n</nav>\n\n<div class=\"container-fluid page-margin\">\n  <ul class=\"nav nav-tabs nav-justified\">\n    <li role=\"presentation\" class=\"active\">\n      <a (click)=\"DisplayPaidOrders()\" class=\"btn\">\n        Paid\n      </a>\n    </li>\n    <li role=\"presentation\">\n      <a (click)=\"DisplayAcceptedOrders()\" class=\"btn\">\n        Accepted\n      </a>\n    </li>\n    <li role=\"presentation\">\n      <a (click)=\"DisplayReadyOrders()\" class=\"btn\">\n        Ready\n      </a>\n    </li>\n    <li role=\"presentation\">\n      <a (click)=\"DisplayDeliveredOrders()\" class=\"btn\">\n        Delivered\n      </a>\n    </li>\n    <li role=\"presentation\">\n      <a (click)=\"DisplayCancelledOrders()\" class=\"btn\">\n        Cancelled\n      </a>\n    </li>\n  </ul>\n  <ul class=\"list-group\">\n    <li class=\"list-group-item active\">\n      <div class=\"row\">\n        <div class=\"col-xs-9 col-sm-6 col-md-3\">\n          Order Number\n        </div>\n        <div class=\"col-md-3 hidden-sm hidden-xs\">\n          Order Price\n        </div>\n        <div class=\"col-sm-3 col-md-3 hidden-xs\">\n          Order Date\n        </div>\n        <div class=\"col-xs-3\">\n        </div>\n      </div>\n    </li>\n    <li class=\"list-group-item\" *ngFor=\"let order of orders\">\n      <div class=\"row\">\n        <div class=\"col-xs-9 col-sm-6 col-md-3\">\n          <a>\n            {{order['_id']}}\n          </a>\n        </div>\n        <div class=\"col-md-3 hidden-sm hidden-xs\">\n          {{order['total']}}\n        </div>\n        <div class=\"col-sm-3 col-md-3 hidden-xs\">\n        {{order['dateCreated']}}\n        </div>\n        <div class=\"col-xs-3\">\n          <button [routerLink]=\"['/manager', 'restaurant', restaurantId, 'order', order._id]\"\n                  class=\"btn btn-success btn-block\">View Order</button>\n        </div>\n      </div>\n    </li>\n  </ul>\n</div>\n"
+module.exports = "\n<nav class=\"navbar sadaab-navbar-color navbar-default navbar-fixed-top nav-collapse collapsing\" style=\"height:60px\">\n  <p class=\"navbar-text pull-left page-new-top-glyp-margin\">\n    <a [routerLink]=\"['/manager', 'restaurant', restaurantId ]\" class=\"navbar-link\">\n      <span class=\"glyphicon glyphicon-chevron-left\"></span>\n    </a>\n  </p>\n\n  <!--heading on the nav bar-->\n  <p class=\"navbar-header pull-left page-new-top-glyp-margin\">\n    <a class=\"navbar-brand thick\">\n      <b>Order list</b>\n    </a>\n  </p>\n</nav>\n\n<div class=\"container-fluid page-margin\">\n  <ul class=\"nav nav-tabs nav-justified\">\n    <li role=\"presentation\" class=\"active\">\n      <a [routerLink]=\"['/manager','restaurant', restaurantId]\" class=\"btn\">\n        My Profile\n      </a>\n    </li>\n    <li role=\"presentation\">\n      <a [routerLink]=\"['/manager','restaurant', restaurantId, 'chef']\" class=\"btn\">\n        View Chefs\n      </a>\n    </li>\n    <li role=\"presentation\">\n      <a [routerLink]=\"['/manager', 'restaurant', restaurantId, 'driver']\" class=\"btn\">\n        View Drivers\n      </a>\n    </li>\n    <li role=\"presentation\">\n      <a [routerLink]=\"['/manager/restaurant/', restaurantId, 'order']\" class=\"btn\">\n        View Orders\n      </a>\n    </li>\n    <li role=\"presentation\">\n      <a (click)=\"AddOrViewMenu()\" class=\"btn\">\n        View Menu\n      </a>\n    </li>\n  </ul>\n  <label>Choose order state</label>\n  <ul class=\"nav nav-tabs nav-justified\">\n    <li role=\"presentation\" class=\"active\">\n      <a (click)=\"DisplayPaidOrders()\" class=\"btn\">\n        Paid\n      </a>\n    </li>\n    <li role=\"presentation\">\n      <a (click)=\"DisplayAcceptedOrders()\" class=\"btn\">\n        Accepted\n      </a>\n    </li>\n    <li role=\"presentation\">\n      <a (click)=\"DisplayReadyOrders()\" class=\"btn\">\n        Ready\n      </a>\n    </li>\n    <li role=\"presentation\">\n      <a (click)=\"DisplayDeliveredOrders()\" class=\"btn\">\n        Delivered\n      </a>\n    </li>\n    <li role=\"presentation\">\n      <a (click)=\"DisplayCancelledOrders()\" class=\"btn\">\n        Cancelled\n      </a>\n    </li>\n  </ul>\n  <ul class=\"list-group\">\n    <li class=\"list-group-item active\">\n      <div class=\"row\">\n        <div class=\"col-xs-9 col-sm-6 col-md-3\">\n          Order Number\n        </div>\n        <div class=\"col-md-3 hidden-sm hidden-xs\">\n          Order Price\n        </div>\n        <div class=\"col-sm-3 col-md-3 hidden-xs\">\n          Order Date\n        </div>\n        <div class=\"col-xs-3\">\n        </div>\n      </div>\n    </li>\n    <li class=\"list-group-item\" *ngFor=\"let order of orders\">\n      <div class=\"row\">\n        <div class=\"col-xs-9 col-sm-6 col-md-3\">\n          <a>\n            {{order['_id']}}\n          </a>\n        </div>\n        <div class=\"col-md-3 hidden-sm hidden-xs\">\n          {{order['total']}}\n        </div>\n        <div class=\"col-sm-3 col-md-3 hidden-xs\">\n        {{order['dateCreated']}}\n        </div>\n        <div class=\"col-xs-3\">\n          <button [routerLink]=\"['/manager', 'restaurant', restaurantId, 'order', order._id]\"\n                  class=\"btn btn-success btn-block\">View Order</button>\n        </div>\n      </div>\n    </li>\n  </ul>\n</div>\n"
 
 /***/ }),
 
@@ -1854,6 +2028,7 @@ module.exports = "\n<nav class=\"navbar sadaab-navbar-color navbar-default navba
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_order_service_client__ = __webpack_require__("../../../../../src/app/services/order.service.client.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__ = __webpack_require__("../../../../../src/app/services/user.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_menu_service_client__ = __webpack_require__("../../../../../src/app/services/menu.service.client.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1867,11 +2042,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ManagerOrderComponent = (function () {
-    function ManagerOrderComponent(activatedRoute, orderService, userService) {
+    function ManagerOrderComponent(activatedRoute, orderService, userService, menuService, router) {
         this.activatedRoute = activatedRoute;
         this.orderService = orderService;
         this.userService = userService;
+        this.menuService = menuService;
+        this.router = router;
     }
     ManagerOrderComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1919,6 +2097,18 @@ var ManagerOrderComponent = (function () {
             _this.orders = orders;
         });
     };
+    ManagerOrderComponent.prototype.AddOrViewMenu = function () {
+        var _this = this;
+        this.menuService.findMenuByRestroId(this.restaurantId)
+            .subscribe(function (menu) {
+            if (menu) {
+                _this.router.navigate(['/manager/restaurant/', _this.restaurantId, 'menu']);
+            }
+            else {
+                _this.router.navigate(['/manager/restaurant/', _this.restaurantId, 'menu', 'new']);
+            }
+        });
+    };
     return ManagerOrderComponent;
 }());
 ManagerOrderComponent = __decorate([
@@ -1927,10 +2117,10 @@ ManagerOrderComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/manager/manager-order/manager-order.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/manager/manager-order/manager-order.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_order_service_client__["a" /* OrderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_order_service_client__["a" /* OrderService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__["a" /* UserService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_order_service_client__["a" /* OrderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_order_service_client__["a" /* OrderService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__["a" /* UserService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__services_menu_service_client__["a" /* MenuService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_menu_service_client__["a" /* MenuService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _e || Object])
 ], ManagerOrderComponent);
 
-var _a, _b, _c;
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=manager-order.component.js.map
 
 /***/ }),
@@ -2065,7 +2255,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/menu/menu-edit/menu-edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form (ngSubmit) = \"EditMenu()\" #f=\"ngForm\">\n\n  <nav class=\"navbar sadaab-navbar-color navbar-default navbar-fixed-top nav-collapse collapsing\" style=\"height:60px\">\n    <p class=\"navbar-text pull-left page-new-top-glyp-margin\">\n      <a [routerLink]=\"['/manager', 'restaurant', restaurantId, 'menu' ]\" class=\"navbar-link\">\n        <span class=\"glyphicon glyphicon-chevron-left\"></span>\n      </a>\n    </p>\n\n    <!--heading on the nav bar-->\n    <p class=\"navbar-header pull-left page-new-top-glyp-margin\">\n      <a class=\"navbar-brand thick\">\n        <b>Menu Edit</b>\n      </a>\n    </p>\n  </nav>\n\n  <div class=\"container-fluid page-margin\">\n    <div class=\"row\">\n      <button [routerLink]=\"['/manager', 'restaurant', this.restaurantId]\"\n              (click)=\"DeleteMenu()\"\n              class=\"btn btn-danger btn-block\">\n        Delete Menu\n      </button>\n      <button [routerLink]=\"['/manager', 'restaurant', this.restaurantId, 'menu']\"\n              type=\"submit\"\n              class=\"btn btn-success btn-block\">\n              Done\n      </button>\n      <label class=\"\">Delivery Charge</label>\n      <input class=\"form-control\"\n             type=\"text\"\n             id = \"deliveryCharge\"\n             [(ngModel)] = \"deliveryCharge\"\n             placeholder=\"Delivery Charge\"\n             name=\"deliveryCharge\"/>\n      <label class=\"\">Order limit</label>\n      <input class=\"form-control\"\n             type=\"text\"\n             id = \"orderLimit\"\n             [(ngModel)] = \"orderLimit\"\n             placeholder=\"Minimum order limit\"\n             name=\"orderLimit\"/>\n      <div class=\"row\">\n        <div class=\"col-xs-9\">\n          <label class=\"\">Menu Items</label>\n        </div>\n        <div class=\"col-xs-3\">\n          <button [routerLink]=\"['/manager', 'restaurant', restaurantId, 'menu', menuId, 'menuItem', 'new']\"\n                  class=\"btn btn-primary btn-block\">\n                  <i class=\"pull-right glyphicon glyphicon-plus\"></i>Add Menu Item</button>\n        </div>\n      </div>\n      <ul class=\"list-group\">\n        <li class=\"list-group-item active\">\n          <div class=\"row\">\n            <div class=\"col-xs-9 col-sm-6 col-md-3\">\n              Name\n            </div>\n            <div class=\"col-md-3 hidden-sm hidden-xs\">\n              Price\n            </div>\n            <div class=\"col-sm-3 col-md-3 hidden-xs\">\n              Category\n            </div>\n            <div class=\"col-xs-3\">\n            </div>\n          </div>\n        </li>\n        <li class=\"list-group-item\" *ngFor=\"let item of menuItems\">\n          <div class=\"row\">\n            <div class=\"col-xs-9 col-sm-6 col-md-3\">\n              <a>\n                {{item['name']}}\n              </a>\n            </div>\n            <div class=\"col-md-3 hidden-sm hidden-xs\">\n              {{item['price']}}\n            </div>\n            <div class=\"col-sm-3 col-md-3 hidden-xs\">\n              {{item['category']}}\n            </div>\n            <div class=\"col-xs-3\">\n              <a class=\"pull-right\" [routerLink]=\"['/manager', 'restaurant', restaurantId, 'menu', menuId, 'menuItem', item['_id']]\">\n                <span class=\"glyphicon glyphicon-edit\"></span>\n              </a>\n            </div>\n          </div>\n        </li>\n      </ul>\n    </div>\n  </div>\n\n</form>\n"
+module.exports = "<form (ngSubmit) = \"EditMenu()\" #f=\"ngForm\">\n\n  <nav class=\"navbar sadaab-navbar-color navbar-default navbar-fixed-top nav-collapse collapsing\" style=\"height:60px\">\n    <p class=\"navbar-text pull-left page-new-top-glyp-margin\">\n      <a [routerLink]=\"['/manager', 'restaurant', restaurantId, 'menu' ]\" class=\"navbar-link\">\n        <span class=\"glyphicon glyphicon-chevron-left\"></span>\n      </a>\n    </p>\n\n    <!--heading on the nav bar-->\n    <p class=\"navbar-header pull-left page-new-top-glyp-margin\">\n      <a class=\"navbar-brand thick\">\n        <b>Menu Edit</b>\n      </a>\n    </p>\n  </nav>\n\n  <div class=\"container-fluid page-margin\">\n    <ul class=\"nav nav-tabs nav-justified\">\n      <li role=\"presentation\" class=\"active\">\n        <a [routerLink]=\"['/manager','restaurant', restaurantId]\" class=\"btn\">\n          My Profile\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager','restaurant', restaurantId, 'chef']\" class=\"btn\">\n          View Chefs\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager', 'restaurant', restaurantId, 'driver']\" class=\"btn\">\n          View Drivers\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager/restaurant/', restaurantId, 'order']\" class=\"btn\">\n          View Orders\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a class=\"btn\">\n          View Menu\n        </a>\n      </li>\n    </ul>\n    <div class=\"row\">\n      <button [routerLink]=\"['/manager', 'restaurant', this.restaurantId]\"\n              (click)=\"DeleteMenu()\"\n              class=\"btn btn-danger btn-block\">\n        Delete Menu\n      </button>\n      <button [routerLink]=\"['/manager', 'restaurant', this.restaurantId, 'menu']\"\n              type=\"submit\"\n              class=\"btn btn-success btn-block\">\n              Done\n      </button>\n      <label class=\"\">Delivery Charge</label>\n      <input class=\"form-control\"\n             type=\"text\"\n             id = \"deliveryCharge\"\n             [(ngModel)] = \"deliveryCharge\"\n             placeholder=\"Delivery Charge\"\n             name=\"deliveryCharge\"/>\n      <label class=\"\">Order limit</label>\n      <input class=\"form-control\"\n             type=\"text\"\n             id = \"orderLimit\"\n             [(ngModel)] = \"orderLimit\"\n             placeholder=\"Minimum order limit\"\n             name=\"orderLimit\"/>\n      <div class=\"row\">\n        <div class=\"col-xs-9\">\n          <label class=\"\">Menu Items</label>\n        </div>\n        <div class=\"col-xs-3\">\n          <button [routerLink]=\"['/manager', 'restaurant', restaurantId, 'menu', menuId, 'menuItem', 'new']\"\n                  class=\"btn btn-primary btn-block\">\n                  <i class=\"pull-right glyphicon glyphicon-plus\"></i>Add Menu Item</button>\n        </div>\n      </div>\n      <ul class=\"list-group\">\n        <li class=\"list-group-item active\">\n          <div class=\"row\">\n            <div class=\"col-xs-9 col-sm-6 col-md-3\">\n              Name\n            </div>\n            <div class=\"col-md-3 hidden-sm hidden-xs\">\n              Price\n            </div>\n            <div class=\"col-sm-3 col-md-3 hidden-xs\">\n              Category\n            </div>\n            <div class=\"col-xs-3\">\n            </div>\n          </div>\n        </li>\n        <li class=\"list-group-item\" *ngFor=\"let item of menuItems\">\n          <div class=\"row\">\n            <div class=\"col-xs-9 col-sm-6 col-md-3\">\n              <a>\n                {{item['name']}}\n              </a>\n            </div>\n            <div class=\"col-md-3 hidden-sm hidden-xs\">\n              {{item['price']}}\n            </div>\n            <div class=\"col-sm-3 col-md-3 hidden-xs\">\n              {{item['category']}}\n            </div>\n            <div class=\"col-xs-3\">\n              <a class=\"pull-right\" [routerLink]=\"['/manager', 'restaurant', restaurantId, 'menu', menuId, 'menuItem', item['_id']]\">\n                <span class=\"glyphicon glyphicon-edit\"></span>\n              </a>\n            </div>\n          </div>\n        </li>\n      </ul>\n    </div>\n  </div>\n\n</form>\n"
 
 /***/ }),
 
@@ -2191,7 +2381,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/menu/menu-list/menu-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar sadaab-navbar-color navbar-default navbar-fixed-top nav-collapse collapsing\" style=\"height:60px\">\n  <p class=\"navbar-text pull-left page-new-top-glyp-margin\">\n    <a [routerLink]=\"['/manager', 'restaurant', restaurantId ]\" class=\"navbar-link\">\n      <span class=\"glyphicon glyphicon-chevron-left\"></span>\n    </a>\n  </p>\n\n  <!--heading on the nav bar-->\n  <p class=\"navbar-header pull-left page-new-top-glyp-margin\">\n    <a class=\"navbar-brand thick\">\n      <b>Menu</b>\n    </a>\n  </p>\n</nav>\n\n<div class=\"container-fluid page-margin\">\n  <div class=\"row\">\n    <button [routerLink]=\"['/manager', 'restaurant', restaurantId, 'menu', menuId]\" class=\"btn btn-primary btn-block\"\n    >Edit</button>\n    <label class=\"\">Delivery Charge</label>\n    <input class=\"form-control\"\n           type=\"text\"\n           id = \"delivery\"\n           [(ngModel)] = \"deliveryCharge\"\n           placeholder=\"Delivery Charge\"\n           name=\"delivery\"/>\n    <label class=\"\">Order limit</label>\n    <input class=\"form-control\"\n           type=\"text\"\n           id = \"orderLimit\"\n           [(ngModel)] = \"orderLimit\"\n           placeholder=\"Minimum order limit\"\n           name=\"orderLimit\"/>\n  </div>\n</div>\n\n<div class=\"container-fluid\">\n  <label class=\"\">Menu Items</label>\n  <ul class=\"list-group\">\n    <li class=\"list-group-item active\">\n      <div class=\"row\">\n        <div class=\"col-xs-9 col-sm-6 col-md-3\">\n          Name\n        </div>\n        <div class=\"col-md-3 hidden-sm hidden-xs\">\n          Price\n        </div>\n        <div class=\"col-sm-3 col-md-3 hidden-xs\">\n          Category\n        </div>\n      </div>\n    </li>\n    <li class=\"list-group-item\" *ngFor=\"let item of menuItems\">\n      <div class=\"row\">\n        <div class=\"col-xs-9 col-sm-6 col-md-3\">\n          <a>\n          {{item['name']}}\n          </a>\n        </div>\n        <div class=\"col-md-3 hidden-sm hidden-xs\">\n          {{item['price']}}\n        </div>\n        <div class=\"col-sm-3 col-md-3 hidden-xs\">\n          {{item['category']}}\n        </div>\n      </div>\n    </li>\n  </ul>\n</div>\n"
+module.exports = "<nav class=\"navbar sadaab-navbar-color navbar-default navbar-fixed-top nav-collapse collapsing\" style=\"height:60px\">\n  <p class=\"navbar-text pull-left page-new-top-glyp-margin\">\n    <a [routerLink]=\"['/manager', 'restaurant', restaurantId ]\" class=\"navbar-link\">\n      <span class=\"glyphicon glyphicon-chevron-left\"></span>\n    </a>\n  </p>\n\n  <!--heading on the nav bar-->\n  <p class=\"navbar-header pull-left page-new-top-glyp-margin\">\n    <a class=\"navbar-brand thick\">\n      <b>Menu</b>\n    </a>\n  </p>\n</nav>\n\n<div class=\"container-fluid page-margin\">\n  <ul class=\"nav nav-tabs nav-justified\">\n    <li role=\"presentation\" class=\"active\">\n      <a [routerLink]=\"['/manager','restaurant', restaurantId]\" class=\"btn\">\n        My Profile\n      </a>\n    </li>\n    <li role=\"presentation\">\n      <a [routerLink]=\"['/manager','restaurant', restaurantId, 'chef']\" class=\"btn\">\n        View Chefs\n      </a>\n    </li>\n    <li role=\"presentation\">\n      <a [routerLink]=\"['/manager', 'restaurant', restaurantId, 'driver']\" class=\"btn\">\n        View Drivers\n      </a>\n    </li>\n    <li role=\"presentation\">\n      <a [routerLink]=\"['/manager/restaurant/', restaurantId, 'order']\" class=\"btn\">\n        View Orders\n      </a>\n    </li>\n    <li role=\"presentation\">\n      <a class=\"btn\">\n        View Menu\n      </a>\n    </li>\n  </ul>\n  <div class=\"row\">\n    <button [routerLink]=\"['/manager', 'restaurant', restaurantId, 'menu', menuId]\" class=\"btn btn-primary btn-block\"\n    >Edit</button>\n    <label class=\"\">Delivery Charge</label>\n    <input class=\"form-control\"\n           type=\"text\"\n           id = \"delivery\"\n           [(ngModel)] = \"deliveryCharge\"\n           placeholder=\"Delivery Charge\"\n           name=\"delivery\"/>\n    <label class=\"\">Order limit</label>\n    <input class=\"form-control\"\n           type=\"text\"\n           id = \"orderLimit\"\n           [(ngModel)] = \"orderLimit\"\n           placeholder=\"Minimum order limit\"\n           name=\"orderLimit\"/>\n  </div>\n</div>\n\n<div class=\"container-fluid\">\n  <label class=\"\">Menu Items</label>\n  <ul class=\"list-group\">\n    <li class=\"list-group-item active\">\n      <div class=\"row\">\n        <div class=\"col-xs-9 col-sm-6 col-md-3\">\n          Name\n        </div>\n        <div class=\"col-md-3 hidden-sm hidden-xs\">\n          Price\n        </div>\n        <div class=\"col-sm-3 col-md-3 hidden-xs\">\n          Category\n        </div>\n      </div>\n    </li>\n    <li class=\"list-group-item\" *ngFor=\"let item of menuItems\">\n      <div class=\"row\">\n        <div class=\"col-xs-9 col-sm-6 col-md-3\">\n          <a>\n          {{item['name']}}\n          </a>\n        </div>\n        <div class=\"col-md-3 hidden-sm hidden-xs\">\n          {{item['price']}}\n        </div>\n        <div class=\"col-sm-3 col-md-3 hidden-xs\">\n          {{item['category']}}\n        </div>\n      </div>\n    </li>\n  </ul>\n</div>\n"
 
 /***/ }),
 
@@ -2277,7 +2467,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/menu/menu-new/menu-new.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form (ngSubmit) = \"AddMenu()\" #f=\"ngForm\">\n\n  <nav class=\"navbar sadaab-navbar-color navbar-default navbar-fixed-top nav-collapse collapsing\" style=\"height:60px\">\n    <p class=\"navbar-text pull-left page-new-top-glyp-margin\">\n      <a [routerLink]=\"['/manager', 'restaurant', restaurantId ]\" class=\"navbar-link\">\n        <span class=\"glyphicon glyphicon-chevron-left\"></span>\n      </a>\n    </p>\n\n    <!--heading on the nav bar-->\n    <p class=\"navbar-header pull-left page-new-top-glyp-margin\">\n      <a class=\"navbar-brand thick\">\n        <b>Add new Menu</b>\n      </a>\n    </p>\n  </nav>\n\n  <div class=\"container-fluid page-margin\">\n    <div class=\"row\">\n      <label class=\"\">Delivery Charge</label>\n      <input class=\"form-control\"\n             type=\"text\"\n             id = \"deliveryCharge\"\n             [(ngModel)] = \"deliveryCharge\"\n             placeholder=\"Delivery Charge\"\n             name=\"deliveryCharge\"/>\n      <label class=\"\">Order limit</label>\n      <input class=\"form-control\"\n             type=\"text\"\n             id = \"orderLimit\"\n             [(ngModel)] = \"orderLimit\"\n             placeholder=\"Minimum order limit\"\n             name=\"orderLimit\"/>\n      <button [routerLink]=\"['/manager', 'restaurant', this.restaurantId]\"\n              type=\"submit\"\n              class=\"btn btn-success btn-block\">\n        Done\n      </button>\n    </div>\n  </div>\n</form>\n"
+module.exports = "<form (ngSubmit) = \"AddMenu()\" #f=\"ngForm\">\n\n  <nav class=\"navbar sadaab-navbar-color navbar-default navbar-fixed-top nav-collapse collapsing\" style=\"height:60px\">\n    <p class=\"navbar-text pull-left page-new-top-glyp-margin\">\n      <a [routerLink]=\"['/manager', 'restaurant', restaurantId ]\" class=\"navbar-link\">\n        <span class=\"glyphicon glyphicon-chevron-left\"></span>\n      </a>\n    </p>\n\n    <!--heading on the nav bar-->\n    <p class=\"navbar-header pull-left page-new-top-glyp-margin\">\n      <a class=\"navbar-brand thick\">\n        <b>Add new Menu</b>\n      </a>\n    </p>\n  </nav>\n\n  <div class=\"container-fluid page-margin\">\n    <ul class=\"nav nav-tabs nav-justified\">\n      <li role=\"presentation\" class=\"active\">\n        <a [routerLink]=\"['/manager','restaurant', restaurantId]\" class=\"btn\">\n          My Profile\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager','restaurant', restaurantId, 'chef']\" class=\"btn\">\n          View Chefs\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager', 'restaurant', restaurantId, 'driver']\" class=\"btn\">\n          View Drivers\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager/restaurant/', restaurantId, 'order']\" class=\"btn\">\n          View Orders\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a class=\"btn\">\n          View Menu\n        </a>\n      </li>\n    </ul>\n    <div class=\"row\">\n      <label class=\"\">Delivery Charge</label>\n      <input class=\"form-control\"\n             type=\"text\"\n             id = \"deliveryCharge\"\n             [(ngModel)] = \"deliveryCharge\"\n             placeholder=\"Delivery Charge\"\n             name=\"deliveryCharge\"/>\n      <label class=\"\">Order limit</label>\n      <input class=\"form-control\"\n             type=\"text\"\n             id = \"orderLimit\"\n             [(ngModel)] = \"orderLimit\"\n             placeholder=\"Minimum order limit\"\n             name=\"orderLimit\"/>\n      <button [routerLink]=\"['/manager', 'restaurant', this.restaurantId]\"\n              type=\"submit\"\n              class=\"btn btn-success btn-block\">\n        Done\n      </button>\n    </div>\n  </div>\n</form>\n"
 
 /***/ }),
 
@@ -2378,7 +2568,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/menuItem/menu-item-edit/menu-item-edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form (ngSubmit) = \"UpdateMenuItem()\" #f=\"ngForm\">\n\n  <nav class=\"navbar sadaab-navbar-color navbar-default navbar-fixed-top nav-collapse collapsing\" style=\"height:60px\">\n    <p class=\"navbar-text pull-left page-new-top-glyp-margin\">\n      <a [routerLink]=\"['/manager', 'restaurant', restaurantId, 'menu', menuId ]\" class=\"navbar-link\">\n        <span class=\"glyphicon glyphicon-chevron-left\"></span>\n      </a>\n    </p>\n\n    <!--heading on the nav bar-->\n    <p class=\"navbar-header pull-left page-new-top-glyp-margin\">\n      <a class=\"navbar-brand thick\">\n        <b>Edit Menu Item</b>\n      </a>\n    </p>\n  </nav>\n\n\n  <div *ngIf=\"error\"\n       class=\"alert alert-danger margin-top-huge\">\n    {{error}}\n  </div>\n\n  <div class=\"container-fluid page-margin\">\n    <div class=\"row\">\n      <label class=\"\">Name</label>\n      <input class=\"form-control\"\n             type=\"text\"\n             id = \"name\"\n             [(ngModel)] = \"name\"\n             placeholder=\"Name\"\n             name=\"name\"\n             required/>\n      <label class=\"\">Price</label>\n      <input class=\"form-control\"\n             type=\"text\"\n             id = \"price\"\n             [(ngModel)] = \"price\"\n             placeholder=\"Price\"\n             name=\"price\"\n             required/>\n      <label class=\"\">Category</label>\n      <input class=\"form-control\"\n             type=\"text\"\n             id = \"category\"\n             [(ngModel)] = \"category\"\n             placeholder=\"Category\"\n             name=\"category\"\n             required/>\n      <label class=\"\">Description</label>\n      <textarea class=\"form-control\"\n                id=\"description\"\n                name=\"description\"\n                required\n                placeholder=\"Menu Item Description\"\n                [(ngModel)] = \"description\"></textarea>\n      <button type=\"submit\" class=\"btn btn-success btn-block\">Update menu Item</button>\n      <button (click)=\"DeleteMenuItem()\" class=\"btn btn-danger btn-block\">Delete menu Item</button>\n    </div>\n  </div>\n</form>\n"
+module.exports = "<form (ngSubmit) = \"UpdateMenuItem()\" #f=\"ngForm\">\n\n  <nav class=\"navbar sadaab-navbar-color navbar-default navbar-fixed-top nav-collapse collapsing\" style=\"height:60px\">\n    <p class=\"navbar-text pull-left page-new-top-glyp-margin\">\n      <a [routerLink]=\"['/manager', 'restaurant', restaurantId, 'menu', menuId ]\" class=\"navbar-link\">\n        <span class=\"glyphicon glyphicon-chevron-left\"></span>\n      </a>\n    </p>\n\n    <!--heading on the nav bar-->\n    <p class=\"navbar-header pull-left page-new-top-glyp-margin\">\n      <a class=\"navbar-brand thick\">\n        <b>Edit Menu Item</b>\n      </a>\n    </p>\n  </nav>\n\n\n  <div *ngIf=\"error\"\n       class=\"alert alert-danger margin-top-huge\">\n    {{error}}\n  </div>\n\n  <div class=\"container-fluid page-margin\">\n    <ul class=\"nav nav-tabs nav-justified\">\n      <li role=\"presentation\" class=\"active\">\n        <a [routerLink]=\"['/manager','restaurant', restaurantId]\" class=\"btn\">\n          My Profile\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager','restaurant', restaurantId, 'chef']\" class=\"btn\">\n          View Chefs\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager', 'restaurant', restaurantId, 'driver']\" class=\"btn\">\n          View Drivers\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager/restaurant/', restaurantId, 'order']\" class=\"btn\">\n          View Orders\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a class=\"btn\">\n          View Menu\n        </a>\n      </li>\n    </ul>\n    <div class=\"row\">\n      <label class=\"\">Name</label>\n      <input class=\"form-control\"\n             type=\"text\"\n             id = \"name\"\n             [(ngModel)] = \"name\"\n             placeholder=\"Name\"\n             name=\"name\"\n             required/>\n      <label class=\"\">Price</label>\n      <input class=\"form-control\"\n             type=\"text\"\n             id = \"price\"\n             [(ngModel)] = \"price\"\n             placeholder=\"Price\"\n             name=\"price\"\n             required/>\n      <label class=\"\">Category</label>\n      <input class=\"form-control\"\n             type=\"text\"\n             id = \"category\"\n             [(ngModel)] = \"category\"\n             placeholder=\"Category\"\n             name=\"category\"\n             required/>\n      <label class=\"\">Description</label>\n      <textarea class=\"form-control\"\n                id=\"description\"\n                name=\"description\"\n                required\n                placeholder=\"Menu Item Description\"\n                [(ngModel)] = \"description\"></textarea>\n      <button type=\"submit\" class=\"btn btn-success btn-block\">Update menu Item</button>\n      <button (click)=\"DeleteMenuItem()\" class=\"btn btn-danger btn-block\">Delete menu Item</button>\n    </div>\n  </div>\n</form>\n"
 
 /***/ }),
 
@@ -2576,7 +2766,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/menuItem/menu-item-new/menu-item-new.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form (ngSubmit) = \"createMenuItem()\" #f=\"ngForm\">\n\n  <nav class=\"navbar sadaab-navbar-color navbar-default navbar-fixed-top nav-collapse collapsing\" style=\"height:60px\">\n    <p class=\"navbar-text pull-left page-new-top-glyp-margin\">\n      <a [routerLink]=\"['/manager', 'restaurant', restaurantId, 'menu', menuId ]\" class=\"navbar-link\">\n        <span class=\"glyphicon glyphicon-chevron-left\"></span>\n      </a>\n    </p>\n\n    <!--heading on the nav bar-->\n    <p class=\"navbar-header pull-left page-new-top-glyp-margin\">\n      <a class=\"navbar-brand thick\">\n        <b>Add new Menu Item</b>\n      </a>\n    </p>\n  </nav>\n\n\n  <div *ngIf=\"error\"\n       class=\"alert alert-danger margin-top-huge\">\n    {{error}}\n  </div>\n\n  <div class=\"container-fluid page-margin\">\n    <div class=\"row\">\n      <label class=\"\">Name</label>\n      <input class=\"form-control\"\n             type=\"text\"\n             id = \"name\"\n             [(ngModel)] = \"name\"\n             placeholder=\"Name\"\n             name=\"name\"\n            required/>\n      <label class=\"\">Price</label>\n      <input class=\"form-control\"\n             type=\"text\"\n             id = \"price\"\n             [(ngModel)] = \"price\"\n             placeholder=\"Price\"\n             name=\"price\"\n             required/>\n      <label class=\"\">Category</label>\n      <input class=\"form-control\"\n             type=\"text\"\n             id = \"category\"\n             [(ngModel)] = \"category\"\n             placeholder=\"Category\"\n             name=\"category\"\n             required/>\n      <label class=\"\">Description</label>\n      <textarea class=\"form-control\"\n                id=\"description\"\n                name=\"description\"\n                required\n                placeholder=\"Menu Item Description\"\n                [(ngModel)] = \"description\"></textarea>\n      <button class=\"btn btn-primary btn-block\"\n      >Add new menu Item</button>\n    </div>\n  </div>\n</form>\n"
+module.exports = "<form (ngSubmit) = \"createMenuItem()\" #f=\"ngForm\">\n\n  <nav class=\"navbar sadaab-navbar-color navbar-default navbar-fixed-top nav-collapse collapsing\" style=\"height:60px\">\n    <p class=\"navbar-text pull-left page-new-top-glyp-margin\">\n      <a [routerLink]=\"['/manager', 'restaurant', restaurantId, 'menu', menuId ]\" class=\"navbar-link\">\n        <span class=\"glyphicon glyphicon-chevron-left\"></span>\n      </a>\n    </p>\n\n    <!--heading on the nav bar-->\n    <p class=\"navbar-header pull-left page-new-top-glyp-margin\">\n      <a class=\"navbar-brand thick\">\n        <b>Add new Menu Item</b>\n      </a>\n    </p>\n  </nav>\n\n\n  <div *ngIf=\"error\"\n       class=\"alert alert-danger margin-top-huge\">\n    {{error}}\n  </div>\n\n  <div class=\"container-fluid page-margin\">\n    <ul class=\"nav nav-tabs nav-justified\">\n      <li role=\"presentation\" class=\"active\">\n        <a [routerLink]=\"['/manager','restaurant', restaurantId]\" class=\"btn\">\n          My Profile\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager','restaurant', restaurantId, 'chef']\" class=\"btn\">\n          View Chefs\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager', 'restaurant', restaurantId, 'driver']\" class=\"btn\">\n          View Drivers\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a [routerLink]=\"['/manager/restaurant/', restaurantId, 'order']\" class=\"btn\">\n          View Orders\n        </a>\n      </li>\n      <li role=\"presentation\">\n        <a class=\"btn\">\n          View Menu\n        </a>\n      </li>\n    </ul>\n    <div class=\"row\">\n      <label class=\"\">Name</label>\n      <input class=\"form-control\"\n             type=\"text\"\n             id = \"name\"\n             [(ngModel)] = \"name\"\n             placeholder=\"Name\"\n             name=\"name\"\n            required/>\n      <label class=\"\">Price</label>\n      <input class=\"form-control\"\n             type=\"text\"\n             id = \"price\"\n             [(ngModel)] = \"price\"\n             placeholder=\"Price\"\n             name=\"price\"\n             required/>\n      <label class=\"\">Category</label>\n      <input class=\"form-control\"\n             type=\"text\"\n             id = \"category\"\n             [(ngModel)] = \"category\"\n             placeholder=\"Category\"\n             name=\"category\"\n             required/>\n      <label class=\"\">Description</label>\n      <textarea class=\"form-control\"\n                id=\"description\"\n                name=\"description\"\n                required\n                placeholder=\"Menu Item Description\"\n                [(ngModel)] = \"description\"></textarea>\n      <button class=\"btn btn-primary btn-block\"\n      >Add new menu Item</button>\n    </div>\n  </div>\n</form>\n"
 
 /***/ }),
 
@@ -4534,7 +4724,7 @@ var OrderService = (function () {
         });
     };
     OrderService.prototype.findAllDriverOrders = function (driverId, state) {
-        var url = this.baseUrl + '/api/driver/' + driverId + 'order?state=' + state;
+        var url = this.baseUrl + '/api/driver/' + driverId + '/order?state=' + state;
         return this.http.get(url)
             .map(function (res) {
             return res.json();
@@ -4554,7 +4744,7 @@ var OrderService = (function () {
         });
     };
     OrderService.prototype.findAllChefOrders = function (chefId, state) {
-        var url = this.baseUrl + '/api/chef/' + chefId + 'order?state=' + state;
+        var url = this.baseUrl + '/api/chef/' + chefId + '/order?state=' + state;
         return this.http.get(url)
             .map(function (res) {
             return res.json();
