@@ -1,3 +1,7 @@
+<header>
+  <a [routerLink]="['']" class="white"><span class="glyphicon glyphicon-chevron-left"></span></a>
+  <span class="food-center">FoOdSpOt </span>
+</header>
 <div class="container-fluid">
   <div *ngIf="errorFlag">
     There is an error! Please try again later.
@@ -16,7 +20,7 @@
 
   </div>
   <div *ngIf="!this.success">
-    <h1>Register</h1>
+    <h1>Register to Claim {{restaurantId}}</h1>
     <form (ngSubmit) = "register()" #f="ngForm">
       <input type="text"
              name="username"
@@ -105,3 +109,9 @@
     </form>
   </div>
 </div>
+<footer>
+  <div class="food-right">
+    <p><b>© Abhishek Sadaab Vivek</b></p>
+  </div>
+</footer>
+
