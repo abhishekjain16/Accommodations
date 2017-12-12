@@ -12,13 +12,15 @@ import {MenuService} from '../../../services/menu.service.client';
 export class ManagerOrderComponent implements OnInit {
 
   restaurantId: String;
+  orders: [{}];
+  activeState = 'paid';
+
   constructor(private activatedRoute: ActivatedRoute,
               private orderService: OrderService,
               private userService: UserService,
               private menuService: MenuService,
               private router: Router) { }
 
-  orders: [{}];
   ngOnInit() {
     this.activatedRoute.params
       .subscribe(
@@ -35,6 +37,7 @@ export class ManagerOrderComponent implements OnInit {
       );
   }
   DisplayPaidOrders() {
+    this.activeState = 'paid';
     this.orderService.findAllOrdersByRestaurant(this.restaurantId, 'paid' )
       .subscribe(
         (orders: any) => {
@@ -43,6 +46,7 @@ export class ManagerOrderComponent implements OnInit {
       );
   }
   DisplayAcceptedOrders() {
+    this.activeState = 'accepted';
     this.orderService.findAllOrdersByRestaurant(this.restaurantId, 'accepted' )
       .subscribe(
         (orders: any) => {
@@ -51,6 +55,7 @@ export class ManagerOrderComponent implements OnInit {
       );
   }
   DisplayReadyOrders() {
+    this.activeState = 'ready';
     this.orderService.findAllOrdersByRestaurant(this.restaurantId, 'ready' )
       .subscribe(
         (orders: any) => {
@@ -59,6 +64,7 @@ export class ManagerOrderComponent implements OnInit {
       );
   }
   DisplayDeliveredOrders() {
+    this.activeState = 'delivered';
     this.orderService.findAllOrdersByRestaurant(this.restaurantId, 'delivered' )
       .subscribe(
         (orders: any) => {
@@ -67,6 +73,7 @@ export class ManagerOrderComponent implements OnInit {
       );
   }
   DisplayCancelledOrders() {
+    this.activeState = 'cancelled';
     this.orderService.findAllOrdersByRestaurant(this.restaurantId, 'cancelled' )
       .subscribe(
         (orders: any) => {
@@ -85,6 +92,14 @@ export class ManagerOrderComponent implements OnInit {
           }
         }
       );
+  }
+
+  active(state) {
+    if (state === this.activeState) {
+      return 'active';
+    } else {
+      return '';
+    }
   }
 
 }

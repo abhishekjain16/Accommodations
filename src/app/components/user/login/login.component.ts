@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   errorFlag: boolean;
   errorMsg = 'Invalid Username/Password !';
   role: string;
+  loading = false;
 
   constructor(private router: Router,
               private userService: UserService,
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.loading = true;
     this.username = this.loginForm.value.username;
     this.password = this.loginForm.value.password;
     this.userService.login(this.username, this.password)
@@ -33,6 +35,7 @@ export class LoginComponent implements OnInit {
         (data: any) => {
           this.sharedService.user = data;
           this.role = this.sharedService.user['role'];
+          this.loading = false;
           if (this.role === 'Chef') {
             this.router.navigate(['chef/restaurant/',  this.sharedService.user['restaurantId'], 'order']);
           } else if (this.role === 'Manager') {
@@ -46,6 +49,7 @@ export class LoginComponent implements OnInit {
           }
           },
         (error: any) => {
+          this.loading = false;
           this.errorFlag = true;
         }
       );

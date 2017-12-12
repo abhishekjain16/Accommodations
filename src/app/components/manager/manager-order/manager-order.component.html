@@ -44,27 +44,27 @@
   </ul>
   <label>Choose order state</label>
   <ul class="nav nav-tabs nav-justified">
-    <li role="presentation" class="active">
+    <li role="presentation" [class]="active('paid')">
       <a (click)="DisplayPaidOrders()" class="btn">
         Paid
       </a>
     </li>
-    <li role="presentation">
+    <li role="presentation" [class]="active('accepted')">
       <a (click)="DisplayAcceptedOrders()" class="btn">
         Accepted
       </a>
     </li>
-    <li role="presentation">
+    <li role="presentation" [class]="active('ready')">
       <a (click)="DisplayReadyOrders()" class="btn">
         Ready
       </a>
     </li>
-    <li role="presentation">
+    <li role="presentation" [class]="active('delivered')">
       <a (click)="DisplayDeliveredOrders()" class="btn">
         Delivered
       </a>
     </li>
-    <li role="presentation">
+    <li role="presentation" [class]="active('cancelled')">
       <a (click)="DisplayCancelledOrders()" class="btn">
         Cancelled
       </a>

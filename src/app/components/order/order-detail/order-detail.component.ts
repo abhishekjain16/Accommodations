@@ -31,6 +31,7 @@ export class OrderDetailComponent implements OnInit {
   image: any;
   restaurant = {};
   address = {};
+  loading = false;
 
   constructor(private orderService: OrderService,
               private router: Router,
@@ -43,6 +44,7 @@ export class OrderDetailComponent implements OnInit {
               private orderItemService: OrderItemService) { }
 
   ngOnInit() {
+    this.loading = true;
     this.user = this.sharedService.user;
     this.activatedRoute.params
       .subscribe(
@@ -58,6 +60,7 @@ export class OrderDetailComponent implements OnInit {
         this.name = result.name;
         this.image = result.image_url;
         this.restaurant = result;
+        this.loading = false;
       });
 
     this.loadOrderItems();
@@ -106,10 +109,12 @@ export class OrderDetailComponent implements OnInit {
     this.orderService.updateOrder(this.orderId, order)
       .subscribe( (orderItem) => {
         this.loadOrders();
+        this.loading = false;
       });
   }
 
   add(mItem: any) {
+    this.loading = true;
     const item = {
       quantity: 1,
       name: mItem.name,
@@ -129,6 +134,7 @@ export class OrderDetailComponent implements OnInit {
       );
   }
   addQuantity(oItem: any) {
+    this.loading = true;
     const addedPrice = oItem.price / oItem.quantity;
     const item = {
       quantity: oItem.quantity + 1,
@@ -142,6 +148,7 @@ export class OrderDetailComponent implements OnInit {
   }
 
   reduceQuantity(oItem: any) {
+    this.loading = true;
     const reducedPrice = oItem.price / oItem.quantity;
     const item = {
       quantity: oItem.quantity - 1,
@@ -159,6 +166,7 @@ export class OrderDetailComponent implements OnInit {
   }
 
   deleteItem(oItem: any) {
+    this.loading = true;
     // const reducedPrice = oItem.price / oItem.quantity;
     this.orderItemService.deleteOrderItem(oItem._id)
       .subscribe( (status) => {

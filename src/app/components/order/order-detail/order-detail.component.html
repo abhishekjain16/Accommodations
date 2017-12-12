@@ -1,6 +1,8 @@
 <header><div class="container-fluid food-center">
   <a [routerLink]="['/restaurant', restaurantId]" class="white pull-left"><span class="glyphicon glyphicon-chevron-left"></span></a>
   <span class="food-center">FoOdSpOt </span>
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+
 
   <div class="login pull-right" *ngIf="this.user;else login">
     <div class="dropdown">
