@@ -1,3 +1,67 @@
-<p>
-  chef-order-detail works!
-</p>
+<form #f="ngForm">
+
+  <nav class="navbar sadaab-navbar-color navbar-default navbar-fixed-top nav-collapse collapsing" style="height:60px">
+    <p class="navbar-text pull-left page-new-top-glyp-margin">
+      <a [routerLink]="['/chef', 'restaurant', restaurantId, 'order']" class="navbar-link">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+    </p>
+
+    <!--heading on the nav bar-->
+    <p class="navbar-header pull-left page-new-top-glyp-margin">
+      <a class="navbar-brand thick">
+        <b>Order Number : {{orderId}}</b>
+      </a>
+    </p>
+  </nav>
+
+
+  <div class="container-fluid page-margin">
+    <div *ngIf="address">
+      <label>Deliver To: </label><br>
+      <label>{{address['name']}} </label><br>
+      <label>{{address['apt']}} {{address['street']}} </label><br>
+      <label> {{address['city']}} {{address['zipCode']}}</label><br>
+      <label> {{address['state']}}</label><br>
+      <label> {{address['phone']}}</label><br>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item active">
+        <div class="row">
+          <div class="col-sm-3 col-md-4 col-xs-6">
+            Name
+          </div>
+          <div class="col-md-2 col-sm-3 hidden-xs">
+            Price
+          </div>
+          <div class="col-sm-3 col-md-2 hidden-xs">
+            Quantity
+          </div>
+          <div class="col-sm-3 col-md-4 hidden-6">
+            Instructions
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item" *ngFor="let item of orderItems">
+        <div class="row">
+          <div class="col-sm-3 col-md-4 col-xs-6">
+            <a>
+              {{item['name']}}
+            </a>
+          </div>
+          <div class="col-md-2 col-sm-3 hidden-xs">
+            {{item['price']}}
+          </div>
+          <div class="col-sm-3 col-md-2 hidden-xs">
+            {{item['quantity']}}
+          </div>
+          <div class="col-sm-3 col-md-4 hidden-6">
+            {{item['instructions']}}
+          </div>
+        </div>
+      </li>
+    </ul>
+    <button (click)="MarkReady()" class="btn btn-success btn-block margin-top-button"
+    >Mark as Ready</button>
+  </div>
+</form>

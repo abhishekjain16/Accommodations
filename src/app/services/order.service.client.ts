@@ -74,7 +74,7 @@ export class OrderService {
   }
 
   findAllDriverOrders(driverId: String, state: any) {
-    const url = this.baseUrl + '/api/driver/' + driverId + 'order?state=' + state;
+    const url = this.baseUrl + '/api/driver/' + driverId + '/order?state=' + state;
     return this.http.get(url)
       .map(
         (res: Response) => {
@@ -99,7 +99,7 @@ export class OrderService {
   }
 
   findAllChefOrders(chefId: String, state: any) {
-    const url = this.baseUrl + '/api/chef/' + chefId + 'order?state=' + state;
+    const url = this.baseUrl + '/api/chef/' + chefId + '/order?state=' + state;
     return this.http.get(url)
       .map(
         (res: Response) => {

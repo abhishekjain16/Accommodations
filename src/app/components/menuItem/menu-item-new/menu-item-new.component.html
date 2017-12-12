@@ -22,6 +22,33 @@
   </div>
 
   <div class="container-fluid page-margin">
+    <ul class="nav nav-tabs nav-justified">
+      <li role="presentation" class="active">
+        <a [routerLink]="['/manager','restaurant', restaurantId]" class="btn">
+          My Profile
+        </a>
+      </li>
+      <li role="presentation">
+        <a [routerLink]="['/manager','restaurant', restaurantId, 'chef']" class="btn">
+          View Chefs
+        </a>
+      </li>
+      <li role="presentation">
+        <a [routerLink]="['/manager', 'restaurant', restaurantId, 'driver']" class="btn">
+          View Drivers
+        </a>
+      </li>
+      <li role="presentation">
+        <a [routerLink]="['/manager/restaurant/', restaurantId, 'order']" class="btn">
+          View Orders
+        </a>
+      </li>
+      <li role="presentation">
+        <a class="btn">
+          View Menu
+        </a>
+      </li>
+    </ul>
     <div class="row">
       <label class="">Name</label>
       <input class="form-control"

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {OrderService} from '../../../services/order.service.client';
 import {UserService} from '../../../services/user.service.client';
+import {MenuService} from '../../../services/menu.service.client';
 
 @Component({
   selector: 'app-manager-order',
@@ -13,7 +14,9 @@ export class ManagerOrderComponent implements OnInit {
   restaurantId: String;
   constructor(private activatedRoute: ActivatedRoute,
               private orderService: OrderService,
-              private userService: UserService) { }
+              private userService: UserService,
+              private menuService: MenuService,
+              private router: Router) { }
 
   orders: [{}];
   ngOnInit() {
@@ -68,6 +71,18 @@ export class ManagerOrderComponent implements OnInit {
       .subscribe(
         (orders: any) => {
           this.orders = orders;
+        }
+      );
+  }
+  AddOrViewMenu() {
+    this.menuService.findMenuByRestroId(this.restaurantId)
+      .subscribe(
+        (menu: any) => {
+          if (menu) {
+            this.router.navigate(['/manager/restaurant/', this.restaurantId, 'menu']);
+          } else {
+            this.router.navigate(['/manager/restaurant/', this.restaurantId, 'menu', 'new']);
+          }
         }
       );
   }
