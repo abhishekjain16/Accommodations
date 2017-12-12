@@ -37,6 +37,9 @@ import {MenuItemEditComponent} from './components/menuItem/menu-item-edit/menu-i
 import {ManagerOrderDetailsComponent} from './components/manager/manager-order-details/manager-order-details.component';
 import {OrderListComponent} from './components/order/order-list/order-list.component';
 import {UserOrderListComponent} from './components/user/user-order-list/user-order-list.component';
+import {AdminUserEditComponent} from "./components/admin/admin-user-edit/admin-user-edit.component";
+import {ChefEditComponent} from "./components/chef/chef-edit/chef-edit.component";
+import {DriverEditComponent} from "./components/driver/driver-edit/driver-edit.component";
 
 const APP_ROUTES: Routes = [
   {path: '', component : RestaurantSearchComponent},
@@ -69,10 +72,12 @@ const APP_ROUTES: Routes = [
   {path: 'driver/restaurant/:restaurantId/order', component: DriverOrderListComponent, canActivate: [AuthGuard]},
   {path: 'driver/restaurant/:restaurantId/order/:orderId', component: DriverOrderDetailComponent, canActivate: [AuthGuard]},
   {path: 'admin/customer', component: AdminUserListComponent, canActivate: [AuthGuard]},
+  {path: 'admin/customer/:userId', component: AdminUserEditComponent, canActivate:[AuthGuard]},
   {path: 'admin/manager', component: AdminManagerListComponent, canActivate: [AuthGuard]},
   {path: 'admin/manager/:managerId', component: AdminManagerDetailComponent, canActivate: [AuthGuard]},
   {path: 'admin/restaurant/:restaurantId/chef', component: ChefListComponent, canActivate: [AuthGuard]},
-  {path: 'admin/restaurant/:restaurantId/driver', component: DriverListComponent, canActivate: [AuthGuard]},
+  {path: 'admin/restaurant/:restaurantId/chef/:chefId', component: ChefEditComponent, canActivate: [AuthGuard]},
+  {path: 'admin/restaurant/:restaurantId/driver/:driverId', component: DriverEditComponent, canActivate: [AuthGuard]},
   {path: 'admin/restaurant/:restaurantId/order', component: OrderListComponent, canActivate: [AuthGuard]},
   {path: 'admin/profile', component: AdminDashboardComponent, canActivate: [AuthGuard]}
 ];

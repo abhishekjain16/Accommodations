@@ -56,6 +56,9 @@ import { AdminDashboardComponent } from './components/admin/admin-dashboard/admi
 import { AdminManagerDetailComponent } from './components/admin/admin-manager-detail/admin-manager-detail.component';
 import { UserOrderListComponent } from './components/user/user-order-list/user-order-list.component';
 import { LoadingModule } from 'ngx-loading';
+import { AdminUserEditComponent } from './components/admin/admin-user-edit/admin-user-edit.component';
+import { DriverEditComponent } from './components/driver/driver-edit/driver-edit.component';
+import { ChefEditComponent } from './components/chef/chef-edit/chef-edit.component';
 
 @NgModule({
   // Declare components here
@@ -97,7 +100,10 @@ import { LoadingModule } from 'ngx-loading';
     AdminOrderListComponent,
     AdminDashboardComponent,
     AdminManagerDetailComponent,
-    UserOrderListComponent
+    UserOrderListComponent,
+    AdminUserEditComponent,
+    DriverEditComponent,
+    ChefEditComponent
   ],
   imports: [
     BrowserModule,

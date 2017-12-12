@@ -83,7 +83,7 @@
       <div class="row">
         <div class="col-xs-6 col-md-3">
           <div *ngIf="role === 'Admin'; else manager">
-            <a [routerLink]="['/admin', 'manager', chef._id]">
+            <a [routerLink]="['/admin', 'restaurant', restaurantId ,'chef', chef._id]">
               {{chef.firstName}} {{chef.lastName}}
               <span class="glyphicon glyphicon-edit"></span>
             </a>
