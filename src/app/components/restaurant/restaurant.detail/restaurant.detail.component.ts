@@ -32,6 +32,7 @@ export class RestaurantDetailComponent implements OnInit {
   city: string;
   shouldShow: boolean;
   manager = {};
+  loading = false;
 
   constructor( private restaurantService: RestaurantServiceClient,
                private activatedRoute: ActivatedRoute,
@@ -53,6 +54,7 @@ export class RestaurantDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loading = true;
     this.activatedRoute.params
       .subscribe(
         (params: any) => {
@@ -81,11 +83,11 @@ export class RestaurantDetailComponent implements OnInit {
         this.restaurant = result;
         this.positions = [[coordinates['latitude'], coordinates['longitude']]];
         this.center = coordinates['latitude'].toString() + ', ' + coordinates['longitude'].toString();
-        console.log(this.hours);
         this.hours = result.hours[0]['open'];
         this.days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
         this.city = result.location['city'];
         this.canOrder();
+        this.loading = false;
       });
 
     this.userService.findManagerByRestaurantId(this.restaurantId)

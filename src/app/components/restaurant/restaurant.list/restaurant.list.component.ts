@@ -15,6 +15,7 @@ export class RestaurantListComponent implements OnInit {
   result: any;
   user: String;
   searchedRestro = [];
+  loading = false;
   constructor(private restaurantService: RestaurantServiceClient,
               private userService: UserService,
               private sharedService: SharedService,
@@ -26,6 +27,7 @@ export class RestaurantListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loading = true;
     this.user = this.sharedService.user;
     this.activatedRoute.queryParams
       .subscribe(
@@ -38,6 +40,7 @@ export class RestaurantListComponent implements OnInit {
       .subscribe( (result) => {
         this.result = result;
         this.searchedRestro = result['businesses'];
+        this.loading = false;
 
       });
   }

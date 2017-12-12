@@ -4,6 +4,7 @@
 <!--class="btn btn-primary btn-block search_button">Search</button>-->
 <header>
   <div class="container-fluid food-center">
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
     <a [routerLink]="['/']" class="white pull-left"><span class="glyphicon glyphicon-chevron-left"></span></a>
     <span class="food-center">FoOdSpOt </span>
 

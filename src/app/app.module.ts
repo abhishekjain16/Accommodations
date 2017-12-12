@@ -55,6 +55,7 @@ import { AdminOrderListComponent } from './components/admin/admin-order-list/adm
 import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
 import { AdminManagerDetailComponent } from './components/admin/admin-manager-detail/admin-manager-detail.component';
 import { UserOrderListComponent } from './components/user/user-order-list/user-order-list.component';
+import { LoadingModule } from 'ngx-loading';
 
 @NgModule({
   // Declare components here
@@ -106,6 +107,7 @@ import { UserOrderListComponent } from './components/user/user-order-list/user-o
     QuillEditorModule,
     RatingModule,
     Ng2CarouselamosModule,
+    LoadingModule,
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyB9yDXupcPoh_os3o48_KeUYys6hfxTsAM'})
   ],
   // Client Side services here
